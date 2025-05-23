@@ -26,16 +26,19 @@ body {
 }
 
 .logo img {
-    height: 40px;
+    height: 50px;
 }
 .logo{
     display:flex;
 }
 .logo-text{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #030404;
     margin-left: 0.5rem;
+}
+.logo-text p{
+    font-size: 0.5rem;
 }
 
 .nav-links {
@@ -87,48 +90,170 @@ body {
     background: #00b88a;
 }
 
-
+/* --- Custom Footer Styles for Fincept --- */
 footer {
-    background: #1a1a1a;
-    color: white;
-    padding: 4rem 5% 2rem;
+  background: #fff;
+  color: #222;
+  border-top: 1px solid #eee;
+  padding: 2.5rem 0 1.5rem 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.fincept-footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.fincept-footer-left {
+  min-width: 320px;
+  max-width: 350px;
+  padding-left: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+.fincept-footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.fincept-footer-logo-img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #f6f6f6;
+  border: 1px solid #eee;
+}
+.fincept-footer-logo-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.fincept-footer-logo-text span {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.fincept-footer-desc {
+  font-size: 1.25rem;
+  font-weight: 500;
+  /* margin-top: 0.5rem; */
+}
+.fincept-footer-meta {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0rem;
+  line-height: 1.1rem;
+}
+.fincept-footer-meta .heart {
+  color: #e25555;
+  font-size: 1.1em;
+}
+.fincept-footer-terms {
+  /* margin-top: 0.5rem; */
+}
+.fincept-footer-terms-link {
+  text-decoration: underline;
+  color: #1f1f1f;
+  font-size: 0.8rem;
+}
+.fincept-footer-terms a {
+  text-decoration: none;
+  color: #1f1f1f;
+}
+.fincept-footer-right {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-right: 5rem;
+  /* min-width: 600px; */
+}
+.fincept-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 120px;
+}
+.fincept-footer-col-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  /* margin-bottom: 0.2rem; */
+}
+.fincept-footer-col a {
+  color: #222;
+  text-decoration: none;
+  font-size: 0.98rem;
+  transition: color 0.2s;
+}
+.fincept-footer-col a:hover {
+  color: #6c63ff;
+}
+.fincept-footer-theme-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+.fincept-footer-install {
+  display: flex;
+  align-items: flex-start;
+  min-width: 140px;
+  /* margin-top: 2.2rem; */
+}
+.fincept-footer-install-btn {
+  padding: 0.35rem 0.7rem 0.35rem 0.5rem;
+  border: 1.5px solid #6c63ff;
+  background: #fff;
+  color: #6c63ff;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.fincept-footer-install-btn:hover {
+  background: #f6f6ff;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+@media (max-width: 1100px) {
+  .fincept-footer-container {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 0 1.5rem;
+  }
+  .fincept-footer-right {
+    justify-content: flex-start;
+    min-width: 0;
     gap: 2rem;
-    margin-bottom: 2rem;
+  }
 }
-
-.footer-section h4 {
-    margin-bottom: 1rem;
-    color: #fff;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-section ul li a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: #00d09c;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #333;
-    color: #ccc;
+@media (max-width: 700px) {
+  .fincept-footer-container {
+    padding: 0 0.5rem;
+  }
+  .fincept-footer-left {
+    min-width: 0;
+    max-width: 100%;
+    align-items: flex-start;
+  }
+  .fincept-footer-right {
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 0;
+  }
+  .fincept-footer-install {
+    margin-top: 1.2rem;
+  }
 }
 
 /* Responsive Design */

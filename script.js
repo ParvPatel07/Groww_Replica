@@ -97,10 +97,6 @@ document.querySelectorAll('.feature-card, .tool-card').forEach(card => {
     });
 });
 
-// Dynamic year update in footer
-document.querySelector('.footer-bottom').innerHTML = 
-    document.querySelector('.footer-bottom').innerHTML.replace('2025', new Date().getFullYear());
-
 // Show only 6 links by default in each pf-card, expand/collapse on More/Less
 function setupCardLinkToggles() {
     document.querySelectorAll('.pf-card ul').forEach(ul => {

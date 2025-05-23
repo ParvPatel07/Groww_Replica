@@ -8,28 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="https://groww.in/groww-logo-270.png" alt="Groww Logo"> 
-                <div class="logo-text">
-                    Groww
-                </div>
-            </div>
-            <div class="nav-links">
-                <a href="#" class="active">Stocks</a>
-                <a href="#">F&O</a>
-                <a href="#">Mutual Funds</a>
-                <a href="#">More</a>
-            </div>
-            <div class="nav-buttons">
-                <button class="login-btn">Login</button>
-                <button class="signup-btn">Sign Up</button>
-            </div>
-        </nav>
-    </header>
-
+    <div id="header-placeholder"></div>
     <!-- Main Content: Personal Finance Cards -->
     <main class="personal-finance">
         <h1 class="pf-title">Personal Finance</h1>
@@ -38,7 +17,7 @@
                 <h2>Mutual Funds</h2>
                 <p>Mutual Funds are one of the most popular investment options in India. Here's a list of important terms you should know in this arena.</p>
                 <ul>
-                    <li><a href="#">Income Funds </a></li>
+                    <li><a href="income-funds.html">Income Funds </a></li>
                     <li><a href="#">Interval Funds </a></li>
                     <li><a href="#">Closed Ended Funds </a></li>
                     <li><a href="#">Open Ended Funds</a></li>
@@ -299,43 +278,16 @@
             </div>
         </div>
     </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>PRODUCTS</h4>
-                <ul>
-                    <li><a href="#">Stocks</a></li>
-                    <li><a href="#">Futures & Options</a></li>
-                    <li><a href="#">Mutual Funds</a></li>
-                    <li><a href="#">NFO</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>GROWW</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Help and Support</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>QUICK LINKS</h4>
-                <ul>
-                    <li><a href="#">AMC Mutual Funds</a></li>
-                    <li><a href="#">Calculators</a></li>
-                    <li><a href="#">Glossary</a></li>
-                    <li><a href="#">Open Demat Account</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2016-2025 Groww. All rights reserved, Built with ♥ in India</p>
-        </div>
-    </footer>
-
+    <div id="footer-placeholder"></div>
     <script src="script.js"></script>
+    <script>
+    function loadHTML(selector, url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => { document.querySelector(selector).innerHTML = data; });
+    }
+    loadHTML('#header-placeholder', 'header.html');
+    loadHTML('#footer-placeholder', 'footer.html');
+    </script>
 </body>
 </html> 
