@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closed-Ended Funds - Fincept</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="income-funds.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    /* body {
+      background: #f6f8fa;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .blog-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 2rem auto;
+      gap: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      padding: 2rem 1.5rem;
+    }
+    .blog-main {
+      flex: 1 1 600px;
+      min-width: 320px;
+      max-width: 740px;
+    }
+    .featured-image {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      object-fit: cover;
+      max-height: 320px;
+    }
+    .blog-header {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 1rem;
+    }
+    .blog-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      color: #222;
+    }
+    .blog-meta {
+      color: #888;
+      font-size: 0.98rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+    .blog-section {
+      background: #fafbfc;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .blog-section h2, .blog-section h3 {
+      margin-top: 0;
+      color: #00b386;
+    } */
+    .interval-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .interval-table th, .interval-table td {
+      border: 1px solid #e5e7eb;
+      padding: 0.7rem 1rem;
+      text-align: left;
+    }
+    .interval-table th {
+      background: #fafbfc;
+      font-weight: 600;
+      color:#00b386;
+    }
+    .interval-table tr:nth-child(even) {
+      background: #fafbfc;
+    }
+    .interval-table tr:nth-child(odd) {
+      background: #fff;
+    }
+    .interval-table thead th {
+      border-bottom: 2px solid #e5e7eb;
+    }
+    .related-mf-pages table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 1.08rem;
+      color: #00b386;
+    }
+    .related-mf-pages td {
+      border: 1px solid #e5e7eb;
+      padding: 1rem 1.2rem;
+      font-weight: 500;
+    }
+    .related-mf-pages tr:nth-child(even) {
+      background: #fafbfc;
+    }
+    .related-mf-pages tr:nth-child(odd) {
+      background: #fff;
+    }
+    .related-mf-pages td a,
+    .related-mf-pages td a:visited {
+      color: #00b386 !important;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .related-mf-pages td a:hover {
+      color: #009e6e !important;
+      text-decoration: underline;
+    }
+
+    h4,h5{
+      color:#6e6d6d
+    }
+    .related-mf-pages,
+    .related-mf-pages table,
+    .related-mf-pages td,
+    .related-mf-pages a,
+    .related-mf-pages a:visited,
+    .related-mf-pages strong {
+      color: #00b386 !important;
+    }
+    .blog-sidebar {
+      flex: 0 0 320px;
+      min-width: 280px;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .sip-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #e6f9f3;
+      border-radius: 10px;
+      padding: 1.2rem 1rem 1.5rem 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 4px rgba(0,179,134,0.08);
+    }
+    .sip-img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.7rem;
+    }
+    .sip-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #00b386;
+      margin-bottom: 0.3rem;
+      text-align: center;
+    }
+    .sip-desc {
+      font-size: 0.98rem;
+      color: #333;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .sip-btn {
+      background: #00b386;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.7rem 1.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .sip-btn:hover {
+      background: #009e6e;
+    }
+    .sidebar-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #00b386;
+      margin-bottom: 0.7rem;
+    }
+    .sidebar-list, .sidebar-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar-list li {
+      margin-bottom: 0.5rem;
+    }
+    .sidebar-list a {
+      color: #222;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .sidebar-list a:hover {
+      color: #00b386;
+      text-decoration: underline;
+    }
+    .footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem 0 1rem 0;
+      font-size: 1rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 900px) {
+      .blog-container {
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+      }
+      .blog-sidebar {
+        max-width: 100%;
+        min-width: 0;
+        flex: 1 1 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      .blog-main {
+        padding: 0;
+      }
+      .blog-section {
+        padding: 1rem 0.5rem;
+      }
+      .sidebar-card, .sip-card {
+        padding: 1rem 0.7rem;
+      }
+    }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="if-grid">
+            <article class="income-funds">
+                <h1>Closed-Ended Funds</h1>
+                <img src="images/closed-ended.png" alt="" height="400px" width="780px">
+                <p>Mutual Funds can be categorized based on their structure into three types: open-ended, closed-ended, and interval funds. This categorization takes into consideration the frequency with which you can buy or sell units of the scheme. While open-ended funds are more common and popular among investors since they can be traded without restrictions, closed-ended funds are gaining traction too. Here, we will explore Closed-Ended Mutual Funds and talk about the different types of closed-ended funds in India along with their benefits and a lot more.</p>
+                <h2>What are Closed-Ended Funds?</h2>
+                <p>A closed-ended fund is an equity or debt fund in which the fund house issues a fixed number of units at launch. Once the NFO (New Fund Offer) period ends, investors cannot purchase or redeem units of a closed-ended fund. These funds are launched via an NFO and subsequently traded in the market like stock and have a fixed maturity period. While the Net Asset Value of the fund determines its actual price, the traded price can be above or below this value depending on the demand and supply of the units. In simple words, a closed-ended fund 'closes' after the launch period until maturity. This allows the fund manager a greater degree of freedom to pursue the investment objectives of the fund.</p>
+                <h2>Advantages of Closed-Ended Mutual Funds</h2>
+                
+                  <h4>Stability for the Fund Managers</h4>
+                  <p>Since in a closed-ended fund, investors cannot redeem their units before the maturity date, the fund managers have a set asset base to work with. They are not worried about maintaining liquidity since there are no redemptions. This puts the fund manager in a good place to create a strategy that can help him achieve the investment objectives of the scheme.</p>
+                  <h4>Market Price based on Demand and Supply</h4>
+                  <p>Like equity shares, the units of closed-ended schemes are sold on the stock exchange at prices determined by the demand and supply of the units of the scheme. Hence, if the demand for a particular closed-ended scheme increases and the supply remains low, then the units can sell at a price much above the NAV of the scheme.</p>
+                  <h4>They are not illiquid</h4>
+                  <p>While prima facie, closed-ended fund might seem illiquid since the fund house doesn't allow redemption of units, the stock exchange offers umpteen opportunities to buy/sell the units. In fact, closed-ended funds offer a high degree of liquidity to investors. You can buy or sell units of a closed-ended fund from the stock exchange at the existing market prices.</p>
+                  
+                
+                <h2>Disadvantages of Closed-Ended Mutual Funds</h2>
+                  <h4>Not a great performance in the past</h4>
+                  <p>The fund manager of a closed-ended fund is in a good position to create investment strategies to help him achieve the investment objectives of the scheme. However, if we look at the performance of closed-ended funds in the past, it doesn't seem to reflect better returns as compared to open ended schemes. </p>
+                  <h4>Only Lump Sum Investment option available</h4>
+                  <p>Since you can purchase the units of a closed-ended scheme only during the initial launch period, you need to make a lump sum investment. This increases risk. Also, many investors prefer the systematic investment plan (SIP) approach to investing as it is affordable and spreads the risk.</p>
+                  <h4>Highly fund manager-driven</h4>
+                  <p>Typically, investors tend to analyze the performance of a mutual fund scheme over different market cycles to assess if investing in it is a good option. While this information is readily available for open ended schemes, in the case of closed-ended funds, this data is not available. Hence, the performance of the fund largely depends on the decisions of the fund manager.</p>
+                
+                <ul>
+                  <li>If the fund invests 65% of its total assets or more in equity and equity-related instruments, then it is treated as an equity fund for tax purposes.</li>
+                  <li>If the fund invests at least 65% of its total assets in debt instruments, then it is treated as a debt fund for tax purposes.</li>
+                </ul>
+                <h3>Who should invest in a Closed-Ended Mutual Fund?</h3>
+                <p>Closed-ended funds require lumpsum investment and do not offer a redemption option until maturity. Hence, investors with an investible corpus and an investment horizon in sync with the maturity date of the scheme can opt for closed-ended mutual funds. Further, the risks and returns should be assessed based on the asset allocation of the scheme specified in the offer document. </p>
+                <h5>Tax on Gains</h5>
+                <p>Equity and debt funds are taxed differently. Therefore, in the case of Closed-Ended Mutual Funds, the tax rates depend on the percentage of investments made by the scheme in equity and debt. </p>
+                <ul>
+                  <li>If the fund invests at least 65% of its total assets in debt instruments, then it is treated as a debt fund for tax purposes. </li>
+                  <li>If the fund invests 65% of its total assets or more in equity and equity-related instruments, then it is treated as an equity fund for tax purposes. </li>
+                </ul>
+                <p>Ensure that you read the offer document carefully and check the asset allocation that the scheme plans to follow to understand the tax rates.</p>
+                <h3>How to Invest in Closed-Ended Funds?</h3>
+                <p>You can invest directly with an asset management company (AMC) or with the assistance of agents and distributors. When you opt for investing in a direct plan, you will receive a higher number of units as no commission will be required to be paid to a distributor. Alternatively, you can subscribe to a closed-ended fund online through a mutual fund company's official website.</p>
+                <h2>List of Closed-Ended Funds in India</h2>
+                <table class="interval-table">
+                  <thead>
+                    <tr>
+                      <th>Name of the scheme</th>
+                      <th>1 year</th>
+                      <th>3 year</th>
+                      <th>5 year</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>SBI Tax Advantage Fund – Series III – Regular Plan</td><td>2.61</td><td>9.60</td><td>13.02</td></tr>
+                    <tr><td>ICICI Prudential Growth Fund – Series 2</td><td>3.31</td><td>10.98</td><td>12.99</td></tr>
+                    <tr><td>SBI Tax Advantage Fund – Series II</td><td>-2.26</td><td>9.68</td><td>12.88</td></tr>
+                    <tr><td>ICICI Prudential Growth Fund – Series 1</td><td>4.39</td><td>9.08</td><td>11.83</td></tr>
+                    <tr><td>ICICI Prudential R.I.G.H.T. Fund</td><td>-12.14</td><td>6.99</td><td>10.00</td></tr>
+                    <tr><td>Reliance FHF XXV Series 15</td><td>8.28</td><td>8.38</td><td>9.00</td></tr>
+                    <tr><td>HDFC FMP 793D Feb 2014 (1) Reg</td><td>8.97</td><td>7.32</td><td>8.42</td></tr>
+                  </tbody>
+                </table>
+                <p><em>This list is just a compilation of best performing closed-ended funds. Remember, this is not a recommendation but a list of well-performing closed-ended funds in India. Please invest in these funds only if the investment objective and risk profile is in alignment.</em></p>
+                <h3>Related Mutual Fund Pages</h3>
+                <div class="related-mf-pages" style="margin-bottom:2rem;">
+                  <table style="width:100%;border-collapse:collapse;color:#00b386;">
+                    <tr>
+                      <td><a href="open-ended-funds.html"><strong>Open Ended Funds</strong></a></td>
+                      <td><a href="interval-funds.html"><strong>Interval Funds</strong></a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="" target="_blank"><strong>Closed-Ended Funds</strong></a></td>
+                      <td><a href="" target="_blank"><strong>Index Funds</strong></a></td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="disclaimer">
+                    <p><em>Disclaimer: The views expressed here are for informational purposes only. Mutual funds are subject to market risks, please read the scheme documents carefully before investing.</em></p>
+                </div>
+                <p style="font-size:0.9em;color:#888;">Source: <a href="" target="_blank"></a></p>
+            
+            </article>
+            <aside class="if-sidebar">
+                <div class="sip-card">
+                    <img src="image.png" alt="SIP" class="sip-img">
+                    <div class="sip-content">
+                        <img src="" alt="">
+                        <div class="sip-title">Build Wealth, One SIP at a Time</div>
+                        <div class="sip-desc">Start a SIP and harness the power of compounding through consistent, long-term investing.</div>
+                        <a href="#" class="sip-btn">START SIP WITH ₹500</a>
+                    </div>
+                </div>
+                <div class="sidebar-list">
+                    <ul>
+                        <li class="list-heading"><a href="#">Recent Posts</a></li>
+                        <li><a href="#">Kanodia Cement Files DRHP With SEBI For IPO</a></li>
+                        <li><a href="#">Indian Rupee Opens Higher but Faces Weekly Pressure Despite Asian Currency Strength</a></li>
+                        <li><a href="#">ITC Q4 FY25 Results: Net Profit Soars to 719,807 Crore on Exceptional Gain; Dividend of 37.85 Declared</a></li>
+                        <li><a href="#">Sun Pharma Q4 FY25 Results: Revenue Growth Amid Net Profit Decline</a></li>
+                        <li><a href="#">BSE Share Price Adjusted After 2:1 Bonus Issue, Not a Crash-Stock Climbs 5% Intraday</a></li>
+                      
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Recent Posts</a></li>
+                        <li><a href="#">Best Small-Cap Index Funds in 2025</a></li>
+                        <li><a href="#">What are Flexi Cap Funds?</a></li>
+                        <li><a href="#">Best Defence Sector Mutual Funds for 2025</a></li>
+                        <li><a href="#">What are Momentum Funds?</a></li>
+                        <li><a href="#">Best Nifty 50 Index Funds In India</a></li>
+                        <li><a href="#">Best Flexi Cap Mutual Funds to Invest in 2025</a></li>
+                        <li><a href="#">What is Jensen's Alpha in Mutual funds?</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Asset Management Company (AMC)</a></li>
+                        <li><a href="#">SBI Mutual Fund</a></li>
+                        <li><a href="#">HDFC Mutual Fund</a></li>
+                        <li><a href="#">Nippon India Mutual Fund</a></li>
+                        <li><a href="#">Axis Mutual Fund</a></li>
+                        <li><a href="#">Groww Mutual Fund</a></li>
+                        <li><a href="#">ICICI Prudential Mutual Fund</a></li>
+                        <li><a href="#">Tata Mutual Fund</a></li>
+                        <li><a href="#">Aditya Birla Sunlife Mutual Fund</a></li>
+                        <li><a href="#">Mirae Asset Mutual Fund</a></li>
+                        <li><a href="#">View Other AMCS</a></li>
+                        
+                    </ul>
+                    
+                </div>
+            </aside>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="script.js"></script>
+    <script>
+    function loadHTML(selector, url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => { document.querySelector(selector).innerHTML = data; });
+    }
+    loadHTML('#header-placeholder', 'header.html');
+    loadHTML('#footer-placeholder', 'footer.html');
+    </script>
+</body>
+</html> 

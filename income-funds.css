@@ -137,6 +137,7 @@
 }
 .list-heading{
     font-weight: 500;
+    margin: 0.5rem;
 }
 .sidebar-list a:hover {
     background: #f2f2f2;
