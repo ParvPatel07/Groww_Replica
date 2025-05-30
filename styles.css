@@ -8,7 +8,9 @@
 
 body {
     line-height: 1.6;
-    background-color:#EAEEF4;
+    background-color:rgb(255, 255, 255) ;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Header and Navigation */
@@ -257,22 +259,220 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .navbar {
+        padding: 1rem 3%;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
+    }
+    
+    .fincept-footer-right {
+        gap: 3rem;
+        margin-right: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        padding: 1rem 2%;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .nav-buttons {
+        gap: 0.5rem;
+    }
+    
+    .login-btn, .signup-btn {
+        padding: 0.4rem 1.2rem;
+    }
+    
+    .fincept-footer-container {
+        padding: 0 2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
-        padding: 1rem;
+        padding: 0.8rem 4%;
+        flex-wrap: wrap;
     }
-
+    
     .nav-links {
-        display: none;
+        display: none !important;
     }
-
-  
-    .features {
-        grid-template-columns: 1fr;
+    
+    .nav-links.active {
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background: #fff;
+        z-index: 1001;
     }
+    
+    .nav-buttons {
+        display: none !important;
+    }
+    
+    .mobile-menu-btn {
+        display: block !important;
+    }
+    
+    .fincept-footer-container {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+    
+    .fincept-footer-right {
+        justify-content: flex-start;
+        margin-right: 0;
+        gap: 2rem;
+    }
+    
+    .fincept-footer-col {
+        min-width: 150px;
+    }
+}
 
-    .tools-grid {
-        grid-template-columns: 1fr;
+@media (max-width: 576px) {
+    .navbar {
+        padding: 0.8rem 3%;
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    .fincept-footer-container {
+        padding: 0 1rem;
+    }
+    
+    .fincept-footer-left {
+        min-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .fincept-footer-right {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .fincept-footer-col {
+        align-items: center;
+    }
+    
+    .fincept-footer-install {
+        justify-content: center;
+    }
+    
+    .personal-finance {
+        padding: 0.5rem !important;
+    }
+    
+    .pf-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        columns: unset !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .pf-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        margin: 0 0 1rem 0 !important;
+    }
+    
+    .pf-title {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+    
+    .pf-card h2 {
+        font-size: 1.1rem;
+    }
+    
+    .pf-card p {
+        font-size: 0.8rem;
+    }
+    
+    .pf-card ul li a {
+        font-size: 0.85rem;
+    }
+}
+
+/* Add mobile menu button styles */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Add smooth transitions */
+.nav-links, .nav-buttons, .fincept-footer-container {
+    transition: all 0.3s ease;
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Make containers fluid */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Ensure text is readable on all devices */
+body {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+    h5 { font-size: 1.1rem; }
+    h6 { font-size: 1rem; }
+}
+
+/* Add touch-friendly elements for mobile */
+@media (max-width: 768px) {
+    button, 
+    .nav-links a,
+    .fincept-footer-col a {
+        padding: 0.5rem;
+        min-height: 44px;
+        min-width: 44px;
     }
 }
 
@@ -314,7 +514,7 @@ footer {
 
 .pf-card {
     display: inline-block;
-    width: 101%;
+    width: 100%;
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 10px;
@@ -451,4 +651,447 @@ footer {
   .pf-bg-1, .pf-bg-4 { left: 1vw; right: 1vw; width: 36px; height: 36px; }
   .pf-bg-2, .pf-bg-3 { left: 10vw; right: 10vw; width: 18px; height: 18px; }
   .pf-bg-decor { height: 40px; margin-bottom: -10px; }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1400px) {
+    .personal-finance {
+        padding: 7rem 5rem 3rem 5rem;
+    }
+    
+    .pf-grid {
+        column-gap: 1.5rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .navbar {
+        padding: 1rem 3%;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
+    }
+    
+    .fincept-footer-right {
+        gap: 3rem;
+        margin-right: 2rem;
+    }
+    
+    .personal-finance {
+        padding: 7rem 3rem 3rem 3rem;
+    }
+    
+    .pf-grid {
+        columns: 2;
+        column-gap: 1.5rem;
+    }
+    
+    .pf-card {
+        padding: 1rem 1.5rem 1.5rem 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        padding: 1rem 2%;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .nav-buttons {
+        gap: 0.5rem;
+    }
+    
+    .login-btn, .signup-btn {
+        padding: 0.4rem 1.2rem;
+    }
+    
+    .fincept-footer-container {
+        padding: 0 2rem;
+    }
+    
+    .personal-finance {
+        padding: 6rem 2rem 2rem 2rem;
+    }
+    
+    .pf-title {
+        font-size: 1.8rem;
+        margin-bottom: 3rem;
+    }
+    
+    .pf-card h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 4%;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-buttons {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    
+    .fincept-footer-container {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+    
+    .fincept-footer-right {
+        justify-content: flex-start;
+        margin-right: 0;
+        gap: 2rem;
+    }
+    
+    .fincept-footer-col {
+        min-width: 150px;
+    }
+    
+    .personal-finance {
+        padding: 5rem 1.5rem 2rem 1.5rem;
+    }
+    
+    .pf-grid {
+        columns: 1;
+        column-gap: 1rem;
+    }
+    
+    .pf-card {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    
+    .pf-title {
+        font-size: 1.6rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .pf-card h2 {
+        font-size: 1.2rem;
+    }
+    
+    .pf-card p {
+        font-size: 0.85rem;
+    }
+    
+    .pf-card ul li a {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 0.8rem 3%;
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    .fincept-footer-container {
+        padding: 0 1rem;
+    }
+    
+    .fincept-footer-left {
+        min-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .fincept-footer-right {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .fincept-footer-col {
+        align-items: center;
+    }
+    
+    .fincept-footer-install {
+        justify-content: center;
+    }
+    
+    .personal-finance {
+        padding: 2.5rem 0.5rem 1.5rem 0.5rem !important;
+    }
+    
+    .pf-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        columns: unset !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .pf-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        margin: 0 0 1rem 0 !important;
+    }
+    
+    .pf-title {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+    
+    .pf-card h2 {
+        font-size: 1.1rem;
+    }
+    
+    .pf-card p {
+        font-size: 0.8rem;
+    }
+    
+    .pf-card ul li a {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar {
+        padding: 0.8rem 2%;
+    }
+    
+    .logo img {
+        height: 35px;
+    }
+    
+    .logo-text {
+        font-size: 0.9rem;
+    }
+    
+    .logo-text p {
+        font-size: 0.4rem;
+    }
+    
+    .personal-finance {
+        padding: 3.5rem 0.8rem 1.5rem 0.8rem;
+    }
+    
+    .pf-title {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .pf-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        margin: 0 0 1rem 0 !important;
+    }
+    
+    .pf-card h2 {
+        font-size: 1rem;
+    }
+    
+    .pf-card p {
+        font-size: 0.75rem;
+    }
+    
+    .pf-card ul li a {
+        font-size: 0.8rem;
+    }
+}
+
+/* Add landscape orientation specific styles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .navbar {
+        padding: 0.5rem 3%;
+    }
+    
+    .logo img {
+        height: 35px;
+    }
+    
+    .nav-links {
+        padding: 0.5rem;
+    }
+    
+    .personal-finance {
+        padding-top: 4rem;
+    }
+    
+    .pf-card {
+        min-height: auto;
+    }
+}
+
+/* Add print styles */
+@media print {
+    .navbar,
+    .nav-buttons,
+    .mobile-menu-btn,
+    .fincept-footer-install {
+        display: none;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    .personal-finance {
+        padding: 0;
+    }
+    
+    .pf-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+html, body {
+    overflow-x: hidden !important;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+    .nav-buttons {
+        display: none !important;
+    }
+    .nav-links {
+        display: none !important;
+    }
+    .nav-links.active {
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background: #fff;
+        z-index: 1001;
+    }
+    .mobile-menu-btn {
+        display: block !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .personal-finance {
+        padding: 0.5rem !important;
+    }
+    .pf-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        columns: unset !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+    .pf-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        margin: 0 0 1rem 0 !important;
+    }
+}
+
+.pf-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* --- STRONG MOBILE OVERRIDE --- */
+@media (max-width: 600px) {
+  html, body {
+    overflow-x: hidden !important;
+  }
+  .navbar {
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    padding: 0.5rem 0.5rem !important;
+    position: relative !important;
+  }
+  .logo {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+  .nav-links {
+    display: none !important;
+    flex-direction: column !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    width: 100vw !important;
+    background: #fff !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    z-index: 1001 !important;
+    padding: 1rem 0 !important;
+    margin: 0 !important;
+  }
+  .nav-links.active {
+    display: flex !important;
+  }
+  .nav-buttons {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: block !important;
+    position: relative !important;
+    z-index: 1100 !important;
+    margin-left: 0.5rem !important;
+  }
+  .personal-finance {
+    padding: 0.5rem !important;
+    width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+  .pf-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    columns: unset !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+  .pf-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    margin: 0 0 1rem 0 !important;
+    display: block !important;
+  }
 } 

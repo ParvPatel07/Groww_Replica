@@ -49,32 +49,36 @@ document.querySelectorAll('.feature-card, .tool-card').forEach(element => {
     observer.observe(element);
 });
 
-// Mobile menu toggle (for responsive design)
-const createMobileMenu = () => {
-    const navbar = document.querySelector('.navbar');
+// Mobile menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     
-    // Create mobile menu button
-    const mobileMenuBtn = document.createElement('button');
-    mobileMenuBtn.classList.add('mobile-menu-btn');
-    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-    
-    // Add mobile menu button to navbar
-    navbar.insertBefore(mobileMenuBtn, navLinks);
-    
-    // Toggle mobile menu
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        mobileMenuBtn.innerHTML = navLinks.style.display === 'flex' ? 
-            '<i class="fas fa-times"></i>' : 
-            '<i class="fas fa-bars"></i>';
-    });
-};
-
-// Initialize mobile menu for smaller screens
-if (window.innerWidth <= 768) {
-    createMobileMenu();
-}
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            this.setAttribute('aria-expanded', 
+                this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+            );
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.navbar') && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Close mobile menu when window is resized above mobile breakpoint
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+});
 
 // Add hover effect to buttons
 document.querySelectorAll('button').forEach(button => {
@@ -140,4 +144,19 @@ function setupCardLinkToggles() {
 // Run after DOM is loaded
 window.addEventListener('DOMContentLoaded', function() {
     setupCardLinkToggles();
+});
+
+// Add touch-friendly interactions for mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const touchElements = document.querySelectorAll('button, .nav-links a, .fincept-footer-col a');
+    
+    touchElements.forEach(element => {
+        element.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        element.addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
 }); 
