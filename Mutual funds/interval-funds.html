@@ -4,73 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interval Funds - Fincept</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="income-funds.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-    .interval-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      font-size: 1rem;
-    }
-    .interval-table th, .interval-table td {
-      border: 1px solid #e5e7eb;
-      padding: 0.7rem 1rem;
-      text-align: left;
-    }
-    .interval-table th {
-      background: #fafbfc;
-      font-weight: 600;
-      color:#00b386;
-    }
-    .interval-table tr:nth-child(even) {
-      background: #fafbfc;
-    }
-    .interval-table tr:nth-child(odd) {
-      background: #fff;
-    }
-    .interval-table thead th {
-      border-bottom: 2px solid #e5e7eb;
-    }
-    .related-mf-pages table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      font-size: 1.08rem;
-      color: #00b386;
-    }
-    .related-mf-pages td {
-      border: 1px solid #e5e7eb;
-      padding: 1rem 1.2rem;
-      font-weight: 500;
-    }
-    .related-mf-pages tr:nth-child(even) {
-      background: #fafbfc;
-    }
-    .related-mf-pages tr:nth-child(odd) {
-      background: #fff;
-    }
-    .related-mf-pages td a,
-    .related-mf-pages td a:visited {
-      color: #00b386 !important;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    .related-mf-pages td a:hover {
-      color: #009e6e !important;
-      text-decoration: underline;
-    }
-    .related-mf-pages,
-    .related-mf-pages table,
-    .related-mf-pages td,
-    .related-mf-pages a,
-    .related-mf-pages a:visited,
-    .related-mf-pages strong {
-      color: #00b386 !important;
-    }
-    </style>
+    <style></style>
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -250,8 +187,8 @@
           .then(response => response.text())
           .then(data => { document.querySelector(selector).innerHTML = data; });
     }
-    loadHTML('#header-placeholder', 'header.html');
-    loadHTML('#footer-placeholder', 'footer.html');
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
     </script>
 </body>
 </html> 

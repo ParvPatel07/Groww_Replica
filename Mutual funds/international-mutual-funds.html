@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What are International Mutual Funds? Types & Benefits - Groww</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="income-funds.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -100,15 +100,15 @@
         </div>
     </main>
     <div id="footer-placeholder"></div>
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
     <script>
     function loadHTML(selector, url) {
         fetch(url)
           .then(response => response.text())
           .then(data => { document.querySelector(selector).innerHTML = data; });
     }
-    loadHTML('#header-placeholder', 'header.html');
-    loadHTML('#footer-placeholder', 'footer.html');
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
     </script>
 </body>
 </html> 

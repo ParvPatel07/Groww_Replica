@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Closed-Ended Funds - Fincept</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="income-funds.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
+  
     /* body {
       background: #f6f8fa;
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -241,7 +241,7 @@
         padding: 1rem 0.7rem;
       }
     }
-    </style>
+    </style> -->
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -250,7 +250,7 @@
         <div class="if-grid">
             <article class="income-funds">
                 <h1>Closed-Ended Funds</h1>
-                <img src="images/closed-ended.png" alt="" height="400px" width="780px">
+                <img src="../images/closed-ended.png" alt="" height="400px" width="780px">
                 <p>Mutual Funds can be categorized based on their structure into three types: open-ended, closed-ended, and interval funds. This categorization takes into consideration the frequency with which you can buy or sell units of the scheme. While open-ended funds are more common and popular among investors since they can be traded without restrictions, closed-ended funds are gaining traction too. Here, we will explore Closed-Ended Mutual Funds and talk about the different types of closed-ended funds in India along with their benefits and a lot more.</p>
                 <h2>What are Closed-Ended Funds?</h2>
                 <p>A closed-ended fund is an equity or debt fund in which the fund house issues a fixed number of units at launch. Once the NFO (New Fund Offer) period ends, investors cannot purchase or redeem units of a closed-ended fund. These funds are launched via an NFO and subsequently traded in the market like stock and have a fixed maturity period. While the Net Asset Value of the fund determines its actual price, the traded price can be above or below this value depending on the demand and supply of the units. In simple words, a closed-ended fund 'closes' after the launch period until maturity. This allows the fund manager a greater degree of freedom to pursue the investment objectives of the fund.</p>
@@ -377,15 +377,15 @@
         </div>
     </main>
     <div id="footer-placeholder"></div>
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
     <script>
     function loadHTML(selector, url) {
         fetch(url)
           .then(response => response.text())
           .then(data => { document.querySelector(selector).innerHTML = data; });
     }
-    loadHTML('#header-placeholder', 'header.html');
-    loadHTML('#footer-placeholder', 'footer.html');
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
     </script>
 </body>
 </html> 
