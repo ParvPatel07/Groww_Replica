@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIFTY</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Basic styling for tables based on the screenshot */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .sidebar-list ul li a {
+             color: #000; /* Adjust link color for sidebar if needed */
+        }
+        .sidebar-list ul li.list-heading {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .sidebar-list ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .sidebar-list ul li {
+            padding: 5px 0;
+        }
+         .if-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px; /* Adjust sidebar width as needed */
+            gap: 20px;
+        }
+         .income-funds {
+            /* Styles for the main content area */
+        }
+         .if-sidebar {
+            /* Styles for the sidebar */
+        }
+
+         .sip-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sip-img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .sip-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .sip-desc {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .sip-btn {
+            display: inline-block;
+            background-color: #00b386; /* Example button color */
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+         .disclaimer {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px dashed #777;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main class="content-wrapper">
+        <div class="if-grid">
+            <article class="income-funds">
+                <h1>What is NIFTY?</h1>
+
+                <p>NIFTY, also known as NIFTY 50, is the flagship index of the National Stock Exchange (NSE) in India. It represents the weighted average of 50 of the largest Indian companies listed on the NSE.</p>
+
+                <h2>Understanding NIFTY</h2>
+                <p>NIFTY is a market capitalization-weighted index that tracks the performance of 50 large-cap companies across 13 sectors of the Indian economy. It is one of the two main stock indices used in India, the other being the SENSEX of the Bombay Stock Exchange (BSE).</p>
+                <p>The name "NIFTY" is derived from the combination of "National" and "Fifty", indicating that it represents the 50 largest companies listed on the NSE.</p>
+
+                <h2>How is NIFTY Calculated?</h2>
+                <p>NIFTY is calculated using the free-float market capitalization weighted method. This means that:</p>
+                <ul>
+                    <li>Only the shares that are available for trading in the market (free-float) are considered</li>
+                    <li>The weight of each stock in the index is proportional to its free-float market capitalization</li>
+                    <li>The base value of NIFTY is 1000, and the base date is November 3, 1995</li>
+                </ul>
+                <p>The formula for calculating NIFTY is:</p>
+                <p>NIFTY = (Current Market Value / Base Market Capital) × Base Index Value</p>
+
+                <p>The NIFTY share index is managed by a team of professionals at the NSE Indices Limited. It formed an Indian Advisory Committee that offers its expertise and guidance on agreeable issues pertaining to equity indices.</p>
+                <p>NIFTY trading takes place with a base value which is fixed or adjusted and is considered high as 1000. For example, the year of index demonstration. The aggregate market value of stocks present in the index is 2.06 Lakh Crore. Such a value gives a NIFTY of value 2.06. If the market cap is 2.06 Lakh Crore, then the market value of NIFTY stocks is considered to be 2.06. If the market value of stocks present in the index is 2.06 Lakh Crore, and the base value of the index is set at 1000, and the base market cap is 1.03 Lakh Crore, the NIFTY is calculated using a formula:</p>
+                <p>The formula for calculating price index is listed below -</p>
+                <p>Index Value = Current MV or market value / (Base Market Capital * 1000)</p>
+                <p>The methodology involved in the calculation of indices also considers changes in corporate actions, which for instance comprises of rights issuance, stock splits, etc.</p>
+
+                <h2>Importance of NIFTY</h2>
+                <p>NIFTY serves several important purposes in the Indian financial market:</p>
+                <ul>
+                    <li><b>Market Indicator:</b> It provides a snapshot of the overall market performance and investor sentiment.</li>
+                    <li><b>Benchmark:</b> It serves as a benchmark for portfolio performance evaluation.</li>
+                    <li><b>Investment Vehicle:</b> It is used as an underlying for various financial products like index funds, ETFs, and derivatives.</li>
+                    <li><b>Economic Indicator:</b> It reflects the health of the Indian economy and corporate sector.</li>
+                </ul>
+
+                <h2>How to Invest in NIFTY?</h2>
+                <p>There are several ways to invest in NIFTY:</p>
+                <ul>
+                    <li><b>Index Funds:</b> These are mutual funds that replicate the NIFTY 50 index.</li>
+                    <li><b>Exchange Traded Funds (ETFs):</b> These are funds that track the NIFTY 50 and trade like stocks on the exchange.</li>
+                    <li><b>Futures and Options:</b> These are derivative contracts based on the NIFTY 50 index.</li>
+                    <li><b>Direct Stock Investment:</b> Investors can buy shares of individual companies that are part of the NIFTY 50.</li>
+                </ul>
+
+                <h2>NIFTY vs SENSEX</h2>
+                <p>While both NIFTY and SENSEX are important market indices in India, they have some key differences:</p>
+                <ul>
+                    <li><b>Number of Companies:</b> NIFTY tracks 50 companies, while SENSEX tracks 30 companies.</li>
+                    <li><b>Exchange:</b> NIFTY is based on the National Stock Exchange (NSE), while SENSEX is based on the Bombay Stock Exchange (BSE).</li>
+                    <li><b>Base Year:</b> NIFTY's base year is 1995, while SENSEX's base year is 1978-79.</li>
+                    <li><b>Calculation Method:</b> Both use the free-float market capitalization method, but their specific methodologies may differ slightly.</li>
+                </ul>
+
+                <h2>Eligibility Criteria for NIFTY Index Listing</h2>
+                <p>The eligibility criteria for getting listed on the NIFTY index are mentioned below -</p>
+                <ul>
+                    <li>The company must be a domicile of India and registered with the National Stock Exchange.</li>
+                    <li>Stocks must possess high liquidity, which is measured by their average impact cost. It is the cost of executing a transaction in the stock. The impact cost of transacting 10 Lakh worth of securities must be less than 0.50% or lower than that for a period of 6 months while 90% of the observations are made on a portfolio of Rs. 10 Crore.</li>
+                    <li>The company should have a trading frequency of 100% during the previous six months.</li>
+                    <li>It should have an average free-floating market capitalization, which is 1.5 times higher than the smallest constituent in the index.</li>
+                    <li>Shares which have Differential Voting Rights or DVR are also eligible for the index.</li>
+                </ul>
+
+                <h2>Major Milestones of NIFTY</h2>
+                <p>The following demonstrates some of the major events and achievements in the history of NSE since NIFTY's inception:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Years</th>
+                            <th>Significant Events</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1996 - 2000</td>
+                            <td>1. Started trading in dematerialised securities on NSE exchange.</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>2. Launched index futures, which was based on the index of NIFTY 50.</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>3. Launched index options on the Singapore Exchange.</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>4. Started intraday trading.</td>
+                        </tr>
+                        <tr>
+                            <td>2001 - 10</td>
+                            <td>1. Based on the NIFTY stock market index, index options were introduced.</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>2. Introduction of single stock F&Os or futures and options on the index of listed securities.</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>3. Introduced ETFs on NIFTY.</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>4. Introduced NIFTY Bank index derivatives.</td>
+                        </tr>
+                        <tr>
+                            <td>2010 - 20</td>
+                            <td>1. Began index futures and options trading on global indices, i.e. Dow and Jones Industrial Average (DJIA) and FTSE 100.</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>2. Began index F&O contracts on the index of FTSE 100.</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>3. Began NIFTY 50 trading on the Osaka Exchange.</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>4. Introduced the trading of NIFTY 50 index futures on TAIFFEX.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Notable Highs and Lows</h2>
+                <p>Here is a list of notable highs and the events pertinent to these in the NIFTY share index.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>High points</th>
+                            <th>Related Events</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>26 August 2019</td>
+                            <td>224.40</td>
+                            <td>Relief measures, likely US-China trade talks begin</td>
+                        </tr>
+                        <tr>
+                            <td>14 September 2019</td>
+                            <td>620.05</td>
+                            <td>Finance FM announced a relief in corporate tax rate for domestic companies and manufacturing companies.</td>
+                        </tr>
+                        <tr>
+                            <td>20 September 2019</td>
+                            <td>620.05</td>
+                            <td>Following a corporate tax cut in India.</td>
+                        </tr>
+                        <tr>
+                            <td>1 February 2020</td>
+                            <td>708.40</td>
+                            <td>Positive news that infection numbers were peaking in some of the worst affected areas around the world.</td>
+                        </tr>
+                        <tr>
+                            <td>1 April 2020</td>
+                            <td>648.60</td>
+                            <td>Union Budget 2019 by Nirmala Sitharaman</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Here is a list of notable lows and relevant events in the NIFTY stock market index.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Low points</th>
+                            <th>Related Events</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>20 May 2021</td>
+                            <td>284.95</td>
+                            <td>Global slowdown</td>
+                        </tr>
+                        <tr>
+                            <td>27 April 2021</td>
+                            <td>126.20</td>
+                            <td>The rise in daily COVID cases, speculation of complete lockdown in the Maharashtra State</td>
+                        </tr>
+                        <tr>
+                            <td>29 May 2020</td>
+                            <td>504.80</td>
+                            <td>New coronavirus strain found in South Africa</td>
+                        </tr>
+                        <tr>
+                            <td>20 Dec 2021</td>
+                            <td>271.00</td>
+                            <td>Covid-19 concerns and inflation concerns</td>
+                        </tr>
+                        <tr>
+                            <td>24 Feb 2022</td>
+                            <td>304.95</td>
+                            <td>Increasing geopolitical tensions and rising inflation.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Top Companies Listed under NIFTY</h2>
+                <p>The following table demonstrates some of the companies listed under NIFTY 50:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company Name</th>
+                            <th>LTP</th>
+                            <th>Sectors</th>
+                            <th>Trend for the Past 1 Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>YES Bank</td>
+                            <td>47.40</td>
+                            <td>Banking</td>
+                            <td>-20.3%</td>
+                        </tr>
+                        <tr>
+                            <td>Bajaj Housing Fin.</td>
+                            <td>187.80</td>
+                            <td>Financial Services</td>
+                            <td>+0.04%</td>
+                        </tr>
+                        <tr>
+                            <td>Tata Motors</td>
+                            <td>128.00</td>
+                            <td>Automobile</td>
+                            <td>-11.78%</td>
+                        </tr>
+                        <tr>
+                            <td>Eicher Motors</td>
+                            <td>20,691.85</td>
+                            <td>Automobile</td>
+                            <td>-40.70%</td>
+                        </tr>
+                        <tr>
+                            <td>IndusInd Bank</td>
+                            <td>1360.80</td>
+                            <td>Banking</td>
+                            <td>-51.77%</td>
+                        </tr>
+                        <tr>
+                            <td>SBI</td>
+                            <td>295.65</td>
+                            <td>Banking and Financial Services</td>
+                            <td>+18.35%</td>
+                        </tr>
+                        <tr>
+                            <td>Bajaj Auto</td>
+                            <td>3011.00</td>
+                            <td>Automobiles</td>
+                            <td>+27.05%</td>
+                        </tr>
+                        <tr>
+                            <td>Asian Paints</td>
+                            <td>1812.30</td>
+                            <td>Consumer goods</td>
+                            <td>+20.25%</td>
+                        </tr>
+                        <tr>
+                            <td>Tata Steel</td>
+                            <td>358.10</td>
+                            <td>Metals</td>
+                            <td>-13.98%</td>
+                        </tr>
+                        <tr>
+                            <td>Coal India Ltd.</td>
+                            <td>199.60</td>
+                            <td>Energy and Mining</td>
+                            <td>-38.04%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Conclusion</h2>
+                <p>Broad indices such as NIFTY and Sensex are used as a benchmark for Mutual Funds to measure their performance. The former is the broader of the two indices, thus offering a much more comprehensive standard of the Indian stock market.</p>
+            </article>
+            <aside class="if-sidebar">
+                <div class="sip-card">
+                    <img src="image.png" alt="Invest the way you want" class="sip-img">
+                    <div class="sip-content">
+                        <div class="sip-title">Invest the way you want</div>
+                        <div class="sip-desc">Join millions of Indians who trust and love BankBazaar.</div>
+                        <a href="#" class="sip-btn">EXPLORE PRODUCTS</a>
+                    </div>
+                </div>
+                <div class="sidebar-list">
+                    <ul>
+                        <li class="list-heading">Stock Markets</li>
+                        <li><a href="national_stock_exchange.html">National Stock Exchange (NSE)</a></li>
+                        <li><a href="bombay_stock_exchange.html">Bombay Stock Exchange (BSE)</a></li>
+                        <li><a href="sensex.html">SENSEX</a></li>
+                        <li><a href="nifty.html">NIFTY</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading">Trading</li>
+                        <li><a href="trading.html">Stock Trading</a></li>
+                        <li><a href="stock_broker.html">Stock Brokers</a></li>
+                        <li><a href="penny_stocks.html">Penny Stocks</a></li>
+                        <li><a href="multibagger_stocks.html">Multibagger Stocks</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading">Investment Tools</li>
+                        <li><a href="#">Stock Screener</a></li>
+                        <li><a href="#">Portfolio Tracker</a></li>
+                        <li><a href="#">Market Watch</a></li>
+                        <li><a href="#">Stock Calculator</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../script.js"></script>
+    <script>
+    function loadHTML(selector, url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => { document.querySelector(selector).innerHTML = data; });
+    }
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
+    </script>
+</body>
+</html> 
