@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPF Forms and Purposes</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main class="content-wrapper">
+        <div class="if-grid">
+            <article class="income-funds">
+                <h1>EPF Forms and Their Purposes</h1>
+                <p>The Employees' Provident Fund Organisation (EPFO) requires members to submit various forms for different purposes related to their Provident Fund (PF) and Employees' Pension Scheme (EPS) accounts. Here is a table listing some of the common EPF forms and their uses:</p>
+
+                <table class="interval-table">
+                    <thead>
+                        <tr>
+                            <th>Form</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Form 2</td>
+                            <td>Declaration and nomination form.</td>
+                        </tr>
+                        <tr>
+                            <td>Form 5</td>
+                            <td>New employees registering for EPF.</td>
+                        </tr>
+                        <tr>
+                            <td>Form 10C</td>
+                            <td>Pension withdrawal.</td>
+                        </tr>
+                        <tr>
+                            <td>Form 10D</td>
+                            <td>Pension withdrawal application after retirement.</td>
+                        </tr>
+                         <tr>
+                            <td>Form 11</td>
+                            <td>Auto transfer of EPF account.</td>
+                        </tr>
+                        <tr>
+                            <td>Form 13</td>
+                            <td>EPF account transfer.</td>
+                        </tr>
+                        <tr>
+                            <td>Form 14</td>
+                            <td>Withdrawal for contribution to LIC policy.</td>
+                        </tr>
+                        <tr>
+                            <td>Form 19</td>
+                            <td>EPF withdrawal.</td>
+                        </tr>
+                        <tr>
+                            <td>Form 20</td>
+                            <td>EPF in case of death of a member.</td>
+                        </tr>
+                        <tr>
+                            <td>Form 31</td>
+                            <td>Advances/Withdrawal.</td>
+                        </tr>
+                        <tr>
+                            <td>Form 5IF</td>
+                            <td>Insurance claim after a member's demise.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </article>
+            <aside class="if-sidebar">
+                <div class="sip-card">
+                    <img src="../images/Saving.png" alt="Invest the way you want" class="sip-img">
+                    <div class="sip-content">
+                        <div class="sip-title">Learn More About Savings Schemes</div>
+                        <div class="sip-desc">Explore different government savings and provident fund schemes in India.</div>
+                        <a href="#">EXPLORE SCHEMES</a>
+                    </div>
+                </div>
+                <div class="sidebar-list">
+                    <ul>
+                        <li class="list-heading"><a href="#">Savings Schemes</a></li>
+                        <li><a href="uan.html">Universal Account Number</a></li>
+                        <li><a href="uan_member_portal.html">UAN Member Portal</a></li>
+                        <li><a href="uan_registration.html">UAN Registration</a></li>
+                        <li><a href="epf.html">EPF</a></li>
+                        <li><a href="epf_balance.html">EPF Balance</a></li>
+                         <li><a href="nsc_interest_rate.html">NSC Interest Rate</a></li>
+                        <li><a href="epf_form5.html">EPF Form 5</a></li>
+                        <li><a href="epf_form19.html">EPF Form 19</a></li>
+                        <li><a href="epf_form31.html">EPF Form 31</a></li>
+                        <li><a href="epf_form10c.html">EPF Form 10C</a></li>
+                        <li><a href="epf_form10d.html">EPF Form 10D</a></li>
+                        <li><a href="epf_form2.html">EPF Form 2</a></li>
+                        <li><a href="epf_form20.html">EPF Form 20</a></li>
+                        <li><a href="epf_form11.html">EPF Form 11</a></li>
+                        <li><a href="#">EPF Claim Status</a></li>
+                        <li><a href="national_savings_schemes.html">Post Office Savings Schemes</a></li>
+                         <li><a href="post_office_tax_saving_schemes.html">Post Office Tax Saving Scheme</a></li>
+                         <li><a href="post_office_monthly_income_scheme.html">Post Office Monthly Income Scheme</a></li>
+                        <li><a href="public_provident_fund.html">Public Provident Fund</a></li>
+                        <li><a href="national_savings_certificate.html">National Savings Certificate</a></li>
+                        <li><a href="#">Senior Citizens Savings Scheme</a></li>
+                        <li><a href="sukanya_samriddhi_yojana.html">Sukanya Samriddhi Yojana</a></li>
+                        <li><a href="kisan_vikas_patra.html">Kisan Vikas Patra</a></li>
+                         <li><a href="ppf_withdrawal.html">PPF Withdrawal</a></li>
+                         <li><a href="employee_pension_scheme.html">Employee Pension Scheme (EPS)</a></li>
+                         <li><a href="epf_withdrawal_rules.html">EPF or PF Withdrawal Rules</a></li>
+                         <li><a href="pf_withdrawal_form.html">PF Withdrawal Form</a></li>
+                         <li class="active-link"><a href="epf_forms_table.html" style="color:#00b386;font-weight:600;">EPF Forms and Purposes</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../script.js"></script>
+    <script>
+    function loadHTML(selector, url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => { document.querySelector(selector).innerHTML = data; });
+    }
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
+    </script>
+</body>
+</html> 
