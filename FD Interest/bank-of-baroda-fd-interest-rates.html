@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank of Baroda FD Interest Rates - Fincept</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      h1 {
+          font-size: 24px;
+        }
+    
+        .key-info-cards {
+          display: flex;
+          flex-wrap: wrap;
+          column-gap: 10rem;
+          margin-top: 20px;
+        }
+    
+        .info-card {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          /* border: 1px solid #ddd; */
+          border-radius: 8px;
+          padding: 25px 20px;
+          width: 280px;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+          background-color: #fff;
+        }
+    
+        .info-icon-wrapper {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #f0f0f0; /* Light grey background */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+    
+        .info-icon-wrapper i {
+          font-size: 18px; /* Adjust icon size as needed */
+          color: #555; /* Adjust icon color as needed */
+        }
+       
+    
+        .info-text {
+          font-size: 18px;
+          font-weight: bold;
+          color: #333;
+        }
+    
+        .info-label {
+          font-size: 14px;
+          color: #777;
+        }
+    
+        .info-text-label {
+          display: flex;
+          flex-direction: column;
+        }
+  
+        .fd-calculator {
+      min-width: 380px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+  
+      .fd-calculator h3 {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+  
+      .amount-section, .maturity-section {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        font-size: 14px;
+      }
+  
+      .time-period-section {
+        margin: 20px 0;
+      }
+  
+      .time-options {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+  
+      .time-option {
+        padding: 6px 12px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        font-size: 13px;
+      }
+  
+      .time-option.active {
+        background-color: #00a859;
+        color: #fff;
+        border-color: #00a859;
+      }
+  
+      .slider {
+        width: 100%;
+        margin: 10px 0;
+      }
+  
+      .maturity-section b {
+        font-size: 16px;
+      }
+  
+      .bank-label {
+        color: #666;
+        font-size: 13px;
+      }
+  
+      .amount-bold {
+        font-weight: bold;
+      }
+  
+      .fd-calculator hr {
+        border: none;
+        border-top: 1px dotted #ccc;
+        margin: 20px 0;
+      }
+    
+      .about-details {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0; /* Add a top border like in the screenshot */
+      }
+  
+      .detail-column {
+        flex: 1;
+        padding: 0 20px; /* Increase padding for space around the border */
+      }
+  
+      .detail-column:first-child {
+        border-right: 1px dashed #ccc; /* Add dashed vertical line */
+        padding-right: 30px; /* Adjust padding to make space for the border */
+      }
+  
+      .detail-column:last-child {
+        padding-left: 30px; /* Adjust padding to align with the first column */
+      }
+  
+      .detail-item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e0e0e0; /* Add horizontal lines */
+      }
+  
+      .detail-item:last-child {
+        border-bottom: none; /* No border for the last item in a column */
+      }
+  
+      .detail-label {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 5px;
+      }
+  
+      .detail-value {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+      }
+  
+      /* CSS for Collapsible Sections */
+      .scheme-section {
+        margin-bottom: 15px;
+        /* border: 1px solid #e0e0e0; */
+        border-radius: 8px;
+        overflow: hidden;
+      }
+  
+      .collapsible {
+        /* background-color: #f1f1f1; */
+        /* color: #333; */
+        cursor: pointer;
+        /* padding: 15px;
+        width: 100%; */
+        border: none;
+        text-align: left;
+        /* outline: none; */
+        font-size: smaller;
+        /* font-weight: bold; */
+        transition: background-color 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+  
+     
+  
+      .collapsible-content {
+        padding: 0 15px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background-color: #f9f9f9;
+      }
+  
+      .collapsible-content ul {
+        padding: 15px;
+        margin: 0;
+      }
+  
+      .collapsible-content ul li {
+        margin-bottom: 8px;
+        /* line-height: 1.5; */
+        /* color: #555; */
+      }
+  
+      .collapsible-content ul li:last-child {
+        margin-bottom: 0;
+      }
+  
+      .collapsible .fas {
+        transition: transform 0.3s ease;
+      }
+  
+      .collapsible.active .fas {
+        transform: rotate(180deg);
+      }
+    
+      </style>
+    
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="if-grid">
+            <article class="income-funds">
+                <h1>Bank of Baroda FD Interest Rates</h1>
+                <!-- Content from screenshot will go here -->
+                <div class="key-info-cards">
+                  <div class="info-card">
+                    <div class="info-icon-wrapper">
+                      <i class="fa-solid fa-percent"></i>
+                    </div>
+                    <div class="info-text-label">
+                      <div class="info-text">5.50% - 6.50%</div>
+                      <div class="info-label">Interest rates</div>
+                    </div>
+                  </div>
+                   <div class="info-card">
+                    <div class="info-icon-wrapper">
+                      <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div class="info-text-label">
+                      <div class="info-text">3 months to 10 years</div>
+                      <div class="info-label">Time Period</div>
+                    </div>
+                  </div>
+                   <div class="info-card">
+                    <div class="info-icon-wrapper">
+                      <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </div>
+                    <div class="info-text-label">
+                      <div class="info-text">₹10,000 - no limit</div>
+                      <div class="info-label">Min - Max amount</div>
+                    </div>
+                  </div>
+                   <div class="info-card">
+                    <div class="info-icon-wrapper">
+                      <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <div class="info-text-label">
+                      <div class="info-text">QUARTERLY</div>
+                      <div class="info-label">Compounding</div>
+                    </div>
+                  </div>
+                </div>
+                <h2 id="about-bank-of-baroda">About Bank of Baroda</h2>
+                <p>Bank of Baroda (BOB) is a leading Indian nationalized banking and financial services company and provides a plethora of banking and financial services to its customers and FD is one of them.</p>
+                <!-- <p><a href="#">Read More</a></p> -->
+                 <div class="about-details">
+                  <div class="detail-column">
+                    <div class="detail-item">
+                      <div class="detail-label">Started On</div>
+                      <div class="detail-value">1908</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">Head Quarters</div>
+                      <div class="detail-value">Vadodara</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">CRISIL Rating</div>
+                      <div class="detail-value">NA</div>
+                    </div>
+                  </div>
+                  <div class="detail-column">
+                    <div class="detail-item">
+                      <div class="detail-label">CEO</div>
+                      <div class="detail-value">Shri Sanjiv Chadha</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">Listed on exchange as</div>
+                      <div class="detail-value">Bank of Baroda</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">ICRA Rating</div>
+                      <div class="detail-value">NA</div>
+                    </div>
+                  </div>
+                </div>
+                <h2 id="fd-rates">Bank of Baroda FD Rates 2025</h2>
+                <table class="interval-table">
+                  <thead>
+                    <tr>
+                      <th>TENURE</th>
+                      <th>REGULAR CUSTOMERS</th>
+                      <th>SENIOR CITIZENS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>7 days - 14 days</td><td>4.25%</td><td>4.75%</td></tr>
+                    <tr><td>15 days - 45 days</td><td>4.50%</td><td>5.00%</td></tr>
+                    <tr><td>46 days - 90 days</td><td>5.50%</td><td>6.00%</td></tr>
+                    <tr><td>91 days - 180 days</td><td>5.75%</td><td>6.25%</td></tr>
+                    <tr><td>181 days - 210 days</td><td>5.70%</td><td>6.20%</td></tr>
+                    <tr><td>211 days - 270 days</td><td>6.00%</td><td>6.50%</td></tr>
+                    <tr><td>271 days - less than 1 year</td><td>6.00%</td><td>6.50%</td></tr>
+                    <tr><td>1 year</td><td>6.85%</td><td>7.35%</td></tr>
+                    <tr><td>1 year 1 day - 400 days</td><td>7.00%</td><td>7.50%</td></tr>
+                    <tr><td>2 years 1 day - 3 years</td><td>7.15%</td><td>7.65%</td></tr>
+                    <tr><td>Above 3 years - 10 years</td><td>6.50%</td><td>7.50%</td></tr>
+                  </tbody>
+                </table>
+                <h2 id="features-benefits">Features and Benefits of Bank of Baroda FD</h2>
+                <ul>
+                  <li>Senior citizens can enjoy an additional interest rate of 0.50% p.a. over regular rates</li>
+                  <li>The minimum deposit required to open an FD with Bank of Baroda is Rs 10,000</li>
+                  <li>Nomination facility is provided by the bank.</li>
+                  <li>Loan up to 90% of the deposited amount is available</li>
+                  <li>Interest is paid only at the time of maturity.</li>
+                  <li>BOB provides multiple deposit schemes to its customers, viz. Short Deposit, Baroda Double Dhamaal Deposit Scheme, Baroda Advantage Fixed Deposits Non-Callable, Fast Access Deposit, BOB Suvidha Fixed Deposit Scheme, Regular Income Plan, Monthly Income Plan, Baroda Tax Saving Term Deposit, Multiple Multiplier Deposit.</li>
+                </ul>
+                <h2 id="fd-schemes">Types of Bank of Baroda FD Schemes</h2>
+                <div class="scheme-section">
+                  <p class="collapsible">Short Deposit <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>A Bank of Baroda Fixed Deposit scheme to earn a higher return on your savings for a tenure of less than 1 year.</li>
+                      <li>Nomination facility is provided by the bank.</li>
+                      <li>The deposit is accepted as a security by the Government department.</li>
+                      <li>Interest is paid only at the time of maturity.</li>
+                      <li>The rate of interest on the borrowed amount is 1.5% over the deposit.</li>
+                      <li>Resident Indians are eligible for this scheme.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Baroda Tax Saving Term Deposit <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>As the name implies, this scheme has been designed keeping in mind the tax-saving factor. This scheme helps the resident Indian depositors save on income tax on their fixed deposit amount up to ₹1,50,000 annually.</li>
+                      <li>Interest is compounded on a quarterly basis.</li>
+                      <li>Nomination facility is provided by the bank.</li>
+                      <li>Tax benefits can be claimed with a fixed deposit receipt issued by the bank.</li>
+                      <li>TDS (Tax Deducted at Source) is not levied on the deposit.</li>
+                      <li>Resident Indians and HUFs are eligible.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Baroda Double Dhamaal Deposit Scheme <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>This scheme provides double the returns of original investment made into the fixed deposit account.</li>
+                      <li>Loan facility is available up to 90% on the deposit.</li>
+                      <li>Interest is compounded on a quarterly basis.</li>
+                      <li>Nomination facility is available.</li>
+                      <li>Tax exemption benefits on deposits under Section 80C of the Income Tax Act, 1961.</li>
+                      <li>General and Senior citizens are eligible.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Baroda Advantage Fixed Deposits Non-Callable <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>A domestic term deposit scheme where the depositor can get differential BOB FD rates over normal FD rates for a deposit amount of Rs. 15.01 Lakhs and a maximum amount of Rs. 20 Crores for the mentioned premature or partial withdrawal option.</li>
+                      <li>Nomination facility is provided by the bank.</li>
+                      <li>Auto-renewal facility is available on the deposit.</li>
+                      <li>The deposit is accepted as a security by the Government department.</li>
+                      <li>Resident Indian and HUFs are eligible for this scheme.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Fast Access Deposit <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>A flexible deposit scheme that allows the depositor to invest for a particular tenure and get guaranteed returns on the savings.</li>
+                      <li>This scheme provides benefits such as liquidity, security and higher returns on the investment made.</li>
+                      <li>Loan facility up to 90% is available.</li>
+                      <li>The FD account is linked to the existing savings account to avail benefits of the scheme.</li>
+                      <li>Resident Indians and HUFs are eligible.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">BOB Suvidha Fixed Deposit Scheme <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>Under this scheme, the depositor gets a combination of competitive interest rates along with easy liquidity. Customers can utilize their deposits enjoying the benefits of both, long-term as well as short-term deposits.</li>
+                      <li>Loan facility is available up to 90% on the deposit.</li>
+                      <li>Nomination facility is available.</li>
+                      <li>Senior citizens get an additional interest rate of 0.50% over the regular rates.</li>
+                      <li>This scheme offers a flexible deposit option with no lock-in period unlike a fixed deposit.</li>
+                      <li>Customers can get upto 90% of the deposited amount at the time of opening a fixed deposit without any limit.</li>
+                      <li>Resident Indians and HUFs are eligible.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Regular Income Plan <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>Best fit for those who regularly require money to supplement their income every month. Interest earned on the deposit acts as a source of regular income every month.</li>
+                      <li>Loan facility up to 90% is available on the deposit.</li>
+                      <li>Nomination facility is available.</li>
+                      <li>Interest on the deposit is credited on a quarterly basis.</li>
+                      <li>Resident Indians and HUFs are eligible.</li>
+                      <li>Senior citizens get an additional 0.50% over regular rates.</li>
+                      <li>Interest is paid only at the time of maturity.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Monthly Income Plan <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>This scheme provides regular income either on a monthly, quarterly, or half-yearly basis.</li>
+                      <li>Loan facility up to 90% is available on the deposit.</li>
+                      <li>Nomination facility is available.</li>
+                      <li>The monthly income will be paid at a discounted rate.</li>
+                      <li>Resident Indians and HUFs are eligible.</li>
+                      <li>Senior citizens get an additional 0.50% over regular rates.</li>
+                      <li>Interest is paid only at the time of maturity.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">BOB Money Multiplier Deposit <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>This deposit allows the depositor to link fixed deposit account to their savings account hence giving a higher rate of interest to the depositor along with easy liquidity whenever required.</li>
+                      <li>Nomination facility is available.</li>
+                      <li>Senior citizens get an additional 0.50% over regular rates.</li>
+                      <li>Interest is paid only at the time of maturity.</li>
+                      <li>Resident Indians and HUFs are eligible.</li>
+                      <li>Tax exemption benefits on deposits under Section 80C of the Income Tax Act, 1961.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Long-term Deposits <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <p>These deposits have their tenure ranging from 5 years to 10 years and offer an interest rate of 6.50%.</p>
+                  </div>
+                </div>
+
+                <h2>Axis vs Other Bank FD Rates</h2>
+                <h2 id="other-bank-rates">Bank of Baroda vs Other Banks' FD Rates</h2>
+                <p>Here's a comparison of Bank of Baroda FD rates with other banks:</p>
+                <table class="interval-table">
+                  <thead>
+                    <tr>
+                      <th>NAME</th>
+                      <th>TENURE</th>
+                      <th>INTEREST RATE</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Shriram Transport Finance FD</td><td>1 year - 5 years</td><td>7.60% - 8.60%</td><td><a href="#">More Details</a></td></tr>
+                    <tr><td>PNB FD</td><td>1 year - 10 years</td><td>6.25% - 6.75%</td><td><a href="#">More Details</a></td></tr>
+                    <tr><td>GHFL FD</td><td>5 years - 10 years</td><td>8.25% - 8.95%</td><td><a href="#">More Details</a></td></tr>
+                    <tr><td>SBI Bank FD</td><td>2 months - 10 years</td><td>5.50% - 6.50%</td><td><a href="#">More Details</a></td></tr>
+                    <tr><td>Equitas Bank FD</td><td>7 Days - 10 years</td><td>3.50% - 7.35%</td><td><a href="#">More Details</a></td></tr>
+                    <tr><td>HDFC Bank FD</td><td>2 months - 10 years</td><td>4.50% - 7.00%</td><td><a href="#">More Details</a></td></tr>
+                    <tr><td>ICICI Bank FD</td><td>2 months - 10 years</td><td>4.50% - 6.90%</td><td><a href="#">More Details</a></td></tr>
+                    <tr><td>Bandhan Bank FD</td><td>2 months - 10 years</td><td>3.00% - 7.60%</td><td><a href="#">More Details</a></td></tr>
+                    <tr><td>Canara Bank FD</td><td>2 months - 10 years</td><td>5.50% - 6.70%</td><td><a href="#">More Details</a></td></tr>
+                    <tr><td>Post Office FD</td><td>1 year - 5 years</td><td>6.80% - 7.50%</td><td><a href="#">More Details</a></td></tr>
+                  </tbody>
+                </table>
+                <h2 id="how-to-invest">How to Invest In BOB FD</h2>
+                <p>A Bank of Baroda FD account can be opened through different modes like Mobile App, Internet Banking, and offline.</p>
+                <h3>1) Internet Banking</h3>
+                <p>Follow the below-mentioned steps for opening a Bank of Baroda FD account via internet banking-</p>
+                <ul>
+                  <li>Sign in to the Bank of Baroda NetBanking account.</li>
+                  <li>Furnish all the required details.</li>
+                  <li>Fill out all the necessary details, nominee information and furnish the maturity instructions.</li>
+                  <li>On successful submission of all the information, the FD account will get booked.</li>
+                </ul>
+                <h3>2) Mobile App - Bank of Baroda Bank App</h3>
+                <p>Follow the steps mentioned ahead to open an FD account via Bank of Baroda Bank-</p>
+                <ul>
+                  <li>Download the Bank of Baroda Bank App and sign in.</li>
+                  <li>Click on the 'Fixed Deposit' option.</li>
+                  <li>Fill out all the required details, nominee information, and provide maturity instructions.</li>
+                  <li>On successful submission of all the information, the FD account will get booked.</li>
+                </ul>
+                <h3>3) Offline Bank of Baroda FD Opening</h3>
+                <p>For opening a Bank of Baroda FD account via offline mode, one has to visit the nearest Bank of Baroda branch. Fill out the required Bank of Baroda FD application form and submit all the necessary documents. Next, deposit the required funds to open the fixed deposit. On successful processing of the application, an FD receipt will be provided by the Bank of Baroda.</p>
+                <h2 id="eligibility">Eligibility to Open BOB FD Account</h2>
+                <p>Consumers can start FD investments in the bank from as low as Rs. 5000. There is no upper limit for these investments.</p>
+                <p>The following people or groups are eligible for opening Bank of Baroda fixed deposit accounts -</p>
+                <ul>
+                  <li>Individuals</li>
+                  <li>Partnership firms</li>
+                  <li>Minors</li>
+                  <li>Visually-challenged Individuals</li>
+                  <li>Senior citizens</li>
+                  <li>Sole proprietary companies</li>
+                  <li>Religious, charitable and educational institutions</li>
+                  <li>Hindu Undivided Families</li>
+                  <li>Trusts</li>
+                  <li>Clubs, societies, associations, etc.</li>
+                  <li>Joint account holder comprising of two or more members</li>
+                  <li>Panchayati Raj Institutions</li>
+                  <li>Limited companies</li>
+                </ul>
+                <h2 id="documents">Documents Required to Open BOB FD</h2>
+                <p>Proof of Identity</p>
+                <ul>
+                  <li>PAN card</li>
+                  <li>Driving License</li>
+                  <li>Passport</li>
+                  <li>Senior Citizen ID</li>
+                  <li>Voter ID card</li>
+                  <li>Photo credit card</li>
+                  <li>Government ID card</li>
+                </ul>
+                <p>Proof of Address</p>
+                <ul>
+                  <li>Telephone bill</li>
+                  <li>Passport</li>
+                  <li>Bank statement along with a cheque</li>
+                  <li>Electricity bill</li>
+                  <li>An ID card issued by Post Office</li>
+                </ul>
+                <h2 id="tax">Tax on Bank of Baroda Fixed Deposit</h2>
+                <p>An investment in Bank of Baroda Tax Saving FD entitles to tax saving up to Rs. 1,50,000 p.a. No other Bank of Baroda FDs entitle to tax saving under Section 80C of the Income Tax Act.</p>
+                <p>Also, note that the interest income from the Bank of Baroda Fixed Deposit is taxable according to the slab rates of income tax. Also, the interest income is subject to a TDS of 10% if the income from Bank of Baroda FD exceeds Rs. 40,000 p.a.</p>
+                <p>For senior citizens, the limit is Rs. 50,000 p.a. Also, if the investor fails to provide PAN card details to the bank, the TDS rate will be 20%.</p>
+                <h2 id="loan-against-fd">Loan Against Bank of Baroda FD</h2>
+                <p>Bank of Baroda provides loans against their Fixed Deposits. Investors can get up to 90%-95% of the deposit amount as a loan against BOB Fixed Deposit. The rate of interest will be between 1.5%-1.7% higher. However, for senior citizens, the differential rate is 1.25% above the FD rate.</p>
+                <h2 id="premature-closure">Premature Closure of Bank of Baroda FD</h2>
+                <p>All Bank of Baroda Fixed Deposits can be withdrawn prematurely except for the tax-saving Fixed Deposit. Also, no penalty is levied for deposits below Rs. 5 lakhs if kept for 12 months. However, there are premature withdrawal penalties for all deposits higher than Rs. 5 lakhs.</p>
+                <!-- <h2>FAQs</h2> -->
+            </article>
+            <aside class="if-sidebar">
+                <!-- Sidebar content based on screenshot -->
+                <div class="sidebar-card">
+                  <div class="fd-calculator">
+                      <h3>Calculate Bank of Baroda FD Interest</h3>
+                  
+                      <div class="amount-section">
+                        <div>Investment Amount</div>
+                        <div id="amount-display" class="amount-bold">₹25,000.00</div>
+                      </div>
+                  
+                      <input type="range" min="1000" max="1000000" step="1000" class="slider" id="amount-slider" value="25000">
+                  
+                      <div class="time-period-section">
+                        <div>Time Period</div>
+                        <div class="time-options">
+                          <div class="time-option" data-years="0.25" data-rate="5.15">9 Months</div>
+                          <div class="time-option active" data-years="1" data-rate="6">1 Year</div>
+                          <div class="time-option" data-years="2" data-rate="6">2 Years</div>
+                          <div class="time-option" data-years="3" data-rate="6.05">3 Years</div>
+                        </div>
+                      </div>
+                  
+                      <hr style="margin: 20px 0;">
+                  
+                      <div class="maturity-section">
+                        <div>
+                          <div class="bank-label">Bank of Baroda</div>
+                          <div id="rate-display">@6.85% p.a</div>
+                        </div>
+                        <div>
+                          <b id="maturity-amount">₹26,834</b>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="sidebar-list">
+                  <ul>
+                    <li class="list-heading"><a href="#">Fixed Deposit</a></li>
+                    <li><a href="#">Types of Fixed Deposits</a></li>
+                    <li><a href="#">FD Interest Rates</a></li>
+                    <li><a href="#">Senior Citizen FD Interest Rates</a></li>
+                    <li><a href="#">SBI Annuity Deposit Scheme</a></li>
+                    <li><a href="#">Certificate Of Deposit</a></li>
+                    <li><a href="#">SBI MOD</a></li>
+                    <li><a href="#">Short Term Fixed Deposit</a></li>
+                    <li><a href="#">Fixed Deposit Sweep-in</a></li>
+                    <li><a href="#">Monthly Interest Payout Fixed Deposit</a></li>
+                    <li><a href="#">Auto Renewal of Fixed Deposit</a></li>
+                  </ul>
+                  <ul>
+                    <li class="list-heading"><a href="#">FD Calculator</a></li>
+                    <li><a href="#">SBI FD Calculator</a></li>
+                    <li><a href="#">Post Office FD Calculator</a></li>
+                    <li><a href="#">HDFC FD Calculator</a></li>
+                    <li><a href="#">Canara Bank FD Calculator</a></li>
+                    <li><a href="#">PNB FD Calculator</a></li>
+                    <li><a href="#">Bank of Baroda FD Calculator</a></li>
+                    <li><a href="#">Union Bank FD Calculator</a></li>
+                    <li><a href="#">Indian Bank FD Calculator</a></li>
+                    <li><a href="#">Axis Bank FD Calculator</a></li>
+                    <li><a href="#">ICICI FD Calculator</a></li>
+                    <li><a href="#">Yes Bank FD Calculator</a></li>
+                  </ul>
+                   <ul>
+                    <li class="list-heading"><a href="#">Banking</a></li>
+                    <li><a href="#">SBI Net Banking</a></li>
+                    <li><a href="#">Canara Bank Net Banking</a></li>
+                    <li><a href="#">Bank of Baroda Net Banking</a></li>
+                    <li><a href="#">PNB Net Banking</a></li>
+                    <li><a href="#">Indian Bank Net Banking</a></li>
+                    <li><a href="#">UCO Bank Net Banking</a></li>
+                    <li><a href="#">Bank of India Net Banking</a></li>
+                    <li><a href="#">Axis Bank Net Banking</a></li>
+                    <li><a href="#">Union Bank of India Net Banking</a></li>
+                    <li><a href="#">IndusInd Bank Net Banking</a></li>
+                    <li><a href="#">HDFC Bank Net Banking</a></li>
+                    <li><a href="#">ICICI Bank Net Banking</a></li>
+                    <li><a href="#">IDFC First Bank Net Banking</a></li>
+                    <li><a href="#">Yes Bank Net Banking</a></li>
+                    <li><a href="#">Kotak Mahindra Bank Net Banking</a></li>
+                   </ul>
+                  <ul>
+                    <li class="list-heading"><a href="#">Asset Management Company (AMC)</a></li>
+                    <li><a href="#">SBI Mutual Fund</a></li>
+                    <li><a href="#">HDFC Mutual Fund</a></li>
+                    <li><a href="#">Nippon India Mutual Fund</a></li>
+                    <li><a href="#">Axis Mutual Fund</a></li>
+                    <li><a href="#">Groww Mutual Fund</a></li>
+                    <li><a href="#">ICICI Prudential Mutual Fund</a></li>
+                    <li><a href="#">Tata Mutual Fund</a></li>
+                    <li><a href="#">Aditya Birla Sunlife Mutual Fund</a></li>
+                    <li><a href="#">Mirae Asset Mutual Fund</a></li>
+                    <li><a href="#">View Other AMCS</a></li>
+                  </ul>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+    <div class="disclaimer">
+        <p><em>Disclaimer: The views expressed here are for informational purposes only. Fixed Deposits are subject to market risks, please read the scheme documents carefully before investing.</em></p>
+    </div>
+    <!-- <p style="font-size:0.9em;color:#888;">Source: <a href="" target="_blank"></a></p> -->
+    <div id="footer-placeholder"></div>
+    <script src="../script.js"></script>
+    <script>
+    function loadHTML(selector, url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => { document.querySelector(selector).innerHTML = data; });
+    }
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
+    </script>
+    <script>
+      const slider = document.getElementById("amount-slider");
+      const amountDisplay = document.getElementById("amount-display");
+      const timeOptions = document.querySelectorAll(".time-option");
+      const maturityDisplay = document.getElementById("maturity-amount");
+      const rateDisplay = document.getElementById("rate-display");
+  
+      let principal = parseInt(slider.value);
+      const activeTimeOption = document.querySelector(".time-option.active");
+      let timeInYears = parseFloat(activeTimeOption.getAttribute("data-years"));
+      let interestRate = parseFloat(activeTimeOption.getAttribute("data-rate"));
+      const compounding = 4; // quarterly
+  
+      function calculateMaturity(P, r, t, n) {
+        const amount = P * Math.pow(1 + (r / (100 * n)), n * t);
+        return amount.toFixed(2);
+      }
+  
+      function updateDisplay() {
+        const maturity = calculateMaturity(principal, interestRate, timeInYears, compounding);
+        amountDisplay.textContent = `₹${principal.toLocaleString()}.00`;
+        maturityDisplay.textContent = `₹${parseFloat(maturity).toLocaleString()}`;
+        rateDisplay.textContent = `@${interestRate}% p.a`;
+      }
+  
+      slider.addEventListener("input", (e) => {
+        principal = parseInt(e.target.value);
+        updateDisplay();
+      });
+  
+      timeOptions.forEach(option => {
+        option.addEventListener("click", () => {
+          timeOptions.forEach(opt => opt.classList.remove("active"));
+          option.classList.add("active");
+          timeInYears = parseFloat(option.getAttribute("data-years"));
+          interestRate = parseFloat(option.getAttribute("data-rate"));
+          updateDisplay();
+        });
+      });
+  
+      // Initialize
+      updateDisplay();
+    </script>
+   <script>
+     var coll = document.getElementsByClassName("collapsible");
+     var i;
+
+     for (i = 0; i < coll.length; i++) {
+       coll[i].addEventListener("click", function() {
+         this.classList.toggle("active");
+         var content = this.nextElementSibling;
+         if (content.style.maxHeight){
+           content.style.maxHeight = null;
+         } else {
+           content.style.maxHeight = content.scrollHeight + "px";
+         }
+       });
+     }
+     </script>
+</body>
+</html> 

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YES Bank FD Interest Rates - Fincept</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      h1 {
+          font-size: 24px;
+        }
+        .key-info-cards {
+          display: flex;
+          flex-wrap: wrap;
+          column-gap: 10rem;
+          margin-top: 20px;
+        }
+        .info-card {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          border-radius: 8px;
+          padding: 25px 20px;
+          width: 280px;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+          background-color: #fff;
+        }
+        .info-icon-wrapper {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #f0f0f0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .info-icon-wrapper i {
+          font-size: 18px;
+          color: #555;
+        }
+        .info-text {
+          font-size: 18px;
+          font-weight: bold;
+          color: #333;
+        }
+        .info-label {
+          font-size: 14px;
+          color: #777;
+        }
+        .info-text-label {
+          display: flex;
+          flex-direction: column;
+        }
+        .fd-calculator {
+      min-width: 380px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      .fd-calculator h3 {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .amount-section, .maturity-section {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        font-size: 14px;
+      }
+      .time-period-section {
+        margin: 20px 0;
+      }
+      .time-options {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .time-option {
+        padding: 6px 12px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .time-option.active {
+        background-color: #00a859;
+        color: #fff;
+        border-color: #00a859;
+      }
+      .slider {
+        width: 100%;
+        margin: 10px 0;
+      }
+      .maturity-section b {
+        font-size: 16px;
+      }
+      .bank-label {
+        color: #666;
+        font-size: 13px;
+      }
+      .amount-bold {
+        font-weight: bold;
+      }
+      .fd-calculator hr {
+        border: none;
+        border-top: 1px dotted #ccc;
+        margin: 20px 0;
+      }
+      .about-details {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+      }
+      .detail-column {
+        flex: 1;
+        padding: 0 20px;
+      }
+      .detail-column:first-child {
+        border-right: 1px dashed #ccc;
+        padding-right: 30px;
+      }
+      .detail-column:last-child {
+        padding-left: 30px;
+      }
+      .detail-item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .detail-item:last-child {
+        border-bottom: none;
+      }
+      .detail-label {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 5px;
+      }
+      .detail-value {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+      }
+      .scheme-section {
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .collapsible {
+        cursor: pointer;
+        font-size: smaller;
+        transition: background-color 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .collapsible-content {
+        padding: 0 15px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background-color: #f9f9f9;
+      }
+      .collapsible-content ul {
+        padding: 15px;
+        margin: 0;
+      }
+      .collapsible-content ul li {
+        margin-bottom: 8px;
+      }
+      .collapsible-content ul li:last-child {
+        margin-bottom: 0;
+      }
+      .collapsible .fas {
+        transition: transform 0.3s ease;
+      }
+      .collapsible.active .fas {
+        transform: rotate(180deg);
+      }
+      </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="if-grid">
+            <article class="income-funds">
+                <h1>YES Bank FD Interest Rates</h1>
+                <!-- Key Info Cards -->
+                <div class="key-info-cards">
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">4.75% - 7.25%</div>
+                            <div class="info-label">Interest rates</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">3 months - 10 years</div>
+                            <div class="info-label">Time Period</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">₹10,000 - no limit</div>
+                            <div class="info-label">Min - Max amount</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">QUARTERLY</div>
+                            <div class="info-label">Compounding</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- About Section -->
+                <h2 id="about-yes">About YES Bank Bank</h2>
+                <p>Yes Bank Limited is a renowned name among Indian private sector banks and is headquartered in Mumbai. It offers a plethora of banking and financial products to corporate and retail customers and Yes Bank FDs are one of them. Yes Bank FDs are a safe and secure investment option for all types of investors.</p>
+                <div class="about-details">
+                    <div class="detail-column">
+                        <div class="detail-item">
+                            <div class="detail-label">Started On</div>
+                            <div class="detail-value">2004</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Head Quarters</div>
+                            <div class="detail-value">Mumbai</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">CRISIL Rating</div>
+                            <div class="detail-value">NA</div>
+                        </div>
+                    </div>
+                    <div class="detail-column">
+                        <div class="detail-item">
+                            <div class="detail-label">CEO</div>
+                            <div class="detail-value">Prashant Kumar</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Listed on exchange as</div>
+                            <div class="detail-value">Yes Bank Ltd.</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">ICRA Rating</div>
+                            <div class="detail-value">NA</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FD Rates Table -->
+                <h2 id="fd-rates">YES Bank FD Rates 2023</h2>
+                <table class="interval-table">
+                    <thead>
+                        <tr>
+                            <th>Tenure</th>
+                            <th>Regular Customers</th>
+                            <th>Senior Citizens</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>7 days - 14 days</td><td>3.25%</td><td>3.75%</td></tr>
+                        <tr><td>15 days - 45 days</td><td>3.70%</td><td>4.20%</td></tr>
+                        <tr><td>46 days - 90 days</td><td>4.10%</td><td>4.60%</td></tr>
+                        <tr><td>91 days - 180 days</td><td>4.75%</td><td>5.25%</td></tr>
+                        <tr><td>181 days - 271 days</td><td>5.50%</td><td>6.00%</td></tr>
+                        <tr><td>272 days - less than 1 year</td><td>6.10%</td><td>6.60%</td></tr>
+                        <tr><td>1 year - less than 18 months</td><td>7.25%</td><td>7.75%</td></tr>
+                        <tr><td>18 months - less than 3 years</td><td>7.00%</td><td>7.50%</td></tr>
+                        <tr><td>3 years - less than 5 years</td><td>7.00%</td><td>7.50%</td></tr>
+                        <tr><td>5 years - 10 years</td><td>7.25%</td><td>7.75%</td></tr>
+                    </tbody>
+                </table>
+                <!-- Features and Benefits -->
+                <h2 id="features-benefits">Features and Benefits of YES Bank FD</h2>
+                <ul>
+                    <li>The tenure ranges from 7 days to 10 years</li>
+                    <li>Minimum deposit amount is ₹10,000. No maximum limit</li>
+                    <li>Interest is compounded quarterly and paid as per the chosen frequency</li>
+                    <li>Senior citizens receive an additional 0.50% interest rate</li>
+                    <li>Nomination facility is available for all FDs</li>
+                    <li>Loan/overdraft facility is available up to 90% of the deposit amount</li>
+                    <li>Auto-renewal facility is available for all FDs</li>
+                    <li>Tax-saving FDs are available for 5-year tenures, with tax deduction under Section 80C</li>
+                    <li>Latest YES Bank FD interest rates can be accessed from YES Bank's official website</li>
+                </ul>
+                <!-- Types of Schemes -->
+                <h2 id="fd-schemes">Types of YES Bank FD Schemes</h2>
+                <div class="scheme-section">
+                    <p class="collapsible">Resident Fixed Deposit <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Standard deposit scheme for all customers, tenure ranges from 7 days to 10 years</li>
+                            <li>Minimum deposit: ₹10,000</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                            <li>Special rates for senior citizens</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Yes Bank Tax Saver FD <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>5-year lock-in period, eligible for tax deduction under Section 80C of the Income Tax Act, 1961</li>
+                            <li>Maximum investment: ₹1.5 lakh per annum</li>
+                            <li>No premature withdrawal allowed</li>
+                            <li>Interest paid quarterly or on maturity</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Yes Bank Senior Citizens FD Scheme <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Special deposit scheme for senior citizens, offers extra interest rates and benefits</li>
+                            <li>Tenure: 7 days to 10 years</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Term-wise FD Rates -->
+                <h2 id="term-wise-rates">Term-wise YES Bank Fixed Deposit Rates</h2>
+                <h3>Short-term Deposits</h3>
+                <p>YES Bank FDs have tenures ranging from 7 days to 12 months, the interest rate ranges from 3.25% to 6.10% p.a. on deposits. These deposits are best for investors looking for lower tenure FDs and liquidity.</p>
+                <h3>Medium-term Deposits</h3>
+                <p>Medium-term deposits have tenures ranging from 1 year to less than 5 years. These FDs offer higher rates. 1 year YES Bank FD rate is 7.25%.</p>
+                <h3>Long-term Deposits</h3>
+                <p>These deposits have tenures ranging from 5 years to 10 years and offer a rate of 7.25%.</p>
+                <!-- Bank Comparison -->
+                <h2 id="other-bank-rates">YES Bank vs Other Banks' FD Rates</h2>
+                <table class="interval-table">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>TENURE</th>
+                            <th>INTEREST RATE</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Shriram Transport Finance FD</td><td>1 year - 5 years</td><td>7.60% - 8.60%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>DHFL FD</td><td>1 year - 5 years</td><td>8.25% - 8.90%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Axis Bank FD</td><td>7 days - 10 years</td><td>3.50% - 7.10%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>HDFC Bank FD</td><td>7 days - 10 years</td><td>3.00% - 7.00%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>ICICI Bank FD</td><td>7 days - 10 years</td><td>3.00% - 7.10%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Bandhan Bank FD</td><td>7 days - 10 years</td><td>3.00% - 7.60%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Canara Bank FD</td><td>7 days - 10 years</td><td>3.25% - 7.25%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Post Office FD</td><td>1 year - 5 years</td><td>6.90% - 7.50%</td><td><a href="#">More Details</a></td></tr>
+                    </tbody>
+                </table>
+                <!-- How to Invest -->
+                <h2 id="how-to-invest">How to Invest in YES Bank FD?</h2>
+                <p>Here are the ways through which one can open a Yes Bank FD Account:</p>
+                <h3>1) NetBanking</h3>
+                <ul>
+                    <li>Visit Yes Bank's website and sign in to retail net banking using your login and password. After signing in, head towards deposits and select your account. Open Yes Bank Deposit section.</li>
+                    <li>Next, select tenure, deposit amount, deposit area, maturity, Nominee is Required, Sweep in Required and submit.</li>
+                    <li>After completing, you will receive a confirmation number and your FD will get booked.</li>
+                </ul>
+                <h3>2) Mobile App – Yes Mobile</h3>
+                <ul>
+                    <li>Login to Yes Mobile App</li>
+                    <li>Choose Deposit Section</li>
+                    <li>Choose Fixed Deposit option</li>
+                    <li>Choose Tenure, Deposit Amount, Deposit Area, Tenure, Maturity instructions, Nomination Required, Sweep in Required and submit.</li>
+                    <li>After completing, you will receive a confirmation message.</li>
+                </ul>
+                <h3>3) Desktop (Web Mode)</h3>
+                <ul>
+                    <li>Go to Yes Bank NetBanking or Yes Bank website.</li>
+                    <li>Search for Yes Bank on Facebook Messenger or click the "Yes Robot" icon present at the bottom right of the website.</li>
+                    <li>Type "Open Fixed Deposit" and follow the steps as required.</li>
+                    <li>After completing, you will receive a confirmation message online.</li>
+                </ul>
+                <h3>4) Offline Mode</h3>
+                <ul>
+                    <li>Call 1800 1200</li>
+                    <li>Choose "Savings Account related query" and talk to FD Help.</li>
+                    <li>Choose an option to visit the nearby branch or create and book a fixed deposit.</li>
+                </ul>
+                <h3>5) Booking Through WhatsApp</h3>
+                <ul>
+                    <li>Send "Hi" to 8291201200 through a mobile number registered with the Bank.</li>
+                    <li>Choose Yes Bank Fixed Deposit, then share all fixed FD booking queries.</li>
+                    <li>Enter tenure, maturity, and other details.</li>
+                    <li>Receive confirmation by chat.</li>
+                    <li>Submit Nominee to book your FD.</li>
+                </ul>
+                <!-- Eligibility -->
+                <h2 id="eligibility">Eligibility to Open a YES Bank FD Account</h2>
+                <p>All individuals belonging to any of the following categories can open a Yes Bank FD online:</p>
+                <ul>
+                    <li>Resident individuals, including those (legal guardians and as co-applicant)</li>
+                    <li>Hindu undivided families</li>
+                    <li>Senior citizens</li>
+                    <li>Minors under resident individuals</li>
+                    <li>Public and private limited companies</li>
+                    <li>Co-operative societies, clubs and associations</li>
+                </ul>
+                <!-- Documents Required -->
+                <h2 id="documents">Documents Required to Open YES Bank FD</h2>
+                <p>The following documents have to be submitted by applicants for account/activation of Yes Bank FD -</p>
+                <ul>
+                    <li>Recent passport-size photograph and identity proof, as per the list of documents below.</li>
+                    <li>Valid ID document such as Aadhaar card, Voter ID, or driving license, as the proof of identification.</li>
+                    <li>Address proof, such as bank statement or utility bill, as the proof of address.</li>
+                    <li>PAN card, as per the bank's requirements.</li>
+                    <li>Other documents, such as certificate of business/trust to be submitted accordingly.</li>
+                    <li>The authorized signatories, certificate of authorization must be submitted accordingly.</li>
+                    <li>Co-operative societies, clubs, and associations must submit a copy of their by-laws.</li>
+                </ul>
+                <!-- Tax on FD -->
+                <h2 id="tax">Tax on Yes Bank Fixed Deposit</h2>
+                <p>An investment in the Yes Bank Tax Saving FD entitles to tax saving up to Rs. 1,50,000 p.a. on the other Yes Bank FDs entitle to tax saving under Section 80C of the Income Tax Act.</p>
+                <p>Also, note that the interest income from the Yes Bank Fixed Deposit is taxable according to the slab rates of income tax. Also, the interest income is subject to a TDS of 10% if the income from Yes Bank FD exceeds Rs. 40,000 p.a. For senior citizens, the limit is Rs. 50,000 p.a. Also, if the investor fails to provide PAN Card details to the bank, the TDS rate will be 20%.</p>
+                <!-- Loan Against FD -->
+                <h2 id="loan-against-fd">Loan Against Yes Bank FD</h2>
+                <p>Yes Bank provides loans against their Fixed Deposits. Investors can get up to 90% of the deposit amount as a loan against the fixed deposit. YES Bank allows loans at the rate between 4.5% - 6.5% above the FD rate, as per the bank's rules.</p>
+                <!-- Premature Closure -->
+                <h2 id="premature-closure">Premature Closure of Yes Bank Fixed Deposit</h2>
+                <p>YES Bank offers a premature withdrawal facility to its investors. The penalty is levied as per Yes Bank's terms and conditions. For FDs above Rs. 5 lakhs, the premature withdrawal penalty is 0.50% for senior citizens and 1.00% for fixed deposits above Rs. 5 lakh, as per the prevailing rules. Withdrawals made after 1 year will be calculated based on the deposit repayment amount and the interest rate for the relevant period, as per the bank's rules.</p>
+            </article>
+            <aside class="if-sidebar">
+                <!-- FD Calculator -->
+                <div class="sidebar-card">
+                    <div class="fd-calculator">
+                        <h3>Calculate Yes Bank FD Interest</h3>
+                        <div class="amount-section">
+                            <div>Investment Amount</div>
+                            <div id="amount-display" class="amount-bold">₹25,000.00</div>
+                        </div>
+                        <input type="range" min="10000" max="1000000" step="1000" class="slider" id="amount-slider" value="25000">
+                        <div class="time-period-section">
+                            <div>Time Period</div>
+                            <div class="time-options">
+                                <div class="time-option" data-years="0.25" data-rate="4.75">9 Months</div>
+                                <div class="time-option active" data-years="1" data-rate="7.25">1 Year</div>
+                                <div class="time-option" data-years="2" data-rate="7.00">2 Years</div>
+                                <div class="time-option" data-years="3" data-rate="7.00">3 Years</div>
+                            </div>
+                        </div>
+                        <hr style="margin: 20px 0;">
+                        <div class="maturity-section">
+                            <div>
+                                <div class="bank-label">Yes Bank</div>
+                                <div id="rate-display">@7.25% p.a</div>
+                            </div>
+                            <div>
+                                <b id="maturity-amount">₹26,834</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation Lists -->
+                <div class="sidebar-list">
+                    <ul>
+                        <li class="list-heading"><a href="#">Fixed Deposit</a></li>
+                        <li><a href="#">Types of Fixed Deposits</a></li>
+                        <li><a href="#">FD Interest Rates</a></li>
+                        <li><a href="#">Senior Citizen FD Interest Rates</a></li>
+                        <li><a href="#">SBI Annuity Deposit Scheme</a></li>
+                        <li><a href="#">Certificate Of Deposit</a></li>
+                        <li><a href="#">SBI MOD</a></li>
+                        <li><a href="#">Short Term Fixed Deposit</a></li>
+                        <li><a href="#">Fixed Deposit Sweep-in</a></li>
+                        <li><a href="#">Monthly Interest Payout Fixed Deposit</a></li>
+                        <li><a href="#">Auto Renewal of Fixed Deposit</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">FD Calculator</a></li>
+                        <li><a href="#">SBI FD Calculator</a></li>
+                        <li><a href="#">Post Office FD Calculator</a></li>
+                        <li><a href="#">HDFC FD Calculator</a></li>
+                        <li><a href="#">Canara Bank FD Calculator</a></li>
+                        <li><a href="#">PNB FD Calculator</a></li>
+                        <li><a href="#">Bank of Baroda FD Calculator</a></li>
+                        <li><a href="#">Union Bank FD Calculator</a></li>
+                        <li><a href="#">Indian Bank FD Calculator</a></li>
+                        <li><a href="#">Axis Bank FD Calculator</a></li>
+                        <li><a href="#">ICICI FD Calculator</a></li>
+                        <li><a href="#">Yes Bank FD Calculator</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Banking</a></li>
+                        <li><a href="#">SBI Net Banking</a></li>
+                        <li><a href="#">Canara Bank Net Banking</a></li>
+                        <li><a href="#">Bank of Baroda Net Banking</a></li>
+                        <li><a href="#">PNB Net Banking</a></li>
+                        <li><a href="#">Indian Bank Net Banking</a></li>
+                        <li><a href="#">UCO Bank Net Banking</a></li>
+                        <li><a href="#">Bank of India Net Banking</a></li>
+                        <li><a href="#">Axis Bank Net Banking</a></li>
+                        <li><a href="#">Union Bank of India Net Banking</a></li>
+                        <li><a href="#">IndusInd Bank Net Banking</a></li>
+                        <li><a href="#">HDFC Bank Net Banking</a></li>
+                        <li><a href="#">ICICI Bank Net Banking</a></li>
+                        <li><a href="#">IDFC First Bank Net Banking</a></li>
+                        <li><a href="#">Yes Bank Net Banking</a></li>
+                        <li><a href="#">Kotak Mahindra Bank Net Banking</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Asset Management Company (AMC)</a></li>
+                        <li><a href="#">SBI Mutual Fund</a></li>
+                        <li><a href="#">HDFC Mutual Fund</a></li>
+                        <li><a href="#">Nippon India Mutual Fund</a></li>
+                        <li><a href="#">Axis Mutual Fund</a></li>
+                        <li><a href="#">Groww Mutual Fund</a></li>
+                        <li><a href="#">ICICI Prudential Mutual Fund</a></li>
+                        <li><a href="#">Tata Mutual Fund</a></li>
+                        <li><a href="#">Aditya Birla Sunlife Mutual Fund</a></li>
+                        <li><a href="#">Mirae Asset Mutual Fund</a></li>
+                        <li><a href="#">View Other AMCS</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <div class="disclaimer">
+        <p><em>Disclaimer: The views expressed here are for informational purposes only. Fixed Deposits are subject to market risks, please read the scheme documents carefully before investing.</em></p>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="../script.js"></script>
+    <script>
+    function loadHTML(selector, url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => { document.querySelector(selector).innerHTML = data; });
+    }
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
+    </script>
+   <script>
+     var coll = document.getElementsByClassName("collapsible");
+     var i;
+     for (i = 0; i < coll.length; i++) {
+       coll[i].addEventListener("click", function() {
+         this.classList.toggle("active");
+         var content = this.nextElementSibling;
+         if (content.style.maxHeight){
+           content.style.maxHeight = null;
+         } else {
+           content.style.maxHeight = content.scrollHeight + "px";
+         }
+       });
+     }
+     </script>
+     <!-- FD Calculator JavaScript -->
+     <script>
+        // FD Calculator
+        const amountSlider = document.getElementById('amount-slider');
+        const amountDisplay = document.getElementById('amount-display');
+        const rateDisplay = document.getElementById('rate-display');
+        const maturityAmount = document.getElementById('maturity-amount');
+        const timeOptions = document.querySelectorAll('.time-option');
+        let timeInYears = 1; // Default to 1 year
+        let interestRate = 7.25; // Default rate
+        function updateCalculator() {
+            const amount = parseFloat(amountSlider.value);
+            const maturity = amount * (1 + (interestRate / 100)) ** timeInYears;
+            amountDisplay.textContent = `₹${amount.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            rateDisplay.textContent = `@${interestRate}% p.a`;
+            maturityAmount.textContent = `₹${Math.round(maturity).toLocaleString('en-IN')}`;
+        }
+        amountSlider.addEventListener('input', updateCalculator);
+        timeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                timeOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                timeInYears = parseFloat(this.dataset.years);
+                interestRate = parseFloat(this.dataset.rate);
+                updateCalculator();
+            });
+        });
+        updateCalculator();
+    </script>
+</body>
+</html> 

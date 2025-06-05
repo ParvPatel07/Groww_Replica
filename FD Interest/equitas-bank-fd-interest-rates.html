@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equitas FD Interest Rates - Fincept</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      h1 { font-size: 24px; }
+      .key-info-cards { display: flex; flex-wrap: wrap; column-gap: 10rem; margin-top: 20px; }
+      .info-card { display: flex; align-items: center; gap: 15px; border-radius: 8px; padding: 25px 20px; width: 280px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); background-color: #fff; }
+      .info-icon-wrapper { width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; }
+      .info-icon-wrapper i { font-size: 18px; color: #555; }
+      .info-text { font-size: 18px; font-weight: bold; color: #333; }
+      .info-label { font-size: 14px; color: #777; }
+      .info-text-label { display: flex; flex-direction: column; }
+      .fd-calculator { min-width: 380px; border: 1px solid #ddd; border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); }
+      .fd-calculator h3 { font-size: 16px; margin-bottom: 20px; color: #333; }
+      .amount-section, .maturity-section { display: flex; justify-content: space-between; margin: 10px 0; font-size: 14px; }
+      .time-period-section { margin: 20px 0; }
+      .time-options { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+      .time-option { padding: 6px 12px; border-radius: 20px; border: 1px solid #ccc; cursor: pointer; font-size: 13px; }
+      .time-option.active { background-color: #00a859; color: #fff; border-color: #00a859; }
+      .slider { width: 100%; margin: 10px 0; }
+      .maturity-section b { font-size: 16px; }
+      .bank-label { color: #666; font-size: 13px; }
+      .amount-bold { font-weight: bold; }
+      .fd-calculator hr { border: none; border-top: 1px dotted #ccc; margin: 20px 0; }
+      .about-details { display: flex; justify-content: space-around; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+      .detail-column { flex: 1; padding: 0 20px; }
+      .detail-column:first-child { border-right: 1px dashed #ccc; padding-right: 30px; }
+      .detail-column:last-child { padding-left: 30px; }
+      .detail-item { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #e0e0e0; }
+      .detail-item:last-child { border-bottom: none; }
+      .detail-label { font-size: 14px; color: #777; margin-bottom: 5px; }
+      .detail-value { font-size: 16px; font-weight: bold; color: #333; }
+      .scheme-section { margin-bottom: 15px; border-radius: 8px; overflow: hidden; }
+      .collapsible { cursor: pointer; font-size: smaller; transition: background-color 0.3s ease; display: flex; justify-content: space-between; align-items: center; }
+      .collapsible-content { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background-color: #f9f9f9; }
+      .collapsible-content ul { padding: 15px; margin: 0; }
+      .collapsible-content ul li { margin-bottom: 8px; }
+      .collapsible-content ul li:last-child { margin-bottom: 0; }
+      .collapsible .fas { transition: transform 0.3s ease; }
+      .collapsible.active .fas { transform: rotate(180deg); }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="if-grid">
+            <article class="income-funds">
+                <h1>Equitas FD Interest Rates</h1>
+                <!-- Key Info Cards -->
+                <div class="key-info-cards">
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">3.50% - 7.25%</div>
+                            <div class="info-label">Interest rates</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">7 Days - 10 years</div>
+                            <div class="info-label">Time Period</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">₹5000 - No Limit</div>
+                            <div class="info-label">Min. - Max amount</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">QUARTERLY</div>
+                            <div class="info-label">Compounding</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- About Section -->
+                <h2 id="about-equitas-bank">About Equitas Bank</h2>
+                <p>Equitas Small Finance Bank, as the name suggests, is a small finance bank founded by Equitas in the year 2007 as a microfinance lender. The bank is headquartered in Chennai and had received a license from the Reserve Bank of India.</p>
+                <div class="about-details">
+                    <div class="detail-column">
+                        <div class="detail-item">
+                            <div class="detail-label">Started On</div>
+                            <div class="detail-value">2016</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Head Quarters</div>
+                            <div class="detail-value">Chennai</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">CRISIL Rating</div>
+                            <div class="detail-value">A+</div>
+                        </div>
+                    </div>
+                    <div class="detail-column">
+                        <div class="detail-item">
+                            <div class="detail-label">CEO</div>
+                            <div class="detail-value">Vasudevan P N</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Listed on exchange as</div>
+                            <div class="detail-value">Equitas Small Finance Bank Ltd</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">ICRA Rating</div>
+                            <div class="detail-value">NA</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FD Rates Table -->
+                <h2 id="fd-rates">Equitas Bank FD Rates 2025 w.e.f 2nd Dec 2024</h2>
+                <table class="interval-table">
+                    <thead>
+                        <tr>
+                            <th>TENURE</th>
+                            <th>REGULAR CUSTOMERS</th>
+                            <th>SENIOR CITIZENS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>7 days - 14 days</td><td>3.50%</td><td>4.00%</td></tr>
+                        <tr><td>15 days - 29 days</td><td>3.50%</td><td>4.00%</td></tr>
+                        <tr><td>30 days - 45 days</td><td>4.00%</td><td>4.50%</td></tr>
+                        <tr><td>46 days - 90 days</td><td>4.50%</td><td>5.00%</td></tr>
+                        <tr><td>91 days - 120 days</td><td>5.25%</td><td>5.75%</td></tr>
+                        <tr><td>121 days - 180 days</td><td>5.25%</td><td>5.75%</td></tr>
+                        <tr><td>181 days - 210 days</td><td>6.75%</td><td>7.25%</td></tr>
+                        <tr><td>211 days - 270 days</td><td>6.75%</td><td>7.25%</td></tr>
+                        <tr><td>271 days - 364 days</td><td>7.00%</td><td>7.50%</td></tr>
+                    </tbody>
+                </table>
+                <!-- Features and Benefits -->
+                <h2 id="features-benefits">Features and Benefits of Equitas Fixed Deposit</h2>
+                <ul>
+                    <li>Safe to Invest</li>
+                    <li>Attractive interest rates</li>
+                    <li>Premature withdrawal allowed and no penalty if withdrawal above 6 months</li>
+                    <li>The minimum and maximum deposit amount for Equitas FD is Rs. 5000 and no cap on maximum investment</li>
+                    <li>Interest frequency available</li>
+                    <li>The tenure for Equitas Bank FD ranges from 7 days to 10 years</li>
+                    <li>Loan against FD available</li>
+                    <li>Auto-renewal and nomination facility available</li>
+                </ul>
+                <!-- Types of Schemes -->
+                <h2 id="fd-schemes">Types of Equitas Bank FD Schemes</h2>
+                <div class="scheme-section">
+                    <p class="collapsible">Equitas Regular Fixed Deposit <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Available for all customers to invest in tenure ranging between 7 days and 10 years.</li>
+                            <li>Minimum deposit: Rs. 5000</li>
+                            <li>Premature withdrawal allowed after 6 months and no penalty if withdrawn after 6 months</li>
+                            <li>Auto-renewal and nomination facility available</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Equitas Selfie FD <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Special FD currently available only through app and netbanking</li>
+                            <li>Minimum deposit: Rs. 5000</li>
+                            <li>Tenure: 1 year, 2 years, and 3 years</li>
+                            <li>Premature withdrawal allowed after 6 months and no penalty if withdrawn after 6 months</li>
+                            <li>Auto-renewal and nomination facility available</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Term wise FD Rates -->
+                <h2 id="term-wise-rates">Term wise Equitas Fixed Deposit Rates</h2>
+                <div class="scheme-section">
+                    <p class="collapsible">Short-term Deposits <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Tenure ranging from 7 days to 12 months. It does not have a lock-in period, and short-term FDs are offered at 3.50% - 7.00% p.a. for both regular and senior citizens.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Medium-term Deposits <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Tenure ranging from above 1 year to below 5 years, and offered at 7.25% p.a. for both regular and senior citizens.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Long-term Deposits <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>These deposits have deposit tenure ranging from 5 years to 10 years and offer a rate of 6.00%.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Bank Comparison -->
+                <h2 id="other-bank-rates">Equitas vs Other Banks' FD Rates</h2>
+                <p>Here's a comparison of Equitas Bank FD rates with other banks:</p>
+                <table class="interval-table">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>TENURE</th>
+                            <th>INTEREST RATE</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Shriram Transport Finance FD</td><td>1 year - 5 years</td><td>7.60% - 8.60%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>PNB FD</td><td>1 year - 10 years</td><td>6.25% - 6.75%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>GHFL FD</td><td>5 years - 10 years</td><td>8.25% - 8.95%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>SBI Bank FD</td><td>2 months - 10 years</td><td>5.50% - 6.50%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>HDFC Bank FD</td><td>2 months - 10 years</td><td>4.50% - 7.00%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>ICICI Bank FD</td><td>2 months - 10 years</td><td>4.50% - 6.90%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Bandhan Bank FD</td><td>2 months - 10 years</td><td>3.00% - 7.60%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Central Bank of India FD</td><td>3 months - 10 years</td><td>4.75% - 6.25%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Canara Bank FD</td><td>3 months - 10 years</td><td>5.50% - 6.70%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Post Office FD</td><td>1 year - 5 years</td><td>6.80% - 7.50%</td><td><a href="#">More Details</a></td></tr>
+                    </tbody>
+                </table>
+                <!-- How to Invest -->
+                <h2 id="how-to-invest">How to Invest in Equitas FD?</h2>
+                <p>An Equitas Small Finance Bank FD account can be opened through online and offline modes -</p>
+                <h3>1) Online Method</h3>
+                <ul>
+                    <li>Visit Equitas Small Finance Bank's official website.</li>
+                    <li>Login using credentials, then choose Personal option, then Deposit, and finally Fixed Deposit.</li>
+                    <li>Fill all details, select the required FD type, and click on 'Submit'.</li>
+                    <li>Make payment. Your FD will get digitally click on 'Submit'.</li>
+                    <li>After successful booking, you will get a confirmation message for future processing of booking this FD.</li>
+                </ul>
+                <h3>2) Offline Method</h3>
+                <p>For opening an Equitas Small Finance Bank FD account via offline mode, one has to visit the nearest Equitas Small Finance Bank branch. Fill out the Equitas Small Finance Bank FD Application form and submit all the necessary documents with the deposit amount. On successful verification of the application, an FD will be opened.</p>
+                <!-- Eligibility -->
+                <h2 id="eligibility">Eligibility to Open an Equitas FD Account</h2>
+                <ul>
+                    <li>Individuals and entities satisfying the following conditions can sign up for a fixed deposit in Equitas Small Finance Bank FD –</li>
+                    <li>Resident individuals</li>
+                    <li>Hindu Undivided Families (HUFs)</li>
+                    <li>Partnership firms</li>
+                    <li>Companies and organizations</li>
+                    <li>Trusts</li>
+                    <li>Limited companies</li>
+                </ul>
+                <!-- Documents Required -->
+                <h2 id="documents">Documents Required to Open Equitas FD</h2>
+                <p>The following documents have to be furnished for opening an Equitas Small Finance Bank FD –</p>
+                <ul>
+                    <li>A filled deposit application form</li>
+                    <li>PAN Card</li>
+                    <li>Valid passport, PAN card, Voter's ID card, Driving License, Aadhaar Card</li>
+                    <li>Address proof (Passport, PAN card, Driving License, utility bill, Telephone bill, other utility bills)</li>
+                    <li>2 passport size photographs</li>
+                    <li>Other documents as required, including introduction cum attestation, KYC and other utility needs</li>
+                </ul>
+                <!-- Tax on FD -->
+                <h2 id="tax">Tax on Equitas Small Finance Bank Fixed Deposit</h2>
+                <p>The implications on Equitas Small Finance Bank Fixed Deposit includes - Your TDS will be deducted at a 20% rate as against 10% under section 206AA. Also, no TDS credit or TDS certificate will be provided by the Income Tax Department. Also, note that Form 15G/H and other exemption certificates will remain invoked and penal TDS will be applicable.</p>
+                <!-- Loan Against FD -->
+                <h2 id="loan-against-fd">Loan Against Equitas Small Finance Bank FD</h2>
+                <p>Equitas Small Finance Bank offers loans up to 90-95% of the FD amount. The interest rate of such loans is usually fixed at 2% higher than the FD interest rate.</p>
+                <!-- Premature Closure -->
+                <h2 id="premature-closure">Premature Closure of Equitas Small Finance Bank Fixed Deposit</h2>
+                <p>Equitas Small Finance Bank allows premature withdrawal from FD. On withdrawal, an interest is levied by the officials once the booking date and the FD deposit. The penalty will apply only to those FDs with a tenure of more than 7 days. If the tenure is less than 7 days, such FD cannot be prematurely closed.</p>
+            </article>
+            <aside class="if-sidebar">
+                <!-- FD Calculator -->
+                <div class="sidebar-card">
+                    <div class="fd-calculator">
+                        <h3>Calculate Equitas Bank FD Interest</h3>
+                        <div class="amount-section">
+                            <div>Investment Amount</div>
+                            <div id="amount-display" class="amount-bold">₹25,000.00</div>
+                        </div>
+                        <input type="range" min="5000" max="1000000" step="1000" class="slider" id="amount-slider" value="25000">
+                        <div class="time-period-section">
+                            <div>Time Period</div>
+                            <div class="time-options">
+                                <div class="time-option" data-years="0.25" data-rate="4.75">9 Months</div>
+                                <div class="time-option active" data-years="1" data-rate="6.25">1 Year</div>
+                                <div class="time-option" data-years="2" data-rate="7.25">2 Years</div>
+                                <div class="time-option" data-years="3" data-rate="7.25">3 Years</div>
+                            </div>
+                        </div>
+                        <hr style="margin: 20px 0;">
+                        <div class="maturity-section">
+                            <div>
+                                <div class="bank-label">Equitas Bank</div>
+                                <div id="rate-display">@6.25% p.a</div>
+                            </div>
+                            <div>
+                                <b id="maturity-amount">₹26,534</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation Lists -->
+                <div class="sidebar-list">
+                    <ul>
+                        <li class="list-heading"><a href="#">Fixed Deposit</a></li>
+                        <li><a href="#">Types of Fixed Deposits</a></li>
+                        <li><a href="#">FD Interest Rates</a></li>
+                        <li><a href="#">Senior Citizen FD Interest Rates</a></li>
+                        <li><a href="#">SBI Annuity Deposit Scheme</a></li>
+                        <li><a href="#">Certificate Of Deposit</a></li>
+                        <li><a href="#">SBI MOD</a></li>
+                        <li><a href="#">Short Term Fixed Deposit</a></li>
+                        <li><a href="#">Fixed Deposit Sweep-in</a></li>
+                        <li><a href="#">Monthly Interest Payout Fixed Deposit</a></li>
+                        <li><a href="#">Auto Renewal of Fixed Deposit</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">FD Calculators</a></li>
+                        <li><a href="#">SBI FD Calculator</a></li>
+                        <li><a href="#">Post Office FD Calculator</a></li>
+                        <li><a href="#">HDFC FD Calculator</a></li>
+                        <li><a href="#">Canara Bank FD Calculator</a></li>
+                        <li><a href="#">PNB FD Calculator</a></li>
+                        <li><a href="#">Bank of Baroda FD Calculator</a></li>
+                        <li><a href="#">Union Bank FD Calculator</a></li>
+                        <li><a href="#">Indian Bank FD Calculator</a></li>
+                        <li><a href="#">Axis Bank FD Calculator</a></li>
+                        <li><a href="#">ICICI FD Calculator</a></li>
+                        <li><a href="#">Yes Bank FD Calculator</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Banking</a></li>
+                        <li><a href="#">SBI Net Banking</a></li>
+                        <li><a href="#">Canara Bank Net Banking</a></li>
+                        <li><a href="#">Bank of Baroda Net Banking</a></li>
+                        <li><a href="#">PNB Net Banking</a></li>
+                        <li><a href="#">Indian Bank Net Banking</a></li>
+                        <li><a href="#">UCO Bank Net Banking</a></li>
+                        <li><a href="#">Bank of India Net Banking</a></li>
+                        <li><a href="#">Axis Bank Net Banking</a></li>
+                        <li><a href="#">Union Bank of India Net Banking</a></li>
+                        <li><a href="#">IndusInd Bank Net Banking</a></li>
+                        <li><a href="#">HDFC Bank Net Banking</a></li>
+                        <li><a href="#">ICICI Bank Net Banking</a></li>
+                        <li><a href="#">IDFC First Bank Net Banking</a></li>
+                        <li><a href="#">Yes Bank Net Banking</a></li>
+                        <li><a href="#">Kotak Mahindra Bank Net Banking</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Asset Management Company (AMC)</a></li>
+                        <li><a href="#">SBI Mutual Fund</a></li>
+                        <li><a href="#">HDFC Mutual Fund</a></li>
+                        <li><a href="#">Nippon India Mutual Fund</a></li>
+                        <li><a href="#">Axis Mutual Fund</a></li>
+                        <li><a href="#">Groww Mutual Fund</a></li>
+                        <li><a href="#">ICICI Prudential Mutual Fund</a></li>
+                        <li><a href="#">Tata Mutual Fund</a></li>
+                        <li><a href="#">Aditya Birla Sunlife Mutual Fund</a></li>
+                        <li><a href="#">Mirae Asset Mutual Fund</a></li>
+                        <li><a href="#">View Other AMCS</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <div class="disclaimer">
+        <p><em>Disclaimer: The views expressed here are for informational purposes only. Fixed Deposits are subject to market risks, please read the scheme documents carefully before investing.</em></p>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="../script.js"></script>
+    <script>
+    function loadHTML(selector, url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => { document.querySelector(selector).innerHTML = data; });
+    }
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
+    </script>
+   <script>
+     var coll = document.getElementsByClassName("collapsible");
+     var i;
+     for (i = 0; i < coll.length; i++) {
+       coll[i].addEventListener("click", function() {
+         this.classList.toggle("active");
+         var content = this.nextElementSibling;
+         if (content.style.maxHeight){
+           content.style.maxHeight = null;
+         } else {
+           content.style.maxHeight = content.scrollHeight + "px";
+         }
+       });
+     }
+     </script>
+     <!-- FD Calculator JavaScript -->
+     <script>
+        const amountSlider = document.getElementById('amount-slider');
+        const amountDisplay = document.getElementById('amount-display');
+        const rateDisplay = document.getElementById('rate-display');
+        const maturityAmount = document.getElementById('maturity-amount');
+        const timeOptions = document.querySelectorAll('.time-option');
+        let timeInYears = 1; // Default to 1 year
+        let interestRate = 6.25; // Default rate
+        function updateCalculator() {
+            const amount = parseFloat(amountSlider.value);
+            const maturity = amount * (1 + (interestRate / 100)) ** timeInYears;
+            amountDisplay.textContent = `₹${amount.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            rateDisplay.textContent = `@${interestRate}% p.a`;
+            maturityAmount.textContent = `₹${Math.round(maturity).toLocaleString('en-IN')}`;
+        }
+        amountSlider.addEventListener('input', updateCalculator);
+        timeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                timeOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                timeInYears = parseFloat(this.dataset.years);
+                interestRate = parseFloat(this.dataset.rate);
+                updateCalculator();
+            });
+        });
+        updateCalculator();
+    </script>
+</body>
+</html> 

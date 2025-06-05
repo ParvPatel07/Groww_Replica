@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDFC FD Interest Rates 2025 - Fincept</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      h1 { font-size: 24px; }
+      .key-info-cards { display: flex; flex-wrap: wrap; column-gap: 10rem; margin-top: 20px; }
+      .info-card { display: flex; align-items: center; gap: 15px; border-radius: 8px; padding: 25px 20px; width: 280px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); background-color: #fff; }
+      .info-icon-wrapper { width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; }
+      .info-icon-wrapper i { font-size: 18px; color: #555; }
+      .info-text { font-size: 18px; font-weight: bold; color: #333; }
+      .info-label { font-size: 14px; color: #777; }
+      .info-text-label { display: flex; flex-direction: column; }
+      .fd-calculator { min-width: 380px; border: 1px solid #ddd; border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); }
+      .fd-calculator h3 { font-size: 16px; margin-bottom: 20px; color: #333; }
+      .amount-section, .maturity-section { display: flex; justify-content: space-between; margin: 10px 0; font-size: 14px; }
+      .time-period-section { margin: 20px 0; }
+      .time-options { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+      .time-option { padding: 6px 12px; border-radius: 20px; border: 1px solid #ccc; cursor: pointer; font-size: 13px; }
+      .time-option.active { background-color: #00a859; color: #fff; border-color: #00a859; }
+      .slider { width: 100%; margin: 10px 0; }
+      .maturity-section b { font-size: 16px; }
+      .bank-label { color: #666; font-size: 13px; }
+      .amount-bold { font-weight: bold; }
+      .fd-calculator hr { border: none; border-top: 1px dotted #ccc; margin: 20px 0; }
+      .about-details { display: flex; justify-content: space-around; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+      .detail-column { flex: 1; padding: 0 20px; }
+      .detail-column:first-child { border-right: 1px dashed #ccc; padding-right: 30px; }
+      .detail-column:last-child { padding-left: 30px; }
+      .detail-item { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #e0e0e0; }
+      .detail-item:last-child { border-bottom: none; }
+      .detail-label { font-size: 14px; color: #777; margin-bottom: 5px; }
+      .detail-value { font-size: 16px; font-weight: bold; color: #333; }
+      .scheme-section { margin-bottom: 15px; border-radius: 8px; overflow: hidden; }
+      .collapsible { cursor: pointer; font-size: smaller; transition: background-color 0.3s ease; display: flex; justify-content: space-between; align-items: center; }
+      .collapsible-content { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background-color: #f9f9f9; }
+      .collapsible-content ul { padding: 15px; margin: 0; }
+      .collapsible-content ul li { margin-bottom: 8px; }
+      .collapsible-content ul li:last-child { margin-bottom: 0; }
+      .collapsible .fas { transition: transform 0.3s ease; }
+      .collapsible.active .fas { transform: rotate(180deg); }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="if-grid">
+            <article class="income-funds">
+                <h1>HDFC FD Interest Rates 2025</h1>
+                <!-- Key Info Cards -->
+                <div class="key-info-cards">
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">4.50% - 7.00%</div>
+                            <div class="info-label">Interest rates</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">3 months - 10 years</div>
+                            <div class="info-label">Time Period</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">₹5000 - no limit</div>
+                            <div class="info-label">Min - Max amount</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">QUARTERLY</div>
+                            <div class="info-label">Compounding</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- About Section -->
+                <h2 id="about-hdfc-bank">About HDFC Bank</h2>
+                <p>HDFC Bank Limited is one of the largest private sector banks in India. It is headquartered in Mumbai, Maharashtra, and was also the third-largest company by market capitalization on the Indian stock exchanges. HDFC provides a wide range of banking and financial services to its customers.</p>
+                <div class="about-details">
+                    <div class="detail-column">
+                        <div class="detail-item">
+                            <div class="detail-label">Started On</div>
+                            <div class="detail-value">1994</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Head Quarters</div>
+                            <div class="detail-value">Mumbai</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">CRISIL Rating</div>
+                            <div class="detail-value">NA</div>
+                        </div>
+                    </div>
+                    <div class="detail-column">
+                        <div class="detail-item">
+                            <div class="detail-label">CEO</div>
+                            <div class="detail-value">Sashidhar Jagdishan</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Listed on exchange as</div>
+                            <div class="detail-value">HDFC Bank Ltd</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">ICRA Rating</div>
+                            <div class="detail-value">NA</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FD Rates Table -->
+                <h2 id="fd-rates">HDFC Bank FD Rates 2025</h2>
+                <table class="interval-table">
+                    <thead>
+                        <tr>
+                            <th>TENURE</th>
+                            <th>REGULAR CUSTOMERS</th>
+                            <th>SENIOR CITIZENS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>7 days - 14 days</td><td>3.00%</td><td>3.50%</td></tr>
+                        <tr><td>15 days - 29 days</td><td>3.00%</td><td>3.50%</td></tr>
+                        <tr><td>30 days - 45 days</td><td>3.50%</td><td>4.00%</td></tr>
+                        <tr><td>46 days - 60 days</td><td>4.50%</td><td>5.00%</td></tr>
+                        <tr><td>61 days - 90 days</td><td>4.50%</td><td>5.00%</td></tr>
+                        <tr><td>91 days - 6 months</td><td>4.50%</td><td>5.00%</td></tr>
+                        <tr><td>6 months 1 day - 9 months</td><td>5.75%</td><td>6.25%</td></tr>
+                        <tr><td>9 months 1 day - 1 year</td><td>6.00%</td><td>6.50%</td></tr>
+                        <tr><td>1 year - 2 years</td><td>7.00%</td><td>7.50%</td></tr>
+                        <tr><td>2 years - 5 years</td><td>7.00%</td><td>7.50%</td></tr>
+                        <tr><td>5 years - 10 years</td><td>7.00%</td><td>7.50%</td></tr>
+                    </tbody>
+                </table>
+                <!-- Features and Benefits -->
+                <h2 id="features-benefits">Features and Benefits of HDFC Fixed Deposit</h2>
+                <ul>
+                    <li>Senior citizens get an additional interest rate of 0.50% p.a. above regular rates.</li>
+                    <li>The minimum deposit required to open an FD with HDFC Bank is Rs. 5000.</li>
+                    <li>Nomination facility is provided by the bank.</li>
+                    <li>Loan up to 90% of the deposited amount is available.</li>
+                    <li>Interest is paid quarterly.</li>
+                    <li>HDFC Bank provides multiple deposit schemes to its customers, including Regular FD, Tax Saving FD, Senior Citizen FD, and more.</li>
+                </ul>
+                <!-- Types of Schemes -->
+                <h2 id="fd-schemes">Types of HDFC Bank FD Schemes</h2>
+                <div class="scheme-section">
+                    <p class="collapsible">Regular Fixed Deposit <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Available for all customers</li>
+                            <li>Tenure from 7 days to 10 years</li>
+                            <li>Minimum deposit of ₹5,000</li>
+                            <li>Interest rates up to 7.00%</li>
+                            <li>Quarterly interest payout option</li>
+                            <li>Loan facility available up to 90% of deposit amount</li>
+                            <li>Nomination facility available</li>
+                            <li>Senior citizens get additional interest</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">5-Year Tax Saving Fixed Deposit <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Lock-in period of 5 years</li>
+                            <li>Eligible for tax deduction under Section 80C</li>
+                            <li>Maximum investment limit of ₹1.5 lakhs per year</li>
+                            <li>No premature withdrawal allowed</li>
+                            <li>Interest rates as per regular FD</li>
+                            <li>Quarterly compounding of interest</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">HDFC Foreign Currency Non-Resident (FCNR) Fixed Deposit <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>FCNR (B) FDs allow NRIs to earn interest in foreign currency</li>
+                            <li>Tenure from 1 year to 5 years</li>
+                            <li>Interest paid half-yearly or on maturity</li>
+                            <li>Premature withdrawal allowed (with penalty)</li>
+                            <li>Loan/overdraft facility available against FCNR deposit with eligible margin</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Green Deposits <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Invest in HDFC Bank Green Deposit, which is used for eco-friendly, sustainable, and green projects</li>
+                            <li>Available for individuals, HUFs, companies, trusts, and societies</li>
+                            <li>Tenure from 1 year to 10 years</li>
+                            <li>Interest rates as per regular FD</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Overdraft Against Fixed Deposits <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Facility to avail overdraft against FD at concessional lending rate</li>
+                            <li>Available for both individuals and non-individuals holding regular or tax-saving FDs</li>
+                            <li>Loan/overdraft up to 90% of the deposit amount</li>
+                            <li>Interest charged only on the amount utilized</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Term wise FD Rates -->
+                <h2 id="term-wise-rates">Term wise HDFC Fixed Deposit Rates</h2>
+                <div class="scheme-section">
+                    <p class="collapsible">Short-term Deposits <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Tenure ranging from 7 days to 1 year. It does not have a lock-in period, and short-term FDs are offered at 3.00% to 6.00% p.a. for both regular and senior citizens.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Medium-term Deposits <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Tenure ranging from above 1 year to below 5 years, and offered at 7.00% p.a. for both regular and senior citizens.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Long-term Deposits <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>These deposits have deposit tenure ranging from 5 years to 10 years and offer a rate of 7.00%.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Bank Comparison -->
+                <h2 id="other-bank-rates">HDFC vs Other Banks' FD Rates</h2>
+                <p>Here's a comparison of HDFC Bank FD rates with other banks:</p>
+                <table class="interval-table">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>TENURE</th>
+                            <th>INTEREST RATE</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Shriram Transport Finance FD</td><td>1 year - 5 years</td><td>7.60% - 8.60%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>PNB FD</td><td>1 year - 10 years</td><td>6.25% - 6.75%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Axis Bank FD</td><td>7 days - 10 years</td><td>3.50% - 7.10%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>SBI Bank FD</td><td>2 months - 10 years</td><td>5.50% - 6.50%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>ICICI Bank FD</td><td>2 months - 10 years</td><td>4.50% - 6.90%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Bandhan Bank FD</td><td>2 months - 10 years</td><td>3.00% - 7.60%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Canara Bank FD</td><td>3 months - 10 years</td><td>5.50% - 6.70%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Central Bank of India FD</td><td>3 months - 10 years</td><td>4.75% - 6.25%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Post Office FD</td><td>1 year - 5 years</td><td>6.80% - 7.50%</td><td><a href="#">More Details</a></td></tr>
+                    </tbody>
+                </table>
+                <!-- How to Invest -->
+                <h2 id="how-to-invest">How to invest in HDFC FD?</h2>
+                <p>An HDFC Bank FD account can be opened through different modes like Mobile App, Internet Banking, and offline.</p>
+                <h3>1) Internet Banking</h3>
+                <ul>
+                    <li>Login to NetBanking account.</li>
+                    <li>Navigate to the 'Fixed Deposit' option.</li>
+                    <li>Fill out all the necessary details, nominee information, and furnish maturity instructions. Click on 'Submit'.</li>
+                    <li>On successful submission, the FD account will get booked.</li>
+                </ul>
+                <h3>2) Mobile App - HDFC Bank App</h3>
+                <ul>
+                    <li>Download the HDFC Bank Mobile App and sign in.</li>
+                    <li>Click on the 'Fixed Deposit' option.</li>
+                    <li>Fill out all the required details, nominee information, and furnish the Cheque/ signature option as needed.</li>
+                    <li>On successful submission, the FD account will get booked.</li>
+                </ul>
+                <h3>3) Opening HDFC FD via Offline</h3>
+                <p>For opening an HDFC Bank FD account via the offline mode, visit the nearest HDFC Bank branch. Fill out the HDFC Bank FD application form and submit all the necessary documents with the deposit amount. On successful processing of the application, an FD receipt will be provided by the HDFC Bank.</p>
+                <!-- Eligibility -->
+                <h2 id="eligibility">Eligibility to Open an HDFC FD Account</h2>
+                <ul>
+                    <li>Indian resident individuals</li>
+                    <li>Minors (under guardianship)</li>
+                    <li>Trusts</li>
+                    <li>Limited companies</li>
+                    <li>Hindu Undivided Family (HUF members)</li>
+                    <li>Partnership firms</li>
+                </ul>
+                <!-- Documents Required -->
+                <h2 id="documents">Documents Required to Open State Bank of India FD</h2>
+                <p>To open a fixed deposit account with HDFC Bank, an individual needs to furnish the following documents.</p>
+                <p>Proof of identity</p>
+                <ul>
+                    <li>Aadhar card</li>
+                    <li>Voter ID card</li>
+                    <li>PAN card</li>
+                    <li>Driving license</li>
+                    <li>Passport</li>
+                    <li>Senior citizen card (if used)</li>
+                </ul>
+                <p>Proof of Address</p>
+                <ul>
+                    <li>Electricity bill</li>
+                    <li>Bank statement including cheque</li>
+                    <li>Telephone bill</li>
+                    <li>An ID card/certificate issued by Post Office</li>
+                </ul>
+                <!-- Tax on FD -->
+                <h2 id="tax">Tax on HDFC Bank Fixed Deposit</h2>
+                <p>HDFC Bank Fixed Deposit is a tax saving investment option entitled to tax deduction under Section 80C of the Income Tax Act. The interest income from the deposit is taxed as per the investor's applicable slab rate. TDS is deducted at 10% if the interest income exceeds Rs. 40,000 (Rs. 50,000 for senior citizens). If PAN is not provided, TDS is deducted at 20%.</p>
+                <!-- Loan Against FD -->
+                <h2 id="loan-against-fd">Loan against HDFC Bank Fixed Deposits</h2>
+                <p>A fixed deposit holder is eligible for a loan against HDFC FD. The bank approves a loan of up to 90% of the FD's value at a rate of interest 1-2% above the FD rate. Senior citizens get a higher loan limit and lower interest rate. This facility is not available for tax-saving FDs. Loan against FD is available for both individuals and non-individuals, including Regular Fixed Deposit schemes and not tax-saving FDs.</p>
+                <!-- Premature Closure -->
+                <h2 id="premature-closure">Premature Closure of HDFC Bank Fixed Deposit</h2>
+                <p>HDFC Bank allows premature withdrawal of FDs with applicable fee/penalty clauses. Note that this will be on the lower amount of the interest rate and the period of the deposit.</p>
+                <p>For tax-saving FDs, premature withdrawal is not allowed. For other FDs, the penalty is 1% on the interest rate for the period the deposit has remained with the bank. The penalty is not applicable for deposits below Rs. 5 lakh if kept for more than 12 months. The penalty is only applicable for deposits above Rs. 5 lakh or for deposits kept for less than 12 months. The premature withdrawal penalty will apply for early breaking of deposits, as per HDFC's policy.</p>
+            </article>
+            <aside class="if-sidebar">
+                <!-- FD Calculator -->
+                <div class="sidebar-card">
+                    <div class="fd-calculator">
+                        <h3>Calculate HDFC Bank FD Interest</h3>
+                        <div class="amount-section">
+                            <div>Investment Amount</div>
+                            <div id="amount-display" class="amount-bold">₹25,000.00</div>
+                        </div>
+                        <input type="range" min="5000" max="1000000" step="1000" class="slider" id="amount-slider" value="25000">
+                        <div class="time-period-section">
+                            <div>Time Period</div>
+                            <div class="time-options">
+                                <div class="time-option" data-years="0.25" data-rate="4.50">9 Months</div>
+                                <div class="time-option active" data-years="1" data-rate="6.00">1 Year</div>
+                                <div class="time-option" data-years="2" data-rate="7.00">2 Years</div>
+                                <div class="time-option" data-years="3" data-rate="7.00">3 Years</div>
+                            </div>
+                        </div>
+                        <hr style="margin: 20px 0;">
+                        <div class="maturity-section">
+                            <div>
+                                <div class="bank-label">HDFC Bank</div>
+                                <div id="rate-display">@6.00% p.a</div>
+                            </div>
+                            <div>
+                                <b id="maturity-amount">₹26,023</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation Lists -->
+                <div class="sidebar-list">
+                    <ul>
+                        <li class="list-heading"><a href="#">Fixed Deposit</a></li>
+                        <li><a href="#">Types of Fixed Deposits</a></li>
+                        <li><a href="#">FD Interest Rates</a></li>
+                        <li><a href="#">Senior Citizen FD Interest Rates</a></li>
+                        <li><a href="#">SBI Annuity Deposit Scheme</a></li>
+                        <li><a href="#">Certificate Of Deposit</a></li>
+                        <li><a href="#">SBI MOD</a></li>
+                        <li><a href="#">Short Term Fixed Deposit</a></li>
+                        <li><a href="#">Fixed Deposit Sweep-in</a></li>
+                        <li><a href="#">Monthly Interest Payout Fixed Deposit</a></li>
+                        <li><a href="#">Auto Renewal of Fixed Deposit</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">FD Calculators</a></li>
+                        <li><a href="#">SBI FD Calculator</a></li>
+                        <li><a href="#">Post Office FD Calculator</a></li>
+                        <li><a href="#">HDFC FD Calculator</a></li>
+                        <li><a href="#">Canara Bank FD Calculator</a></li>
+                        <li><a href="#">PNB FD Calculator</a></li>
+                        <li><a href="#">Bank of Baroda FD Calculator</a></li>
+                        <li><a href="#">Union Bank FD Calculator</a></li>
+                        <li><a href="#">Indian Bank FD Calculator</a></li>
+                        <li><a href="#">Axis Bank FD Calculator</a></li>
+                        <li><a href="#">ICICI FD Calculator</a></li>
+                        <li><a href="#">Yes Bank FD Calculator</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Banking</a></li>
+                        <li><a href="#">SBI Net Banking</a></li>
+                        <li><a href="#">Canara Bank Net Banking</a></li>
+                        <li><a href="#">Bank of Baroda Net Banking</a></li>
+                        <li><a href="#">PNB Net Banking</a></li>
+                        <li><a href="#">Indian Bank Net Banking</a></li>
+                        <li><a href="#">UCO Bank Net Banking</a></li>
+                        <li><a href="#">Bank of India Net Banking</a></li>
+                        <li><a href="#">Axis Bank Net Banking</a></li>
+                        <li><a href="#">Union Bank of India Net Banking</a></li>
+                        <li><a href="#">IndusInd Bank Net Banking</a></li>
+                        <li><a href="#">HDFC Bank Net Banking</a></li>
+                        <li><a href="#">ICICI Bank Net Banking</a></li>
+                        <li><a href="#">IDFC First Bank Net Banking</a></li>
+                        <li><a href="#">Yes Bank Net Banking</a></li>
+                        <li><a href="#">Kotak Mahindra Bank Net Banking</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Asset Management Company (AMC)</a></li>
+                        <li><a href="#">SBI Mutual Fund</a></li>
+                        <li><a href="#">HDFC Mutual Fund</a></li>
+                        <li><a href="#">Nippon India Mutual Fund</a></li>
+                        <li><a href="#">Axis Mutual Fund</a></li>
+                        <li><a href="#">Groww Mutual Fund</a></li>
+                        <li><a href="#">ICICI Prudential Mutual Fund</a></li>
+                        <li><a href="#">Tata Mutual Fund</a></li>
+                        <li><a href="#">Aditya Birla Sunlife Mutual Fund</a></li>
+                        <li><a href="#">Mirae Asset Mutual Fund</a></li>
+                        <li><a href="#">View Other AMCS</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <div class="disclaimer">
+        <p><em>Disclaimer: The views expressed here are for informational purposes only. Fixed Deposits are subject to market risks, please read the scheme documents carefully before investing.</em></p>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="../script.js"></script>
+    <script>
+    function loadHTML(selector, url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => { document.querySelector(selector).innerHTML = data; });
+    }
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
+    </script>
+   <script>
+     var coll = document.getElementsByClassName("collapsible");
+     var i;
+     for (i = 0; i < coll.length; i++) {
+       coll[i].addEventListener("click", function() {
+         this.classList.toggle("active");
+         var content = this.nextElementSibling;
+         if (content.style.maxHeight){
+           content.style.maxHeight = null;
+         } else {
+           content.style.maxHeight = content.scrollHeight + "px";
+         }
+       });
+     }
+     </script>
+     <!-- FD Calculator JavaScript -->
+     <script>
+        const amountSlider = document.getElementById('amount-slider');
+        const amountDisplay = document.getElementById('amount-display');
+        const rateDisplay = document.getElementById('rate-display');
+        const maturityAmount = document.getElementById('maturity-amount');
+        const timeOptions = document.querySelectorAll('.time-option');
+        let timeInYears = 1; // Default to 1 year
+        let interestRate = 6.00; // Default rate
+        function updateCalculator() {
+            const amount = parseFloat(amountSlider.value);
+            const maturity = amount * (1 + (interestRate / 100)) ** timeInYears;
+            amountDisplay.textContent = `₹${amount.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            rateDisplay.textContent = `@${interestRate}% p.a`;
+            maturityAmount.textContent = `₹${Math.round(maturity).toLocaleString('en-IN')}`;
+        }
+        amountSlider.addEventListener('input', updateCalculator);
+        timeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                timeOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                timeInYears = parseFloat(this.dataset.years);
+                interestRate = parseFloat(this.dataset.rate);
+                updateCalculator();
+            });
+        });
+        updateCalculator();
+    </script>
+</body>
+</html> 

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICICI FD Interest Rates - Fincept</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      h1 { font-size: 24px; }
+      .key-info-cards { display: flex; flex-wrap: wrap; column-gap: 10rem; margin-top: 20px; }
+      .info-card { display: flex; align-items: center; gap: 15px; border-radius: 8px; padding: 25px 20px; width: 280px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); background-color: #fff; }
+      .info-icon-wrapper { width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; }
+      .info-icon-wrapper i { font-size: 18px; color: #555; }
+      .info-text { font-size: 18px; font-weight: bold; color: #333; }
+      .info-label { font-size: 14px; color: #777; }
+      .info-text-label { display: flex; flex-direction: column; }
+      .fd-calculator { min-width: 380px; border: 1px solid #ddd; border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); }
+      .fd-calculator h3 { font-size: 16px; margin-bottom: 20px; color: #333; }
+      .amount-section, .maturity-section { display: flex; justify-content: space-between; margin: 10px 0; font-size: 14px; }
+      .time-period-section { margin: 20px 0; }
+      .time-options { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+      .time-option { padding: 6px 12px; border-radius: 20px; border: 1px solid #ccc; cursor: pointer; font-size: 13px; }
+      .time-option.active { background-color: #00a859; color: #fff; border-color: #00a859; }
+      .slider { width: 100%; margin: 10px 0; }
+      .maturity-section b { font-size: 16px; }
+      .bank-label { color: #666; font-size: 13px; }
+      .amount-bold { font-weight: bold; }
+      .fd-calculator hr { border: none; border-top: 1px dotted #ccc; margin: 20px 0; }
+      .about-details { display: flex; justify-content: space-around; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+      .detail-column { flex: 1; padding: 0 20px; }
+      .detail-column:first-child { border-right: 1px dashed #ccc; padding-right: 30px; }
+      .detail-column:last-child { padding-left: 30px; }
+      .detail-item { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #e0e0e0; }
+      .detail-item:last-child { border-bottom: none; }
+      .detail-label { font-size: 14px; color: #777; margin-bottom: 5px; }
+      .detail-value { font-size: 16px; font-weight: bold; color: #333; }
+      .scheme-section { margin-bottom: 15px; border-radius: 8px; overflow: hidden; }
+      .collapsible { cursor: pointer; font-size: smaller; transition: background-color 0.3s ease; display: flex; justify-content: space-between; align-items: center; }
+      .collapsible-content { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background-color: #f9f9f9; }
+      .collapsible-content ul { padding: 15px; margin: 0; }
+      .collapsible-content ul li { margin-bottom: 8px; }
+      .collapsible-content ul li:last-child { margin-bottom: 0; }
+      .collapsible .fas { transition: transform 0.3s ease; }
+      .collapsible.active .fas { transform: rotate(180deg); }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="if-grid">
+            <article class="income-funds">
+                <h1>ICICI FD Interest Rates</h1>
+                <!-- Key Info Cards -->
+                <div class="key-info-cards">
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">4.50% - 6.90%</div>
+                            <div class="info-label">Interest rates</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">3 months - 10 years</div>
+                            <div class="info-label">Time Period</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">₹10,000 - no limit</div>
+                            <div class="info-label">Min - Max amount</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">QUARTERLY</div>
+                            <div class="info-label">Compounding</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- About Section -->
+                <h2 id="about-icici-bank">About ICICI Bank</h2>
+                <p>ICICI Bank Limited is one of India's leading banking institutions headquartered in Vadodara, Gujarat, with its corporate offices in Mumbai, Maharashtra. The bank offers a wide range of banking products and services for retail as well as corporate customers. This includes various fixed deposit schemes where customers get assured returns and safe investment options at attractive interest rates. The bank also has dedicated online and netbanking channels for digital and virtual fixed deposit services for all customers, making it convenient to invest in ICICI FDs.</p>
+                <div class="about-details">
+                    <div class="detail-column">
+                        <div class="detail-item">
+                            <div class="detail-label">Started On</div>
+                            <div class="detail-value">1994</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Head Quarters</div>
+                            <div class="detail-value">Vadodara</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">CRISIL Rating</div>
+                            <div class="detail-value">NA</div>
+                        </div>
+                    </div>
+                    <div class="detail-column">
+                        <div class="detail-item">
+                            <div class="detail-label">CEO</div>
+                            <div class="detail-value">Sandeep Bakhshi</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Listed on exchange as</div>
+                            <div class="detail-value">ICICI Bank Ltd</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">ICRA Rating</div>
+                            <div class="detail-value">NA</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FD Rates Table -->
+                <h2 id="fd-rates">ICICI Bank FD Rates 2025 w.e.f 2nd Jan 2025</h2>
+                <table class="interval-table">
+                    <thead>
+                        <tr>
+                            <th>TENURE</th>
+                            <th>REGULAR CUSTOMERS</th>
+                            <th>SENIOR CITIZENS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>7 days - 14 days</td><td>3.00%</td><td>3.50%</td></tr>
+                        <tr><td>15 days - 29 days</td><td>3.00%</td><td>3.50%</td></tr>
+                        <tr><td>30 days - 45 days</td><td>3.50%</td><td>4.00%</td></tr>
+                        <tr><td>46 days - 60 days</td><td>4.50%</td><td>5.00%</td></tr>
+                        <tr><td>61 days - 90 days</td><td>4.50%</td><td>5.00%</td></tr>
+                        <tr><td>91 days - 184 days</td><td>4.75%</td><td>5.25%</td></tr>
+                        <tr><td>185 days - 270 days</td><td>5.75%</td><td>6.25%</td></tr>
+                        <tr><td>271 days - 1 year</td><td>6.00%</td><td>6.50%</td></tr>
+                        <tr><td>1 year - 2 years</td><td>6.90%</td><td>7.40%</td></tr>
+                        <tr><td>2 years - 3 years</td><td>7.00%</td><td>7.50%</td></tr>
+                        <tr><td>3 years - 5 years</td><td>7.00%</td><td>7.50%</td></tr>
+                        <tr><td>5 years - 10 years</td><td>6.90%</td><td>7.40%</td></tr>
+                    </tbody>
+                </table>
+                <!-- Features and Benefits -->
+                <h2 id="features-benefits">Features and Benefits of ICICI Fixed Deposit</h2>
+                <ul>
+                    <li>Senior citizens get an additional interest rate of 0.50% p.a. over regular rates.</li>
+                    <li>The minimum deposit required to open an FD with ICICI Bank is Rs. 10,000.</li>
+                    <li>Nomination facility is provided by the bank.</li>
+                    <li>Loan up to 90% of the deposited amount is available.</li>
+                    <li>Interest is paid quarterly.</li>
+                    <li>ICICI Bank provides multiple deposit schemes to its customers, including Regular FD, Tax Saving FD, Senior Citizen FD, and more.</li>
+                </ul>
+                <!-- Types of Schemes -->
+                <h2 id="fd-schemes">Types of ICICI Bank FD Schemes</h2>
+                <div class="scheme-section">
+                    <p class="collapsible">Regular Fixed Deposit <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>This is the most popular scheme available to depositors in standard tenures that get standard interest rates and deposit amount and tenure as per customer's choice.</li>
+                            <li>Minimum deposit: Rs. 10,000</li>
+                            <li>Tenure: 7 days to 10 years</li>
+                            <li>Quarterly interest payout option</li>
+                            <li>Loan/overdraft facility up to 90% of the deposit</li>
+                            <li>Nomination facility available</li>
+                            <li>Senior citizens get additional interest</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Tax Saving Fixed Deposit <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Lock-in period of 5 years</li>
+                            <li>Eligible for tax deduction under Section 80C</li>
+                            <li>Maximum investment limit of ₹1.5 lakhs per year</li>
+                            <li>No premature withdrawal allowed</li>
+                            <li>Interest rates as per regular FD</li>
+                            <li>Quarterly compounding of interest</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Security Deposit <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>This special deposit scheme allows organizations, trusts, societies, and clubs to keep security in favor of a third party in the form of fixed deposit.</li>
+                            <li>Minimum deposit: Rs. 10,000</li>
+                            <li>Tenure: 7 days to 10 years</li>
+                            <li>Loan/overdraft facility up to 90% of the deposit</li>
+                            <li>Nomination facility available</li>
+                            <li>Senior citizens get additional interest</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Money Multiplier Fixed Deposit <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>This is a special deposit scheme that offers a linked savings/current eligibility, enabled with high earnings of a fixed deposit by automatically transferring surplus funds to FD.</li>
+                            <li>Minimum deposit: Rs. 10,000</li>
+                            <li>Tenure: 1 year to 10 years</li>
+                            <li>Loan/overdraft facility up to 90% of the deposit</li>
+                            <li>Nomination facility available</li>
+                            <li>Senior citizens get additional interest</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Fixed Deposit with Monthly Income Option <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>This is a special deposit scheme that offers a fixed monthly income plan and interest payout option for customers who prefer periodic payouts.</li>
+                            <li>Minimum deposit: Rs. 10,000</li>
+                            <li>Tenure: 1 year to 10 years</li>
+                            <li>Loan/overdraft facility up to 90% of the deposit</li>
+                            <li>Nomination facility available</li>
+                            <li>Senior citizens get additional interest</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">FD in a suite of products <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>This includes offering the deposit scheme as part of a package of other benefits for its customers.</li>
+                            <li>Minimum deposit: Rs. 10,000</li>
+                            <li>Tenure: 7 days to 10 years</li>
+                            <li>Loan/overdraft facility up to 90% of the deposit</li>
+                            <li>Nomination facility available</li>
+                            <li>Senior citizens get additional interest</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Term wise FD Rates -->
+                <h2 id="term-wise-rates">Term wise ICICI Fixed Deposit Rates</h2>
+                <div class="scheme-section">
+                    <p class="collapsible">Short-term Deposits <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Tenure ranging from 7 days to 1 year. It does not have a lock-in period, and short-term FDs are offered at 3.00% to 6.00% p.a. for both regular and senior citizens.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Medium-term Deposits <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Tenure ranging from above 1 year to below 5 years, and offered at 6.90% to 7.00% p.a. for both regular and senior citizens.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Long-term Deposits <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>These deposits have deposit tenure ranging from 5 years to 10 years and offer a rate of 6.90%.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Bank Comparison -->
+                <h2 id="other-bank-rates">ICICI vs Other Banks' FD Rates</h2>
+                <p>Here's a comparison of ICICI Bank FD rates with other banks:</p>
+                <table class="interval-table">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>TENURE</th>
+                            <th>INTEREST RATE</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Shriram Transport Finance FD</td><td>1 year - 5 years</td><td>7.60% - 8.60%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>PNB FD</td><td>1 year - 10 years</td><td>6.25% - 6.75%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Axis Bank FD</td><td>7 days - 10 years</td><td>3.50% - 7.10%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>SBI Bank FD</td><td>2 months - 10 years</td><td>5.50% - 6.50%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>HDFC Bank FD</td><td>2 months - 10 years</td><td>4.50% - 7.00%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Bandhan Bank FD</td><td>2 months - 10 years</td><td>3.00% - 7.60%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Canara Bank FD</td><td>3 months - 10 years</td><td>5.50% - 6.70%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Central Bank of India FD</td><td>3 months - 10 years</td><td>4.75% - 6.25%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Post Office FD</td><td>1 year - 5 years</td><td>6.80% - 7.50%</td><td><a href="#">More Details</a></td></tr>
+                    </tbody>
+                </table>
+                <!-- How to Invest -->
+                <h2 id="how-to-invest">How to invest in ICICI FD?</h2>
+                <p>An ICICI Bank FD account can be opened via different modes such as Mobile App, Internet Banking, and offline.</p>
+                <h3>1) Internet Banking</h3>
+                <ul>
+                    <li>Sign in to Internet Banking and open an ICICI Bank FD account via internet banking.</li>
+                    <li>Sign in to the NetBanking account and go to the 'Fixed Deposit' option.</li>
+                    <li>Fill out all the necessary details, nominee information, and instructions.</li>
+                    <li>After successful submission, the FD account will get opened and confirmation will be provided.</li>
+                </ul>
+                <h3>2) Mobile App - ICICI Bank App</h3>
+                <ul>
+                    <li>Download the ICICI Bank app and sign in.</li>
+                    <li>Click on the 'Fixed Deposit' option.</li>
+                    <li>Fill out all the required details, nominee information, and instructions.</li>
+                    <li>On successful submission, the FD account will get booked.</li>
+                </ul>
+                <h3>3) Offline ICICI Bank FD Opening</h3>
+                <p>For opening an ICICI Bank FD account via the offline mode, visit the nearest ICICI Bank branch. An ICICI Bank FD application form must be provided to the bank. Along with this, submit all the necessary documents with the deposit amount. On successful processing of the application, an FD receipt will be provided by the ICICI Bank.</p>
+                <!-- Eligibility -->
+                <h2 id="eligibility">Eligibility to Open an ICICI FD Account</h2>
+                <ul>
+                    <li>Indian resident individuals</li>
+                    <li>Minors (under guardianship)</li>
+                    <li>Hindu Undivided Families (HUF)</li>
+                    <li>Trusts</li>
+                    <li>Associations</li>
+                    <li>Clubs</li>
+                </ul>
+                <!-- Documents Required -->
+                <h2 id="documents">Documents Required to Open State Bank of India FD</h2>
+                <p>The documents necessary to open a fixed deposit account with ICICI are listed below –</p>
+                <p>Proof of identity</p>
+                <ul>
+                    <li>Aadhar card</li>
+                    <li>Voter ID card</li>
+                    <li>PAN card</li>
+                    <li>Driving license</li>
+                    <li>Passport</li>
+                    <li>Senior citizen card (if applicable)</li>
+                </ul>
+                <p>Residence proof</p>
+                <ul>
+                    <li>Electricity bill</li>
+                    <li>Telephone bill along with a cheque</li>
+                    <li>Bank account statement with a cheque</li>
+                    <li>An ID card/certificate issued by Post Office</li>
+                </ul>
+                <p>Individuals should provide the self-attested copies for verification and photocopy of the necessary documents when applying for the ICICI FD. It is also important to carry the bank original for additional documents at the submission if the customer authority requires the same.</p>
+                <!-- Tax on FD -->
+                <h2 id="tax">Tax on ICICI Bank Fixed Deposit</h2>
+                <p>Interest earned on ICICI Bank Tax Saving FD entitles to tax saving up to Rs. 1,50,000 p.a. No other ICICI Bank FDs entitle to tax saving under Section 80C of the Income Tax Act.</p>
+                <p>Also, note that the interest income from the ICICI Bank Fixed Deposit is taxable according to the slab rates of income tax. Also, the interest income is subject to a TDS of 10% if the income from ICICI Bank FD exceeds Rs. 40,000 p.a. (Rs. 50,000 p.a. for senior citizens). If the investor fails to provide PAN Card details to the bank, the TDS rate will be 20%.</p>
+                <!-- Loan Against FD -->
+                <h2 id="loan-against-fd">Loan against ICICI Bank Fixed Deposit</h2>
+                <p>All Fixed Deposits of ICICI Bank can be withdrawn prematurely except for the tax-saving Fixed Deposit. The bank allows customers to avail of a loan against their ICICI Bank fixed deposit (pledged / secured), subject to the standard authority's discretion. Loan can be availed under ICICI Bank Phone.</p>
+                <!-- Premature Closure -->
+                <h2 id="premature-closure">Premature Closure of ICICI Bank Fixed Deposit</h2>
+                <p>All Fixed Deposits of ICICI Bank can be withdrawn prematurely except for the tax-saving Fixed Deposit. The bank allows customers to withdraw their deposits at any time but with premature withdrawals. The penalty is subject to individual banking norms and is generally in the range of 1% of the interest rate for the period the deposit has remained with the bank.</p>
+            </article>
+            <aside class="if-sidebar">
+                <!-- FD Calculator -->
+                <div class="sidebar-card">
+                    <div class="fd-calculator">
+                        <h3>Calculate ICICI Bank FD Interest</h3>
+                        <div class="amount-section">
+                            <div>Investment Amount</div>
+                            <div id="amount-display" class="amount-bold">₹25,000.00</div>
+                        </div>
+                        <input type="range" min="10000" max="1000000" step="1000" class="slider" id="amount-slider" value="25000">
+                        <div class="time-period-section">
+                            <div>Time Period</div>
+                            <div class="time-options">
+                                <div class="time-option" data-years="0.25" data-rate="4.50">9 Months</div>
+                                <div class="time-option active" data-years="1" data-rate="6.00">1 Year</div>
+                                <div class="time-option" data-years="2" data-rate="6.90">2 Years</div>
+                                <div class="time-option" data-years="3" data-rate="6.90">3 Years</div>
+                            </div>
+                        </div>
+                        <hr style="margin: 20px 0;">
+                        <div class="maturity-section">
+                            <div>
+                                <div class="bank-label">ICICI Bank</div>
+                                <div id="rate-display">@6.00% p.a</div>
+                            </div>
+                            <div>
+                                <b id="maturity-amount">₹26,563</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation Lists -->
+                <div class="sidebar-list">
+                    <ul>
+                        <li class="list-heading"><a href="#">Fixed Deposit</a></li>
+                        <li><a href="#">Types of Fixed Deposits</a></li>
+                        <li><a href="#">FD Interest Rates</a></li>
+                        <li><a href="#">Senior Citizen FD Interest Rates</a></li>
+                        <li><a href="#">SBI Annuity Deposit Scheme</a></li>
+                        <li><a href="#">Certificate Of Deposit</a></li>
+                        <li><a href="#">SBI MOD</a></li>
+                        <li><a href="#">Short Term Fixed Deposit</a></li>
+                        <li><a href="#">Fixed Deposit Sweep-in</a></li>
+                        <li><a href="#">Monthly Interest Payout Fixed Deposit</a></li>
+                        <li><a href="#">Auto Renewal of Fixed Deposit</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">FD Calculators</a></li>
+                        <li><a href="#">SBI FD Calculator</a></li>
+                        <li><a href="#">Post Office FD Calculator</a></li>
+                        <li><a href="#">HDFC FD Calculator</a></li>
+                        <li><a href="#">Canara Bank FD Calculator</a></li>
+                        <li><a href="#">PNB FD Calculator</a></li>
+                        <li><a href="#">Bank of Baroda FD Calculator</a></li>
+                        <li><a href="#">Union Bank FD Calculator</a></li>
+                        <li><a href="#">Indian Bank FD Calculator</a></li>
+                        <li><a href="#">Axis Bank FD Calculator</a></li>
+                        <li><a href="#">ICICI FD Calculator</a></li>
+                        <li><a href="#">Yes Bank FD Calculator</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Banking</a></li>
+                        <li><a href="#">SBI Net Banking</a></li>
+                        <li><a href="#">Canara Bank Net Banking</a></li>
+                        <li><a href="#">Bank of Baroda Net Banking</a></li>
+                        <li><a href="#">PNB Net Banking</a></li>
+                        <li><a href="#">Indian Bank Net Banking</a></li>
+                        <li><a href="#">UCO Bank Net Banking</a></li>
+                        <li><a href="#">Bank of India Net Banking</a></li>
+                        <li><a href="#">Axis Bank Net Banking</a></li>
+                        <li><a href="#">Union Bank of India Net Banking</a></li>
+                        <li><a href="#">IndusInd Bank Net Banking</a></li>
+                        <li><a href="#">HDFC Bank Net Banking</a></li>
+                        <li><a href="#">ICICI Bank Net Banking</a></li>
+                        <li><a href="#">IDFC First Bank Net Banking</a></li>
+                        <li><a href="#">Yes Bank Net Banking</a></li>
+                        <li><a href="#">Kotak Mahindra Bank Net Banking</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Asset Management Company (AMC)</a></li>
+                        <li><a href="#">SBI Mutual Fund</a></li>
+                        <li><a href="#">HDFC Mutual Fund</a></li>
+                        <li><a href="#">Nippon India Mutual Fund</a></li>
+                        <li><a href="#">Axis Mutual Fund</a></li>
+                        <li><a href="#">Groww Mutual Fund</a></li>
+                        <li><a href="#">ICICI Prudential Mutual Fund</a></li>
+                        <li><a href="#">Tata Mutual Fund</a></li>
+                        <li><a href="#">Aditya Birla Sunlife Mutual Fund</a></li>
+                        <li><a href="#">Mirae Asset Mutual Fund</a></li>
+                        <li><a href="#">View Other AMCS</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <div class="disclaimer">
+        <p><em>Disclaimer: The views expressed here are for informational purposes only. Fixed Deposits are subject to market risks, please read the scheme documents carefully before investing.</em></p>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="../script.js"></script>
+    <script>
+    function loadHTML(selector, url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => { document.querySelector(selector).innerHTML = data; });
+    }
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
+    </script>
+   <script>
+     var coll = document.getElementsByClassName("collapsible");
+     var i;
+     for (i = 0; i < coll.length; i++) {
+       coll[i].addEventListener("click", function() {
+         this.classList.toggle("active");
+         var content = this.nextElementSibling;
+         if (content.style.maxHeight){
+           content.style.maxHeight = null;
+         } else {
+           content.style.maxHeight = content.scrollHeight + "px";
+         }
+       });
+     }
+     </script>
+     <!-- FD Calculator JavaScript -->
+     <script>
+        const amountSlider = document.getElementById('amount-slider');
+        const amountDisplay = document.getElementById('amount-display');
+        const rateDisplay = document.getElementById('rate-display');
+        const maturityAmount = document.getElementById('maturity-amount');
+        const timeOptions = document.querySelectorAll('.time-option');
+        let timeInYears = 1; // Default to 1 year
+        let interestRate = 6.00; // Default rate
+        function updateCalculator() {
+            const amount = parseFloat(amountSlider.value);
+            const maturity = amount * (1 + (interestRate / 100)) ** timeInYears;
+            amountDisplay.textContent = `₹${amount.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            rateDisplay.textContent = `@${interestRate}% p.a`;
+            maturityAmount.textContent = `₹${Math.round(maturity).toLocaleString('en-IN')}`;
+        }
+        amountSlider.addEventListener('input', updateCalculator);
+        timeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                timeOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                timeInYears = parseFloat(this.dataset.years);
+                interestRate = parseFloat(this.dataset.rate);
+                updateCalculator();
+            });
+        });
+        updateCalculator();
+    </script>
+</body>
+</html> 

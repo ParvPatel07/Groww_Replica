@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNB FD Interest Rates - Fincept</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      h1 {
+          font-size: 24px;
+        }
+        .key-info-cards {
+          display: flex;
+          flex-wrap: wrap;
+          column-gap: 10rem;
+          margin-top: 20px;
+        }
+        .info-card {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          border-radius: 8px;
+          padding: 25px 20px;
+          width: 280px;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+          background-color: #fff;
+        }
+        .info-icon-wrapper {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #f0f0f0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .info-icon-wrapper i {
+          font-size: 18px;
+          color: #555;
+        }
+        .info-text {
+          font-size: 18px;
+          font-weight: bold;
+          color: #333;
+        }
+        .info-label {
+          font-size: 14px;
+          color: #777;
+        }
+        .info-text-label {
+          display: flex;
+          flex-direction: column;
+        }
+        .fd-calculator {
+      min-width: 380px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      .fd-calculator h3 {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .amount-section, .maturity-section {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        font-size: 14px;
+      }
+      .time-period-section {
+        margin: 20px 0;
+      }
+      .time-options {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .time-option {
+        padding: 6px 12px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .time-option.active {
+        background-color: #00a859;
+        color: #fff;
+        border-color: #00a859;
+      }
+      .slider {
+        width: 100%;
+        margin: 10px 0;
+      }
+      .maturity-section b {
+        font-size: 16px;
+      }
+      .bank-label {
+        color: #666;
+        font-size: 13px;
+      }
+      .amount-bold {
+        font-weight: bold;
+      }
+      .fd-calculator hr {
+        border: none;
+        border-top: 1px dotted #ccc;
+        margin: 20px 0;
+      }
+      .about-details {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+      }
+      .detail-column {
+        flex: 1;
+        padding: 0 20px;
+      }
+      .detail-column:first-child {
+        border-right: 1px dashed #ccc;
+        padding-right: 30px;
+      }
+      .detail-column:last-child {
+        padding-left: 30px;
+      }
+      .detail-item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .detail-item:last-child {
+        border-bottom: none;
+      }
+      .detail-label {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 5px;
+      }
+      .detail-value {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+      }
+      .scheme-section {
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .collapsible {
+        cursor: pointer;
+        font-size: smaller;
+        transition: background-color 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .collapsible-content {
+        padding: 0 15px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background-color: #f9f9f9;
+      }
+      .collapsible-content ul {
+        padding: 15px;
+        margin: 0;
+      }
+      .collapsible-content ul li {
+        margin-bottom: 8px;
+      }
+      .collapsible-content ul li:last-child {
+        margin-bottom: 0;
+      }
+      .collapsible .fas {
+        transition: transform 0.3s ease;
+      }
+      .collapsible.active .fas {
+        transform: rotate(180deg);
+      }
+      </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="if-grid">
+            <article class="income-funds">
+                <h1>PNB FD Interest Rates</h1>
+                <!-- Key Info Cards -->
+                <div class="key-info-cards">
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">3.50% - 6.80%</div>
+                            <div class="info-label">Interest rates</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">3 months - 10 years</div>
+                            <div class="info-label">Time Period</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">₹1,000 - no limit</div>
+                            <div class="info-label">Min - Max amount</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <div class="info-text-label">
+                            <div class="info-text">QUARTERLY</div>
+                            <div class="info-label">Compounding</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- About Section -->
+                <h2 id="about-pnb">About Punjab National Bank</h2>
+                <p>Punjab National Bank is an Indian banking company and state called India's first Swadeshi Bank. It has a network of 10,528 branches, 13,514 ATMs, more than 180 million customers in India.</p>
+                <p>Punjab National Bank provides multiple fixed deposit options to its customers with interest rates in the range of 3.50% to 6.80%. The depositor is allowed to request an auto-renewal against their term at the time of opening the account. The bank also provides a nomination facility and loan against PNB FD rates along with pre-closure benefits. The account is also provided with an educational account number to track and operate the account.</p>
+                <div class="about-details">
+                    <div class="detail-column">
+                        <div class="detail-item">
+                            <div class="detail-label">Started On</div>
+                            <div class="detail-value">1894</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Head Quarters</div>
+                            <div class="detail-value">New Delhi</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">CRISIL Rating</div>
+                            <div class="detail-value">NA</div>
+                        </div>
+                    </div>
+                    <div class="detail-column">
+                        <div class="detail-item">
+                            <div class="detail-label">CEO</div>
+                            <div class="detail-value">S. S. Mallikarjuna Rao</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Listed on exchange as</div>
+                            <div class="detail-value">Punjab National Bank</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">ICRA Rating</div>
+                            <div class="detail-value">NA</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FD Rates Table -->
+                <h2 id="fd-rates">PNB FD Interest Rates 2023 (w.e.f. 1st Jan 2023)</h2>
+                <table class="interval-table">
+                    <thead>
+                        <tr>
+                            <th>TENURE</th>
+                            <th>REGULAR CUSTOMERS</th>
+                            <th>SENIOR CITIZENS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>7 days - 14 days</td><td>3.50%</td><td>4.00%</td></tr>
+                        <tr><td>15 days - 29 days</td><td>3.50%</td><td>4.00%</td></tr>
+                        <tr><td>30 days - 45 days</td><td>4.00%</td><td>4.50%</td></tr>
+                        <tr><td>46 days - 90 days</td><td>4.50%</td><td>5.00%</td></tr>
+                        <tr><td>91 days - 179 days</td><td>4.50%</td><td>5.00%</td></tr>
+                        <tr><td>180 days - 270 days</td><td>5.25%</td><td>5.75%</td></tr>
+                        <tr><td>271 days - 1 year</td><td>5.80%</td><td>6.30%</td></tr>
+                        <tr><td>1 year</td><td>6.75%</td><td>7.25%</td></tr>
+                        <tr><td>1 year 1 day - 2 years</td><td>6.80%</td><td>7.30%</td></tr>
+                        <tr><td>2 years 1 day - 3 years</td><td>6.80%</td><td>7.30%</td></tr>
+                        <tr><td>3 years 1 day - 5 years</td><td>6.50%</td><td>7.00%</td></tr>
+                        <tr><td>5 years 1 day - 10 years</td><td>6.25%</td><td>6.75%</td></tr>
+                    </tbody>
+                </table>
+                <!-- Features and Benefits -->
+                <h2 id="features-benefits">Features and Benefits of PNB Fixed Deposit</h2>
+                <ul>
+                    <li>Tenure ranges from 7 days to 10 years</li>
+                    <li>Interest is compounded quarterly</li>
+                    <li>Minimum deposit amount is ₹1,000</li>
+                    <li>Loan/overdraft facility available up to 90% of deposit</li>
+                    <li>Premature withdrawal facility (with penalty)</li>
+                    <li>Nomination facility available</li>
+                    <li>Special rates for senior citizens</li>
+                </ul>
+                <!-- Types of Schemes -->
+                <h2 id="fd-schemes">Types of PNB FD Schemes</h2>
+                <div class="scheme-section">
+                    <p class="collapsible">Regular Fixed Deposit <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Standard deposit scheme for all customers, tenure up to 10 years</li>
+                            <li>Minimum deposit: ₹1,000</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                            <li>Special rates for senior citizens</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">PNB Scheme for Road Accident Victims <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Special scheme for compensation funds for providing financial relief to accident victims and accident claimants.</li>
+                            <li>Tenure: 7 days to 10 years</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">PNB Sugam Term Deposit Scheme <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Special deposit scheme providing flexibility in the amount of deposit along with a higher rate of interest. Under this scheme, the depositor can withdraw in multiples of ₹1,000.</li>
+                            <li>Tenure: 7 days to 10 years</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">PNB Anupam Term Deposit Scheme <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Special deposit scheme for recurring deposits, with a unique prepayment facility.</li>
+                            <li>Tenure: 6 months to 10 years</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">PNB Balika Shiksha Fixed Deposit Scheme <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>For female students, this fixed deposit scheme is mainly designed for girls who passed the 8th grade.</li>
+                            <li>Tenure: 1 year to 10 years</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">PNB Multi-benefit Deposit Scheme <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Special deposit scheme, which allows the depositor, along with higher rates of interest, to get part of their deposit amount withdrawn in multiples of ₹1,000.</li>
+                            <li>Tenure: 6 months to 10 years</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">PNB Sanchetan Zinn Vayal Fixed FD Scheme <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Special deposit scheme for senior citizens, along with prepayment facility. Tenure for this scheme is 1 year to 10 years.</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">PNB Varishtha Any Deposit Scheme <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Special deposit scheme for senior citizens, with prepayment facility and special rates.</li>
+                            <li>Tenure: 1 year to 10 years</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">PNB Tax Saver Deposit Scheme <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>5-year lock-in period, eligible for tax deduction under Section 80C of the Income Tax Act.</li>
+                            <li>Maximum investment: ₹1.5 lakh per annum</li>
+                            <li>No premature withdrawal allowed</li>
+                            <li>Interest paid quarterly or on maturity</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Prospective Senior Citizen Term Deposit Scheme <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Special deposit scheme for senior citizens above 60 years of age, higher rates of interest as compared to normal accounts.</li>
+                            <li>Tenure: 1 year to 10 years</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">PNB Minor Linked Notice Deposit Scheme <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Special deposit scheme for children, the deposit is opened jointly with a parent, and payable to a Minor, allowed under the scheme.</li>
+                            <li>Tenure: 1 year to 10 years</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scheme-section">
+                    <p class="collapsible">Bulk Fixed Deposit Scheme <i class="fas fa-chevron-down"></i></p>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li>Special deposit scheme for bulk deposits of ₹2 crore and above, 1 year to 10 years of age under special FD rates, and allowed withdrawal in multiples of ₹1,000.</li>
+                            <li>Loan/overdraft facility available</li>
+                            <li>Premature withdrawal permitted (penalty may apply)</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Term-wise FD Rates -->
+                <h2 id="term-wise-rates">Term-wise PNB Fixed Deposit Rates</h2>
+                <h3>Short-term Deposits</h3>
+                <p>PNB offers short-term deposits ranging from 7 days to 12 months, the interest rate offered is from 3.50% to 5.80% p.a. on deposits. These deposits are best for investors looking for lower tenure FDs and liquidity.</p>
+                <h3>Medium-term Deposits</h3>
+                <p>Medium-term deposits have tenures ranging from 1 year to less than 5 years. These FDs offer higher rates. 1 year PNB FD rate is 6.75%.</p>
+                <h3>Long-term Deposits</h3>
+                <p>These deposits have tenures ranging from 5 years to 10 years and offer a rate of 6.25%.</p>
+                <!-- Bank Comparison -->
+                <h2 id="other-bank-rates">PNB vs Other Banks' FD Rates</h2>
+                <table class="interval-table">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>TENURE</th>
+                            <th>INTEREST RATE</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Shriram Transport Finance FD</td><td>1 year - 5 years</td><td>7.60% - 8.60%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>DHFL FD</td><td>1 year - 5 years</td><td>8.25% - 8.90%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Axis Bank FD</td><td>7 days - 10 years</td><td>3.50% - 7.10%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>HDFC Bank FD</td><td>7 days - 10 years</td><td>3.00% - 7.00%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>ICICI Bank FD</td><td>7 days - 10 years</td><td>3.00% - 7.10%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Bandhan Bank FD</td><td>7 days - 10 years</td><td>3.00% - 7.60%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Canara Bank FD</td><td>7 days - 10 years</td><td>3.25% - 7.25%</td><td><a href="#">More Details</a></td></tr>
+                        <tr><td>Post Office FD</td><td>1 year - 5 years</td><td>6.90% - 7.50%</td><td><a href="#">More Details</a></td></tr>
+                    </tbody>
+                </table>
+                <!-- How to Invest -->
+                <h2 id="how-to-invest">How to Invest in PNB FD?</h2>
+                <p>A Punjab National Bank FD account can be opened through different modes like Mobile App, Internet Banking, and offline.</p>
+                <h3>1) Internet Banking</h3>
+                <ul>
+                    <li>Sign in to the PNB NetBanking account</li>
+                    <li>Navigate to the Fixed Deposit section</li>
+                    <li>Fill out all the necessary details, nominee information, and maturity instructions</li>
+                    <li>After completing all the details, click 'Open Deposit' and click Save to proceed, and fill all the necessary details along with savings information.</li>
+                    <li>After saving, the account is created. Confirmation via validation of the application form and KYC documents. The FD receipt, and other information will be sent to the registered email address. A physical slip will also be sent to the registered address.</li>
+                </ul>
+                <h3>2) Mobile App – PNB Bank App</h3>
+                <ul>
+                    <li>Download the PNB Bank app and sign in</li>
+                    <li>Click on the 'Fixed Deposit' option</li>
+                    <li>Fill out all the required details, nominee, details and type of deposit, details and type of deposit, and KYC details</li>
+                    <li>After successful authentication, the FD account will open. An acknowledgement slip will be available for download and record.</li>
+                </ul>
+                <h3>3) Offline PNB FD Opening</h3>
+                <p>For opening a PNB FD account via offline mode, one has to visit the nearest PNB branch. Fill out the required PNB FD application form and submit all the necessary documents with the deposit amount. On successful processing of the application, an FD receipt will be provided by the Punjab National Bank.</p>
+                <!-- Eligibility -->
+                <h2 id="eligibility">Eligibility to Open a PNB FD Account</h2>
+                <p>Individuals or entities satisfying any of the following criteria can apply for a fixed deposit scheme from PNB –</p>
+                <ul>
+                    <li>Individuals and residents</li>
+                    <li>Minors, including guardians on behalf of minors</li>
+                    <li>Partnership firms</li>
+                    <li>Limited companies, trusts, and private limited companies</li>
+                    <li>Societies and associations</li>
+                </ul>
+                <!-- Documents Required -->
+                <h2 id="documents">Documents Required to Open PNB FD</h2>
+                <p>Documents to be submitted to open a Punjab National Bank Fixed Deposit are:</p>
+                <ul>
+                    <li>Identity proof – Aadhaar card, Voter ID, Card, or driver's license</li>
+                    <li>Address proof – any (Passport, telephone/bill, bank statement with a utility bill such as electricity bill and gas bill)</li>
+                    <li>Bank account statements</li>
+                </ul>
+                <!-- Tax on FD -->
+                <h2 id="tax">Tax on Punjab National Bank Fixed Deposit</h2>
+                <p>An investment in Punjab National Bank Tax Saving FD entitles to tax saving up to Rs. 1,50,000 p.a. No other Punjab National Bank FDs entitle to tax saving under Section 80C of the Income Tax Act.</p>
+                <p>Also, note that the interest income from the Punjab National Bank Fixed Deposit is taxable according to the slab rates of income tax. Also, the interest income is subject to a TDS of 10% if the income from Punjab National Bank FD exceeds Rs. 40,000 p.a.</p>
+                <p>For senior citizens, the limit is Rs. 50,000 p.a. Also, if the investor fails to provide PAN Card details to the bank, the TDS rate will be 20%.</p>
+                <!-- Loan Against FD -->
+                <h2 id="loan-against-fd">Loan Against Punjab National Bank FD</h2>
+                <p>PNB provides loans against their Fixed Deposits. Investors can get up to 90% of the deposit amount as a loan against PNB Fixed Deposit. The rate of interest will be between 1.5% - 2.0% above the FD rate.</p>
+                <!-- Premature Closure -->
+                <h2 id="premature-closure">Premature Closure of Punjab National Bank Fixed Deposit</h2>
+                <p>All Punjab National Bank Fixed Deposits can be withdrawn prematurely, excluding the tax-saving Fixed Deposit. Also, penalty is levied for deposits below Rs. 5 lakhs if kept for 12 months. For fixed deposits greater than Rs. 5 lakhs or without that period, the penalty is subject to modification according to the terms and conditions of Punjab National Bank.</p>
+            </article>
+            <aside class="if-sidebar">
+                <!-- FD Calculator -->
+                <div class="sidebar-card">
+                    <div class="fd-calculator">
+                        <h3>Calculate Punjab National Bank FD Interest</h3>
+                        <div class="amount-section">
+                            <div>Investment Amount</div>
+                            <div id="amount-display" class="amount-bold">₹25,000.00</div>
+                        </div>
+                        <input type="range" min="1000" max="1000000" step="1000" class="slider" id="amount-slider" value="25000">
+                        <div class="time-period-section">
+                            <div>Time Period</div>
+                            <div class="time-options">
+                                <div class="time-option" data-years="0.25" data-rate="4.50">9 Months</div>
+                                <div class="time-option active" data-years="1" data-rate="6.75">1 Year</div>
+                                <div class="time-option" data-years="2" data-rate="6.80">2 Years</div>
+                                <div class="time-option" data-years="3" data-rate="6.50">3 Years</div>
+                            </div>
+                        </div>
+                        <hr style="margin: 20px 0;">
+                        <div class="maturity-section">
+                            <div>
+                                <div class="bank-label">Punjab National Bank</div>
+                                <div id="rate-display">@6.75% p.a</div>
+                            </div>
+                            <div>
+                                <b id="maturity-amount">₹26,834</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation Lists -->
+                <div class="sidebar-list">
+                    <ul>
+                        <li class="list-heading"><a href="#">Fixed Deposit</a></li>
+                        <li><a href="#">Types of Fixed Deposits</a></li>
+                        <li><a href="#">FD Interest Rates</a></li>
+                        <li><a href="#">Senior Citizen FD Interest Rates</a></li>
+                        <li><a href="#">SBI Annuity Deposit Scheme</a></li>
+                        <li><a href="#">Certificate Of Deposit</a></li>
+                        <li><a href="#">SBI MOD</a></li>
+                        <li><a href="#">Short Term Fixed Deposit</a></li>
+                        <li><a href="#">Fixed Deposit Sweep-in</a></li>
+                        <li><a href="#">Monthly Interest Payout Fixed Deposit</a></li>
+                        <li><a href="#">Auto Renewal of Fixed Deposit</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">FD Calculator</a></li>
+                        <li><a href="#">SBI FD Calculator</a></li>
+                        <li><a href="#">Post Office FD Calculator</a></li>
+                        <li><a href="#">HDFC FD Calculator</a></li>
+                        <li><a href="#">Canara Bank FD Calculator</a></li>
+                        <li><a href="#">PNB FD Calculator</a></li>
+                        <li><a href="#">Bank of Baroda FD Calculator</a></li>
+                        <li><a href="#">Union Bank FD Calculator</a></li>
+                        <li><a href="#">Indian Bank FD Calculator</a></li>
+                        <li><a href="#">Axis Bank FD Calculator</a></li>
+                        <li><a href="#">ICICI FD Calculator</a></li>
+                        <li><a href="#">Yes Bank FD Calculator</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Banking</a></li>
+                        <li><a href="#">SBI Net Banking</a></li>
+                        <li><a href="#">Canara Bank Net Banking</a></li>
+                        <li><a href="#">Bank of Baroda Net Banking</a></li>
+                        <li><a href="#">PNB Net Banking</a></li>
+                        <li><a href="#">Indian Bank Net Banking</a></li>
+                        <li><a href="#">UCO Bank Net Banking</a></li>
+                        <li><a href="#">Bank of India Net Banking</a></li>
+                        <li><a href="#">Axis Bank Net Banking</a></li>
+                        <li><a href="#">Union Bank of India Net Banking</a></li>
+                        <li><a href="#">IndusInd Bank Net Banking</a></li>
+                        <li><a href="#">HDFC Bank Net Banking</a></li>
+                        <li><a href="#">ICICI Bank Net Banking</a></li>
+                        <li><a href="#">IDFC First Bank Net Banking</a></li>
+                        <li><a href="#">Yes Bank Net Banking</a></li>
+                        <li><a href="#">Kotak Mahindra Bank Net Banking</a></li>
+                    </ul>
+                    <ul>
+                        <li class="list-heading"><a href="#">Asset Management Company (AMC)</a></li>
+                        <li><a href="#">SBI Mutual Fund</a></li>
+                        <li><a href="#">HDFC Mutual Fund</a></li>
+                        <li><a href="#">Nippon India Mutual Fund</a></li>
+                        <li><a href="#">Axis Mutual Fund</a></li>
+                        <li><a href="#">Groww Mutual Fund</a></li>
+                        <li><a href="#">ICICI Prudential Mutual Fund</a></li>
+                        <li><a href="#">Tata Mutual Fund</a></li>
+                        <li><a href="#">Aditya Birla Sunlife Mutual Fund</a></li>
+                        <li><a href="#">Mirae Asset Mutual Fund</a></li>
+                        <li><a href="#">View Other AMCS</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <div class="disclaimer">
+        <p><em>Disclaimer: The views expressed here are for informational purposes only. Fixed Deposits are subject to market risks, please read the scheme documents carefully before investing.</em></p>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="../script.js"></script>
+    <script>
+    function loadHTML(selector, url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => { document.querySelector(selector).innerHTML = data; });
+    }
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
+    </script>
+   <script>
+     var coll = document.getElementsByClassName("collapsible");
+     var i;
+     for (i = 0; i < coll.length; i++) {
+       coll[i].addEventListener("click", function() {
+         this.classList.toggle("active");
+         var content = this.nextElementSibling;
+         if (content.style.maxHeight){
+           content.style.maxHeight = null;
+         } else {
+           content.style.maxHeight = content.scrollHeight + "px";
+         }
+       });
+     }
+     </script>
+     <!-- FD Calculator JavaScript -->
+     <script>
+        // FD Calculator
+        const amountSlider = document.getElementById('amount-slider');
+        const amountDisplay = document.getElementById('amount-display');
+        const rateDisplay = document.getElementById('rate-display');
+        const maturityAmount = document.getElementById('maturity-amount');
+        const timeOptions = document.querySelectorAll('.time-option');
+        let timeInYears = 1; // Default to 1 year
+        let interestRate = 6.75; // Default rate
+        function updateCalculator() {
+            const amount = parseFloat(amountSlider.value);
+            const maturity = amount * (1 + (interestRate / 100)) ** timeInYears;
+            amountDisplay.textContent = `₹${amount.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            rateDisplay.textContent = `@${interestRate}% p.a`;
+            maturityAmount.textContent = `₹${Math.round(maturity).toLocaleString('en-IN')}`;
+        }
+        amountSlider.addEventListener('input', updateCalculator);
+        timeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                timeOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                timeInYears = parseFloat(this.dataset.years);
+                interestRate = parseFloat(this.dataset.rate);
+                updateCalculator();
+            });
+        });
+        updateCalculator();
+    </script>
+</body>
+</html> 

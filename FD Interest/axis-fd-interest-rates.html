@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axis FD Interest Rates - Fincept</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    h1 {
+        font-size: 24px;
+      }
+  
+      .key-info-cards {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 10rem;
+        margin-top: 20px;
+      }
+  
+      .info-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        /* border: 1px solid #ddd; */
+        border-radius: 8px;
+        padding: 25px 20px;
+        width: 280px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        background-color: #fff;
+      }
+  
+      .info-icon-wrapper {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #f0f0f0; /* Light grey background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      .info-icon-wrapper i {
+        font-size: 18px; /* Adjust icon size as needed */
+        color: #555; /* Adjust icon color as needed */
+      }
+     
+  
+      .info-text {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+  
+      .info-label {
+        font-size: 14px;
+        color: #777;
+      }
+  
+      .info-text-label {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .fd-calculator {
+    min-width: 380px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .fd-calculator h3 {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .amount-section, .maturity-section {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+
+    .time-period-section {
+      margin: 20px 0;
+    }
+
+    .time-options {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .time-option {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .time-option.active {
+      background-color: #00a859;
+      color: #fff;
+      border-color: #00a859;
+    }
+
+    .slider {
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    .maturity-section b {
+      font-size: 16px;
+    }
+
+    .bank-label {
+      color: #666;
+      font-size: 13px;
+    }
+
+    .amount-bold {
+      font-weight: bold;
+    }
+
+    .fd-calculator hr {
+      border: none;
+      border-top: 1px dotted #ccc;
+      margin: 20px 0;
+    }
+  
+    .about-details {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0; /* Add a top border like in the screenshot */
+    }
+
+    .detail-column {
+      flex: 1;
+      padding: 0 20px; /* Increase padding for space around the border */
+    }
+
+    .detail-column:first-child {
+      border-right: 1px dashed #ccc; /* Add dashed vertical line */
+      padding-right: 30px; /* Adjust padding to make space for the border */
+    }
+
+    .detail-column:last-child {
+      padding-left: 30px; /* Adjust padding to align with the first column */
+    }
+
+    .detail-item {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e0e0e0; /* Add horizontal lines */
+    }
+
+    .detail-item:last-child {
+      border-bottom: none; /* No border for the last item in a column */
+    }
+
+    .detail-label {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 5px;
+    }
+
+    .detail-value {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* CSS for Collapsible Sections */
+    .scheme-section {
+      margin-bottom: 15px;
+      /* border: 1px solid #e0e0e0; */
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .collapsible {
+      /* background-color: #f1f1f1; */
+      /* color: #333; */
+      cursor: pointer;
+      /* padding: 15px;
+      width: 100%; */
+      border: none;
+      text-align: left;
+      /* outline: none; */
+      font-size: smaller;
+      /* font-weight: bold; */
+      transition: background-color 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+   
+
+    .collapsible-content {
+      padding: 0 15px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background-color: #f9f9f9;
+    }
+
+    .collapsible-content ul {
+      padding: 15px;
+      margin: 0;
+    }
+
+    .collapsible-content ul li {
+      margin-bottom: 8px;
+      /* line-height: 1.5; */
+      /* color: #555; */
+    }
+
+    .collapsible-content ul li:last-child {
+      margin-bottom: 0;
+    }
+
+    .collapsible .fas {
+      transition: transform 0.3s ease;
+    }
+
+    .collapsible.active .fas {
+      transform: rotate(180deg);
+    }
+  
+    </style>
+  
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="if-grid">
+            <article class="income-funds">
+                <h1 >Axis FD Interest Rates</h1>
+  <div class="key-info-cards">
+    <div class="info-card">
+      <div class="info-icon-wrapper">
+        <i class="fa-solid fa-percent"></i>
+      </div>
+      <div class="info-text-label">
+        <div class="info-text">5.75% - 7.00%</div>
+        <div class="info-label">Interest rates</div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon-wrapper">
+        <i class="fa-solid fa-clock"></i>
+      </div>
+      <div class="info-text-label">
+        <div class="info-text">6 months - 5 years</div>
+        <div class="info-label">Time Period</div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon-wrapper">
+        <i class="fa-solid fa-indian-rupee-sign"></i>
+      </div>
+      <div class="info-text-label">
+        <div class="info-text">₹5,000 - ₹10,00,000</div>
+        <div class="info-label">Min - Max amount</div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon-wrapper">
+        <i class="fa-solid fa-clock"></i>
+      </div>
+      <div class="info-text-label">
+        <div class="info-text">QUARTERLY</div>
+        <div class="info-label">Compounding</div>
+      </div>
+    </div>
+  </div>
+                <h2>About Axis Bank</h2>
+                <p>Axis Bank Ltd. is a prominent Indian Banking and financial services company. Headquartered in Mumbai, India, it is registered as the third largest private sector bank in India. It offers a wide range of financial services under its retail banking services such as deposits, loans, and corporate banking services like Demat account equity capital markets and mutual fund investments, and international banking services.</p>
+                <p>Axis Bank provides multiple fixed deposit options to its customers to secure a certain part of their savings for a fixed tenure. The competitive Axis Bank Fixed Deposit interest rates help the depositors to earn more returns by safeguarding their money and to use them judiciously in the future. Customers have to deposit the minimum deposit amount at the time of opening the account. Furthermore, withdrawal of the FD amount is not allowed until the maturity period.</p>
+                <!-- <p><a href="#">Read Less</a></p> -->
+                <div class="about-details">
+                  <div class="detail-column">
+                    <div class="detail-item">
+                      <div class="detail-label">Started On</div>
+                      <div class="detail-value">1993</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">Head Quarters</div>
+                      <div class="detail-value">Mumbai</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">CRISIL Rating</div>
+                      <div class="detail-value">FAAA</div>
+                    </div>
+                  </div>
+                  <div class="detail-column">
+                    <div class="detail-item">
+                      <div class="detail-label">CEO</div>
+                      <div class="detail-value">Amitabh Chaudhry</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">Listed on exchange as</div>
+                      <div class="detail-value">Axis Bank Ltd.</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">ICRA Rating</div>
+                      <div class="detail-value">MAAA</div>
+                    </div>
+                  </div>
+                </div>
+                <h2>Axis Bank FD Rates 2025</h2>
+                <table class="interval-table">
+                  <thead>
+                    <tr>
+                      <th>Tenure</th>
+                      <th>REGULAR CUSTOMERS</th>
+                      <th>SENIOR CITIZENS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>7 days - 45 days</td><td>3.00%</td><td>3.50%</td></tr>
+                    <tr><td>46 days - 60 days</td><td>3.50%</td><td>4.00%</td></tr>
+                    <tr><td>61 days - < 3 months</td><td>4.00%</td><td>4.50%</td></tr>
+                    <tr><td>3 months - < 6 months</td><td>4.25%</td><td>4.75%</td></tr>
+                    <tr><td>6 months - < 9 months</td><td>4.75%</td><td>5.25%</td></tr>
+                    <tr><td>9 months - < 12 months</td><td>5.00%</td><td>5.50%</td></tr>
+                    <tr><td>1 Year - 1 Year 4 days</td><td>5.75%</td><td>6.25%</td></tr>
+                    <tr><td>1 Year 5 days - 2 Years</td><td>5.75%</td><td>6.25%</td></tr>
+                    <tr><td>2 Years - 30 months</td><td>6.00%</td><td>6.50%</td></tr>
+                    <tr><td>30 months - < 5 Years</td><td>6.25%</td><td>6.75%</td></tr>
+                    <tr><td>5 Years - 10 Years</td><td>6.00%</td><td>6.75%</td></tr>
+                  </tbody>
+                </table>
+                <h2>Features and Benefits of Axis Bank Fixed Deposit</h2>
+                <ul>
+                  <li>Senior citizens can avail higher interest rates over regular customer's rates.</li>
+                  <li>Flexible interest payout options available.</li>
+                  <li>The minimum deposit amount required to book an FD with Axis Bank is Rs. 5000</li>
+                  <li>Axis Bank allows partial withdrawal of funds from your Axis Bank Fixed Deposit account.</li>
+                  <li>One can book an FD account in a hassle-free way with Axis Bank.</li>
+                  <li>Loan up to 90% of the deposited amount on your Axis Bank Fixed Deposit.</li>
+                  <li>Axis Bank offers a wide range of Fixed Deposits to choose from.</li>
+                </ul>
+                <h2>Types of Axis Bank FD Schemes</h2>
+                <div class="scheme-section">
+                  <p class="collapsible">Regular Fixed Deposit <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>Senior citizens can avail higher interest rates over regular customer's rates.</li>
+                      <li>Nomination facility is provided by the bank</li>
+                      <li>The minimum deposit amount required to book an FD with Axis Bank is Rs. 5,000</li>
+                      <li>Avail competitive interest rates on short-term deposits with an Axis Bank FD account</li>
+                      <li>One can book an FD account in a hassle-free way with Axis Bank</li>
+                      <li>Loans up to 90% can be availed against your Axis Bank Fixed Deposits</li>
+                      <li>Axis Bank offers a wide range of Fixed Deposits to choose from</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Tax Saver Fixed Deposit <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>As the name implies, under this scheme, the depositor can avail tax benefits on deposit under Section 80C of the Income Tax Act, 1961.</li>
+                      <li>The bank provides the flexibility to choose between single holder type deposits and joint holder type deposits. The rate of interest depends on the category in which the applicant fall.</li>
+                      <li>Nomination facility is provided by the bank.</li>
+                      <li>Tax benefits can be claimed with a fixed deposit receipt issued by the bank.</li>
+                      <li>Eligibility - Resident Indians and HUFs.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Fixed Deposit Plus <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>Customers can earn a higher interest rate under this scheme as compared to regular term deposits.</li>
+                      <li>Nomination facility is provided by the bank.</li>
+                      <li>The minimum deposit amount is Rs. 5,00,00,000.</li>
+                      <li>Interest earned is subject to TDS (Tax Deducted at Source).</li>
+                      <li>Depositors can choose the method of interest calculation, wiz, simple interest, and compound interest options.</li>
+                      <li>Eligibility - Resident Indians, Hindu Undivided Family sole proprietorship firms, proprietorship firms, partnership firms, limited companies, and trust.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Encash 24 Flexi Deposit <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <ul>
+                      <li>Under this scheme, dual benefits are offered viz. Liquidity of a savings account and high earnings of a fixed deposit.</li>
+                      <li>Auto-renewal facility is available on the deposit.</li>
+                      <li>Enjoy Tax Benefits on deposit under Section 80C of Income Tax Act, 1961.</li>
+                      <li>Maximum liquidity on investment.</li>
+                      <li>Great returns with a shorter tenure.</li>
+                      <li>The FD account is linked to the existing savings account.</li>
+                      <li>Maximum tenure is 5 years and the minimum is 6 months.</li>
+                      <li>Eligibility - Savings account holders with valid PAN card.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h2>Term-wise Axis Bank Fixed Deposit Rates</h2>
+                <div class="scheme-section">
+                  <p class="collapsible">Short-term Deposits <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <p>For an Axis Bank FD with tenure ranging from 7 days to 12 months, the interest rate offered is from 3.50% p.a. to 5.50% p.a. These deposits are known as short-term deposits as their tenure is less than 1 year.</p>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Medium-term Deposits <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <p>Medium-term fixed deposits have tenures ranging from more than 1 year to less than 5 years. The interest offered by the bank on these deposits is around 6.25% p.a and 6.50% p.a</p>
+                  </div>
+                </div>
+
+                <div class="scheme-section">
+                  <p class="collapsible">Long-term Deposits <i class="fas fa-chevron-down"></i></p>
+                  <div class="collapsible-content">
+                    <p>These deposits have their tenure ranging from 5 years to 10 years and offer an interest rate of 6.50%.</p>
+                  </div>
+                </div>
+
+                <h2>Axis vs Other Bank FD Rates</h2>
+                <p>Here's a comparison of Axis Bank FD rates with other banks:</p>
+                <table class="interval-table">
+                  <thead>
+                    <tr>
+                      <th>Bank</th>
+                      <th>Tenure</th>
+                      <th>Interest Rate (% p.a.)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>SBI</td><td>1 year - 2 years</td><td>6.80% - 6.90%</td></tr>
+                    <tr><td>PNB</td><td>1 year - 2 years</td><td>6.80% - 6.90%</td></tr>
+                    <tr><td>HDFC Bank</td><td>1 year - 2 years</td><td>7.10% - 7.15%</td></tr>
+                    <tr><td>ICICI Bank</td><td>1 year - 2 years</td><td>7.10% - 7.15%</td></tr>
+                    <tr><td>Canara Bank</td><td>1 year - 2 years</td><td>7.25% - 7.30%</td></tr>
+                    <tr><td>Bank of Baroda</td><td>1 year - 2 years</td><td>7.00% - 7.05%</td></tr>
+                    <tr><td>Union Bank of India</td><td>1 year - 2 years</td><td>7.00% - 7.05%</td></tr>
+                    <tr><td>IndusInd Bank</td><td>1 year - 2 years</td><td>7.25% - 7.30%</td></tr>
+                    <tr><td>IDFC First Bank</td><td>1 year - 2 years</td><td>7.25% - 7.30%</td></tr>
+                    <tr><td>Kotak Mahindra Bank</td><td>1 year - 2 years</td><td>7.00% - 7.05%</td></tr>
+                  </tbody>
+                </table>
+                <h2>How to Invest in Axis Bank FD?</h2>
+                <p>An Axis Bank FD account can be opened via different modes like Internet Banking and offline.</p>
+                <h3>1) Open FD Account Through Axis Bank Internet Banking</h3>
+                <p>Follow the listed down steps for opening an Axis Bank FD account via internet banking:</p>
+                <ul>
+                  <li>Log in to the Internet Banking account and select the 'Deposit' option.</li>
+                  <li>Select 'Fixed Deposit' from the available options.</li>
+                  <li>Furnish all the required information and examine details.</li>
+                  <li>After confirming, fund requirements will be debited from the Savings Account to the Fixed Deposit account. Deposit will receive a web receipt of the fixed deposit immediately.</li>
+                </ul>
+                <p>On successful booking, the Fixed Deposit advice will be sent out or a request for same in physical will be sent to the communication address. Also, depositor can download the FD advice via internet banking after one working day of booking the fixed deposit.</p>
+                <h3>2) Open an Axis Bank FD Offline</h3>
+                <p>To open an Axis Bank FD account offline, one needs to visit the nearest Axis Bank branch. Fill out the Axis Bank FD application form and submit all the required documents. Next, deposit the required funds to open the fixed deposit. On successful processing of the application, the FD receipt will be provided by the Axis Bank.</p>
+                <h2>Eligibility to Open an Axis Bank FD Account</h2>
+                <p>Individuals and companies satisfying any of the following criteria can successfully open an Axis Bank fixed deposit account:</p>
+                <ol>
+                  <li>Resident individuals including minors.</li>
+                  <li>Hindu Undivided Families (HUF)</li>
+                  <li>Partnership firms, Proprietorship firms and Joint stock companies.</li>
+                  <li>Trusts.</li>
+                </ol>
+                <h2>Documents Required to Open Axis Bank FD Account</h2>
+                <ol>
+                  <li>Identification proof through KYC documents such as Aadhaar card, Driver's License and Voter ID card.</li>
+                  <li>PAN card as per rules established by the Income Tax Department of India.</li>
+                  <li>Address proof through KYC documents, Passport, and utility bills such as electricity and water bill.</li>
+                </ol>
+                <h2>Tax on Axis Bank Fixed Deposit</h2>
+                <p>Axis Bank offers the Tax Saving FD at an attractive interest rate and a tenure of 5 years. The minimum and maximum deposit under this scheme are Rs.100 and Rs.1.5 lakh, respectively. At present, Axis Bank offers the rate of interest at 5.75% p.a.</p>
+                <p>The bank even offers several tax saving deposits and FD options like FD Plus, Regular Deposit, Encash 24 Fixed Deposit, and other options. These are suitable if you want to invest for a short time or withdraw your funds early.</p>
+                <p>Under the fixed deposit tax deduction benefit option, you can save up to Rs. 1,50,000 annually according to Section 80C of the Income Tax Act, 1961.</p>
+                <h2>Loan Against Axis Bank FD</h2>
+                <p>Axis Bank customers can also avail of a loan against Axis fixed deposit account. The account holder can get up to 90% of the value of the FD as a loan.</p>
+                <h2>Premature Closure of Axis Bank Fixed Deposit</h2>
+                <p>You can easily withdraw the money from FD before maturity, subject to a penalty of 1.0%. Although, if you wish to withdraw the money only partially, the bank will levy no penalty on the fixed portion withdrawn up to 25% of the principal amount.</p>
+
+            </article>
+            <aside class="if-sidebar">
+                <!-- Sidebar content based on screenshot -->
+                <div class="sidebar-card">
+                    <div class="fd-calculator">
+                        <h3>Calculate AXIS Bank FD Interest</h3>
+                    
+                        <div class="amount-section">
+                          <div>Investment Amount</div>
+                          <div id="amount-display" class="amount-bold">₹5,000.00</div>
+                        </div>
+                    
+                        <input type="range" min="5000" max="1000000" step="1000" class="slider" id="amount-slider" value="5000">
+                    
+                        <div class="time-period-section">
+                          <div>Time Period</div>
+                          <div class="time-options">
+                            <div class="time-option" data-years="0.5" data-rate="6.25">9 Months</div>
+                            <div class="time-option active" data-years="1" data-rate="7.5">1 Year</div>
+                            <div class="time-option" data-years="2" data-rate="8.01">2 Years</div>
+                            <div class="time-option" data-years="3" data-rate="7.75">3 Years</div>
+                          </div>
+                        </div>
+                    
+                        <hr style="margin: 20px 0;">
+                    
+                        <div class="maturity-section">
+                          <div>
+                            <div class="bank-label">AXIS Bank</div>
+                            <div id="rate-display">@5.75% p.a</div>
+                          </div>
+                          <div>
+                            <b id="maturity-amount">₹5,361</b>
+                          </div>
+                        </div>
+                      </div>
+                  <!-- Add results display here -->
+                </div>
+                <div class="sidebar-list">
+                  <ul>
+                    <li class="list-heading"><a href="#">Fixed Deposit</a></li>
+                    <li><a href="#">Types of Fixed Deposits</a></li>
+                    <li><a href="#">FD Interest Rates</a></li>
+                    <li><a href="#">Senior Citizen FD Interest Rates</a></li>
+                    <li><a href="#">SBI Annuity Deposit Scheme</a></li>
+                    <li><a href="#">Certificate Of Deposit</a></li>
+                    <li><a href="#">SBI MOD</a></li>
+                    <li><a href="#">Short Term Fixed Deposit</a></li>
+                    <li><a href="#">Fixed Deposit Sweep-In</a></li>
+                    <li><a href="#">Monthly Interest Payout Fixed Deposit</a></li>
+                    <li><a href="#">Auto Renewal of Fixed Deposit</a></li>
+                  </ul>
+                  <ul>
+                    <li class="list-heading"><a href="#">FD Calculator</a></li>
+                    <li><a href="#">SBI FD Calculator</a></li>
+                    <li><a href="#">Post Office FD Calculator</a></li>
+                    <li><a href="#">HDFC FD Calculator</a></li>
+                    <li><a href="#">Canara Bank FD Calculator</a></li>
+                    <li><a href="#">PNB FD Calculator</a></li>
+                    <li><a href="#">Bank of Baroda FD Calculator</a></li>
+                    <li><a href="#">Union Bank FD Calculator</a></li>
+                    <li><a href="#">Indian Bank FD Calculator</a></li>
+                    <li><a href="#">Axis Bank FD Calculator</a></li>
+                    <li><a href="#">ICICI FD Calculator</a></li>
+                    <li><a href="#">Yes Bank FD Calculator</a></li>
+                  </ul>
+                   <ul>
+                    <li class="list-heading"><a href="#">Banking</a></li>
+                    <li><a href="#">SBI Net Banking</a></li>
+                    <li><a href="#">Canara Bank Net Banking</a></li>
+                    <li><a href="#">Bank of Baroda Net Banking</a></li>
+                    <li><a href="#">PNB Net Banking</a></li>
+                    <li><a href="#">Indian Bank Net Banking</a></li>
+                    <li><a href="#">UCO Bank Net Banking</a></li>
+                    <li><a href="#">Bank of India Net Banking</a></li>
+                    <li><a href="#">Axis Bank Net Banking</a></li>
+                    <li><a href="#">Union Bank of India Net Banking</a></li>
+                    <li><a href="#">IndusInd Bank Net Banking</a></li>
+                    <li><a href="#">HDFC Bank Net Banking</a></li>
+                    <li><a href="#">ICICI Bank Net Banking</a></li>
+                    <li><a href="#">IDFC First Bank Net Banking</a></li>
+                    <li><a href="#">Yes Bank Net Banking</a></li>
+                    <li><a href="#">Kotak Mahindra Bank Net Banking</a></li>
+                  </ul>
+                  <ul>
+                    <li class="list-heading"><a href="#">Asset Management Company (AMC)</a></li>
+                    <li><a href="#">SBI Mutual Fund</a></li>
+                    <li><a href="#">HDFC Mutual Fund</a></li>
+                    <li><a href="#">Nippon India Mutual Fund</a></li>
+                    <li><a href="#">Axis Mutual Fund</a></li>
+                    <li><a href="#">Groww Mutual Fund</a></li>
+                    <li><a href="#">ICICI Prudential Mutual Fund</a></li>
+                    <li><a href="#">Tata Mutual Fund</a></li>
+                    <li><a href="#">Aditya Birla Sunlife Mutual Fund</a></li>
+                    <li><a href="#">Mirae Asset Mutual Fund</a></li>
+                    <li><a href="#">View Other AMCS</a></li>
+                  </ul>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+    <div class="disclaimer">
+        <p><em>Disclaimer: The views expressed here are for informational purposes only. Fixed Deposits are subject to market risks, please read the scheme documents carefully before investing.</em></p>
+    </div>
+    <!-- <p style="font-size:0.9em;color:#888;">Source: <a href="" target="_blank"></a></p> -->
+    <div id="footer-placeholder"></div>
+    <script src="../script.js"></script>
+    <script>
+    function loadHTML(selector, url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => { document.querySelector(selector).innerHTML = data; });
+    }
+    loadHTML('#header-placeholder', '../header.html');
+    loadHTML('#footer-placeholder', '../footer.html');
+    </script>
+    <script>
+        const slider = document.getElementById("amount-slider");
+        const amountDisplay = document.getElementById("amount-display");
+        const timeOptions = document.querySelectorAll(".time-option");
+        const maturityDisplay = document.getElementById("maturity-amount");
+        const rateDisplay = document.getElementById("rate-display");
+    
+        let principal = parseInt(slider.value);
+        const activeTimeOption = document.querySelector(".time-option.active");
+        let timeInYears = parseFloat(activeTimeOption.getAttribute("data-years"));
+        let interestRate = parseFloat(activeTimeOption.getAttribute("data-rate"));
+        const compounding = 4; // quarterly
+    
+        function calculateMaturity(P, r, t, n) {
+          const amount = P * Math.pow(1 + (r / (100 * n)), n * t);
+          return amount.toFixed(2);
+        }
+    
+        function updateDisplay() {
+          const maturity = calculateMaturity(principal, interestRate, timeInYears, compounding);
+          amountDisplay.textContent = `₹${principal.toLocaleString()}.00`;
+          maturityDisplay.textContent = `₹${parseFloat(maturity).toLocaleString()}`;
+          rateDisplay.textContent = `@${interestRate}% p.a`;
+        }
+    
+        slider.addEventListener("input", (e) => {
+          principal = parseInt(e.target.value);
+          updateDisplay();
+        });
+    
+        timeOptions.forEach(option => {
+          option.addEventListener("click", () => {
+            timeOptions.forEach(opt => opt.classList.remove("active"));
+            option.classList.add("active");
+            timeInYears = parseFloat(option.getAttribute("data-years"));
+            interestRate = parseFloat(option.getAttribute("data-rate"));
+            updateDisplay();
+          });
+        });
+    
+        // Initialize
+        updateDisplay();
+      </script>
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
+      </script>
+</body>
+</html> 
